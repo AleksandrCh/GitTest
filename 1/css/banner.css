@@ -6,7 +6,14 @@ background: -webkit-linear-gradient(top,  #e7e7e7 0%,#ffffff 100%); /* Chrome10-
 background: linear-gradient(to bottom,  #e7e7e7 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
     padding-top: 50px;
+}
 
+.b-banner:after{
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden; 
 }
 
 .b-banner__img{
