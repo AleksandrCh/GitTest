@@ -13,4 +13,5 @@ body{
     background: #fff;
     border-radius: 5px;
     width: 1170px;
+    overflow: hidden;
 }
