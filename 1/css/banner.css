@@ -15,10 +15,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', end
 }
 
 .b-banner__text{
+    padding-top: 35px;
     display: inline-block;
     margin-left: 100px;
 }
 
+.b-banner-text__top{
+    color: #003d48;
+    font-family: 'Source Sans Pro Light', arial;
+    font-size: 28px;
+}
+
+.b-banner-text__mid{
+    color: #003d48;
+    font-family: 'Source Sans Pro Bold', arial;
+    font-size: 34px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.b-banner-text__bot{
+    color: #8b8b8b;
+    font-family: 'Source Sans Pro Light', arial;
+    margin-bottom: 40px;
+}
 
 .b-banner-text__button{
     background: #f77462;
