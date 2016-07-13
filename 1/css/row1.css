@@ -1,0 +1,61 @@
+.b-row1{
+    background: #6dc5dd;
+    padding: 60px 30px;
+}
+
+.b-row1__block{
+    color: #fff;
+    display: inline-block;
+}
+
+.b-row1-block{
+    width: 33%;
+}
+
+.b-row1-block__img{
+    float: left;
+}
+
+.b-row1-block__text{
+    
+}
+
+.b-row1-block__head{
+    font-family: 'Source Sans Pro Bold', arial;
+}
+
+.b-row1-block__intro{
+    font-family: 'Source Sans Pro Light', arial;
+    padding: 15px 0;
+}
+
+.b-row1-block__link{
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    font-family: 'Source Sans Pro Bold', arial;
+}
+
+.b-row1-block__link:hover{
+    text-decoration: underline;
+}
+
+.b-row1-block__link:after{
+    content: url(../images/pointer.png);
+    position: absolute;
+    left: 80px;
+    font-family: 'Source Sans Pro Bold', arial;
+    top: 2px;
+}
+
+.b-row1-block__img_flag{
+    content: url(../images/row1_Flag.png);
+}
+
+.b-row1-block__img_home{
+    content: url(../images/row1_Home.png);
+}
+
+.b-row1-block__img_camera{
+    content: url(../images/row1_Camera.png);
+}
