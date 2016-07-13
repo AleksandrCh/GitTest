@@ -1,0 +1,20 @@
+.b-row3 {
+    background: #f77462;
+}
+
+.b-row3__text{
+    padding: 58px 260px;
+    text-align: center;
+    color: #fff;
+}
+
+.b-row3__head-text{
+    font-family: 'Source Sans Pro Bold', arial;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.b-row3__sub-text{
+    font-family: 'Source Sans Pro Light', arial;
+    font-size: 18px;
+}
