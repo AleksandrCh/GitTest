@@ -13,6 +13,7 @@
 }
 
 .b-row1-block__img{
+    display: inline-block;
     float: left;
 }
 
@@ -22,6 +23,7 @@
 
 .b-row1-block__head{
     font-family: 'Source Sans Pro Bold', arial;
+    display: inline-block;
 }
 
 .b-row1-block__intro{
@@ -30,6 +32,7 @@
 }
 
 .b-row1-block__link{
+    display: block;
     text-decoration: none;
     color: #fff;
     position: relative;
@@ -48,7 +51,7 @@
     top: 2px;
 }
 
-.b-row1-block__img_flag{
+.b-row1-block__img_flag:before{
     content: url(../images/row1_Flag.png);
 }
 

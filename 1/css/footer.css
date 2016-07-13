@@ -17,10 +17,13 @@
 }
 
 .b-block{
-    width: 16.6%;
     float: left;
     color: #fff;
-    
+    margin-right: 70px;
+}
+
+.b-block:last-child{
+    margin-right: 0;
 }
 
 .b-block__head{
