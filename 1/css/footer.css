@@ -19,7 +19,7 @@
 .b-block{
     float: left;
     color: #fff;
-    margin-right: 70px;
+    margin-right: 80px;
 }
 
 .b-block:last-child{
@@ -27,12 +27,16 @@
 }
 
 .b-block__head{
-    font-size: 18px;
+    font-size: 20px;
     font-family: 'Source Sans Pro Bold', arial;
+    letter-spacing: 1px;
     margin-bottom: 10px;
 }
 
 .b-block__item{
+    line-height: 26px;
+    letter-spacing: 1px;
+    font-size: 13px;
     display: block;
     font-family: 'Source Sans Pro Light', arial;
     text-decoration: none;
@@ -48,6 +52,7 @@
     padding: 40px 0 40px 0;
     color: #fff;
     font-family: 'Source Sans Pro Light', arial;
+    font-size: 15px;
 }
 
 .b-footer__social{

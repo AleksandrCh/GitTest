@@ -3,7 +3,7 @@
 }
 
 .b-row3__text{
-    padding: 58px 260px;
+    padding: 58px 180px;
     text-align: center;
     color: #fff;
 }
@@ -16,5 +16,7 @@
 
 .b-row3__sub-text{
     font-family: 'Source Sans Pro Light', arial;
-    font-size: 18px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #f2f2f2;
 }

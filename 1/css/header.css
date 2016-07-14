@@ -7,14 +7,6 @@
     line-height: 100%;
 }
 
-.b-header:after{
-    content: ".";
-    display: block;
-    clear: both;
-    height: 0;
-    visibility: hidden; 
-}
-
 .b-header__menu{
     display: inline-block;
     float: right;
