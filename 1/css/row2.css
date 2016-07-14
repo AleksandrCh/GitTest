@@ -38,11 +38,6 @@
     overflow: hidden;
 }
 
-.b-row2__img{
-    position: relative;
-    left: -35px;
-}
-
 .b-row2-block__content{
     height: 190px;
     margin-left: 220px;
@@ -51,7 +46,7 @@
 .b-row2-block__head{
     display: inline-block;
     color: #003d48;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Source Sans Pro Bold', arial;
 }
 
@@ -59,9 +54,10 @@
     height: 94px;
     display: block;
     color: #8c9193;
-    font-family: 'Source Sans Pro Light', arial;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    line-height: 24px;
+    font-size: 14px;
+    padding-bottom: 26px;
+    padding-top: 18px;
 }
 
 .b-row2-block__link{
