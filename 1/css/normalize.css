@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: url(../images/bg.jpg);
+    font-family: 'Source Sans Pro', arial;
+}
+
+.b-page{
+    margin: 100px auto;
+    background: #fff;
+    border-radius: 5px 5px 3px 3px;
+    width: 1170px;
+    overflow: hidden;
+}
