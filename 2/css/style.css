@@ -1,0 +1,54 @@
+.b-blue{
+    height: 80px;
+    background: #1a76e2;
+}
+
+.b-orange{
+    height: 200px;
+    background: #e2a41a;
+}
+
+.b-green{
+    height: 180px;
+    background: #52ce7d;
+}
+
+.b-row{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.b-red{
+    margin-bottom: 20px;
+    height: 80px;
+    background: #ff4242;
+}
+
+
+div[class^="col-md"]{
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .b-green{
+        height: 80px;
+
+    }
+    
+    .b-red{
+        height: 100px;
+    }
+    
+    .row{
+        width: 100%;
+    }
+    
+}
+
+@media screen and (max-width: 468px) {
+
+    .b-red{
+        height: 80px;
+    }  
+}
