@@ -2,16 +2,22 @@
 
 var DateFormatter = function() {
 
-  var _dayNamesShort = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  var _dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
-  var _monthNamesShort = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  var _monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Nowember", "December"]; 
+  var dayNamesShort = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  var dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  var monthNamesShort = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Nowember", "December"]; 
 
-  var zeroInsrter = function(number, format) {
+  var zeroInsert = function(number, format) {
     var result = "";
+    var diff = format.length - number.toString().length;
+    if (diff > 0 ) {
+      while (diff != 0) {
+       result += "0";
+       diff--;
+      }
+    }
 
-
-    return result;
+    return result + number;
   }
 
   var parse = function(dateTimeString, dateTimeInputFormat) {
@@ -43,14 +49,18 @@ var DateFormatter = function() {
         }
         i--;
       }
-      i++;
+      i++
     }
 
-    _date.setDate(parseInt(day)-1);
-    _date.setMonth(parseInt(month)-1);
-    _date.setFullYear(parseInt(year));
+    console.log(day);
+    console.log(month);
+    console.log(year);
 
-    return _date;
+    date.setDate(parseInt(day)-1);
+    date.setMonth(parseInt(month)-1);
+    date.setFullYear(parseInt(year));
+
+    return date;
   };
 
   var format = function(date, format){
@@ -74,10 +84,10 @@ var DateFormatter = function() {
           result = result.replace(specifier, day); 
           break;
         case "ddd": 
-          result = result.replace(specifier, _dayNamesShort[dayOfWeek]);
+          result = result.replace(specifier, dayNamesShort[dayOfWeek]);
         break;
         case "dddd":
-          result = result.replace(specifier, _dayNames[dayOfWeek]);
+          result = result.replace(specifier, dayNames[dayOfWeek]);
           break;
         case "M": 
           month++;
@@ -89,11 +99,11 @@ var DateFormatter = function() {
           result = result.replace(specifier, month);
           break;
         case "MMM":
-          month = _monthNamesShort[month];
+          month = monthNamesShort[month];
           result = result.replace(specifier, month);
           break;
         case "MMMM": 
-          month = _monthNames[month];
+          month = monthNames[month];
           result = result.replace(specifier, month);
           break;
         case "y": 
@@ -101,41 +111,15 @@ var DateFormatter = function() {
           result = result.replace(specifier, year[0]*10 + year[1]);
           break;
         case "yy": 
-          year = [(year / 10 >> 0) % 10, year % 10];
-          var strYear = "";
-          year[0] == 0 ? strYear += "0" : strYear += year[0].toString();
-          year[1] == 0 ? strYear += "0" : strYear += year[1].toString();
-          result = result.replace(specifier, strYear);
-          break;
+          result = result.replace(specifier, zeroInsert(year, "yy"));
         case "yyy": 
-          if (year.toString().length >= 3) {
-            result = result.replace(specifier, year);
-          } else {
-            var strYear = [];
-            strYear[0] = (year / 100 >> 0) % 10;
-            strYear[1] = (year / 10 >> 0) % 10;
-            strYear[2] = year % 10; 
-            result = result.replace(specifier, strYear.join(""));
-          }
+          result = result.replace(specifier, zeroInsert(year, "yyy"));
           break;
         case "yyyy": 
-          if (year.toString().length >= 4) {
-            result = result.replace(specifier, year);
-          } else {
-            var strYear = [];
-            strYear[0] = (year / 1000 >> 0) % 10;
-            strYear[1] = (year / 100 >> 0) % 10;
-            strYear[2] = (year / 10 >> 0) % 10;
-            strYear[3] = year % 10; 
-            result = result.replace(specifier, strYear.join(""));
-          }
+          result = result.replace(specifier, zeroInsert(year, "yyyy"));
           break;
         case "yyyyy":
-          if (year.toString().length >= 5) {
-            result = result.replace(specifier, year);
-          } else {
-            result = zeroInsert(year, "yyyyy");
-          }
+          result = result.replace(specifier, zeroInsert(year, "yyyyy"));
           break;
       }
     }
@@ -153,5 +137,5 @@ var DateFormatter = function() {
 (function test(){
   var o = new DateFormatter();
   var d = o.parse("19072016", "ddMMyyyy");
-  var f = o.format(d, "dddd-MM-yyyyy");      
+  var f = o.format(d, "ddd-MM-yyy");      
 })();
