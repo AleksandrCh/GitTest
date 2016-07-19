@@ -111,7 +111,12 @@ var DateFormatter = function() {
           result = result.replace(specifier, year[0]*10 + year[1]);
           break;
         case "yy": 
-          result = result.replace(specifier, zeroInsert(year, "yy"));
+          year = [(year / 10 >> 0) % 10, year % 10];
+          var strYear = "";
+          year[0] == 0 ? strYear += "0" : strYear += year[0].toString();
+          year[1] == 0 ? strYear += "0" : strYear += year[1].toString();
+          result = result.replace(specifier, strYear);
+    break;  
         case "yyy": 
           result = result.replace(specifier, zeroInsert(year, "yyy"));
           break;
@@ -137,5 +142,5 @@ var DateFormatter = function() {
 (function test(){
   var o = new DateFormatter();
   var d = o.parse("19072016", "ddMMyyyy");
-  var f = o.format(d, "ddd-MM-yyy");      
+  var f = o.format(d, "ddd-MM-yy");      
 })();
