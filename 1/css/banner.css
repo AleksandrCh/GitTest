@@ -1,0 +1,53 @@
+.b-banner{
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e7e7e7+0,ffffff+100 */
+    background: #e7e7e7; /* Old browsers */
+background: -moz-linear-gradient(top,  #e7e7e7 0%, #ffffff 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #e7e7e7 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #e7e7e7 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    padding-top: 50px;
+}
+
+.b-banner .b-banner__img{
+    margin-left: 100px;
+    float: left;
+}
+
+ .b-banner .b-banner__text{
+    padding-top: 35px;
+    float: left;
+    margin-left: 100px;
+}
+
+.b-banner-text .b-banner-text__top{
+    color: #003d48;
+    font-family: 'Source Sans Pro Light', arial;
+    font-size: 28px;
+}
+
+.b-banner-text .b-banner-text__mid{
+    color: #003d48;
+    font-family: 'Source Sans Pro Bold', arial;
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.b-banner-text .b-banner-text__bot{
+    color: #8b8b8b;
+    font-family: 'Source Sans Pro Light', arial;
+    margin-bottom: 45px;
+}
+
+.b-banner-text .b-banner-text__button{
+    background: #f77462;
+    color: #fff;
+    width: 130px;
+    height: 44px;
+    border-radius: 3px;
+    padding: 12px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro Light', arial;
+    font-size: 18px;
+}
