@@ -4,41 +4,41 @@
     box-sizing: border-box;
 }
 
-.b-row1__block{
+.b-row1 .b-row1__block{
     padding: 60px 0;
     box-sizing: border-box;
     width: 30%;
     color: #fff;
-    display: inline-block;
+    float: left;
     margin-right: 34px;
 }
 
-.b-row1__block:last-child{
+.b-row1 .b-row1__block:last-child{
     padding-right: 0;
 }
 
-.b-row1-block__img, .b-row1-block__text{
+.b-row-block .b-row1-block__img, .b-row-block .b-row1-block__text{
     box-sizing: border-box;
 }
 
-.b-row1-block__img{
+.b-row-block .b-row1-block__img{
     float: left;
     width: 19%;
 }
 
-.b-row1-block__text{
-    display: inline-block;
+.b-row-block .b-row1-block__text{
+    float: right;
     width: 81%;
     padding-left: 30px;
 }
 
-.b-row1-text__head{
+.b-row-block .b-row1-text__head{
     font-family: 'Source Sans Pro Bold', arial;
     font-size: 19px;
     letter-spacing: 1px;
 }
 
-.b-row1-text__intro{
+.b-row-block .b-row1-text__intro{
     font-family: 'Source Sans Pro Light', arial;
     padding: 20px 0;
     font-size: 13px;
@@ -46,33 +46,21 @@
     line-height: 24px;
 }
 
-.b-row1__link{
+.b-row-block .b-row1__link{
     text-decoration: none;
     color: #fff;
     position: relative;
     font-family: 'Source Sans Pro Bold', arial;
 }
 
-.b-row1__link:hover{
+.b-row-block .b-row1__link:hover{
     text-decoration: underline;
 }
 
-.b-row1__link:after{
+.b-row-block .b-row1__link:after{
     content: url(../images/pointer.png);
     position: absolute;
     left: 85px;
     font-family: 'Source Sans Pro Bold', arial;
     top: 3px;
-}
-
-.b-img_flag{
-    content: url(../images/row1_Flag.png);
-}
-
-.b-img_home{
-    content: url(../images/row1_Home.png);
-}
-
-.b-img_camera{
-    content: url(../images/row1_Camera.png);
 }
