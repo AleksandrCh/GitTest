@@ -183,9 +183,29 @@ var DateFormatter = function() {
     return arr;
   };
 
+  var replaceSpecifier = function(format, startIndex, length, value) {
+    var formatPart1, formatPart2;
+    var result;
+
+    if (startIndex == 0) {
+      formatPart1 = format.substring(startIndex+length, format.length - 1);
+      result = value.toString().concat(formatPart1);
+    } else if (startIndex + length == format.length) {
+      formatPart1 = format.substring(0, startIndex);
+      result = formatPart1.concat(value);
+    } else {
+      formatPart1 = format.substring(0, startIndex);
+      formatPart2 = format.substring(startIndex+length, format.length);
+      result = formatPart1.concat(value.toString(), formatPart2);
+    }
+
+    return result;
+  }
+
   var format = function(date, format){
     var result = "";
     var startIndex;
+    var value;
     var components = [],
         formatBool = [];
 
@@ -207,13 +227,13 @@ var DateFormatter = function() {
     }
 
     components.sort(function(a, b) {
-      return a["start"] + b["start"];
+      return a["start"] - b["start"];
     });
 
     for (var i = components.length-1; i >= 0; i--) {
-      console.log(components[i]);
-      result = specifiers[components[i].specifier].format(date);
-      format = format.replace(components[i]["specifier"], result);
+      value = specifiers[components[i].specifier].format(date);
+      console.log(components[i].start);
+      format = replaceSpecifier(format, components[i].start, components[i].specifier.length, value);
     }
 
     console.log(format);
@@ -228,6 +248,6 @@ var DateFormatter = function() {
 
 (function test(){
   var o = new DateFormatter();
-  var d = o.parse("09072016", "ddMMyyyy");
-  var f = o.format(d, "dddd dd-MM-yyyy");      
+  var d = o.parse("31122016", "ddMMyyyy");
+  var f = o.format(d, "(MM/dd/yyyy)");      
 })();
