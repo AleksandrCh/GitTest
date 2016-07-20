@@ -23,7 +23,7 @@ var DateFormatter = function() {
               date.setDate(parseInt(subDate) - 1);
             },
             format : function(date){
-                var day = date.getDate()+1;
+                var day = date.getDate() + 1;
                 day = day < 10 ? "0" + day.toString() : day;
                 return day.toString(); 
             }
@@ -34,7 +34,7 @@ var DateFormatter = function() {
                 date.setDate(parseInt(subDate) - 1);
             },
             format : function(date){
-                var day = date.getDate()+1;
+                var day = date.getDate() + 1;
                 return day.toString();
             }
         },
@@ -56,7 +56,7 @@ var DateFormatter = function() {
                 date.setMonth(parseInt(subDate) - 1);
             },
             format : function(date){
-                var month = date.getMonth();
+                var month = date.getMonth() + 1;
                 month = month < 10 ? "0" + month.toString() : month;
                 return month;
             }
@@ -67,7 +67,7 @@ var DateFormatter = function() {
               date.setMonth(parseInt(subDate) - 1);
             },
             format : function(date){
-                return date.getMonth();
+                return date.getMonth() + 1;
             }
         },
         "yyyyy" : {
@@ -188,7 +188,7 @@ var DateFormatter = function() {
         var result;
     
         if (startIndex == 0) {
-            formatPart1 = format.substring(startIndex+length, format.length - 1);
+            formatPart1 = format.substring(startIndex+length, format.length);
             result = value.toString().concat(formatPart1);
         } else if (startIndex + length == format.length) {
             formatPart1 = format.substring(0, startIndex);
@@ -232,11 +232,10 @@ var DateFormatter = function() {
     
         for (var i = components.length-1; i >= 0; i--) {
             value = specifiers[components[i].specifier].format(date);
-            console.log(components[i].start);
             format = replaceSpecifier(format, components[i].start, components[i].specifier.length, value);
         }
     
-        console.log(format);
+        document.write(format);
         return format;
     };
 
@@ -248,6 +247,6 @@ var DateFormatter = function() {
 
 (function test(){
     var o = new DateFormatter();
-    var d = o.parse("31122016", "ddMMyyyy");
-    var f = o.format(d, "(MM/dd/yyyy)");      
+    var d = o.parse("31052016", "ddMMyyyy");
+    var f = o.format(d, "dddd MMMM dd/M/yyyy");      
 })();
