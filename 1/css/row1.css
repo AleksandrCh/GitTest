@@ -1,15 +1,20 @@
 .b-row1{
     padding: 0 30px;
     background: #6dc5dd;
-    box-sizing: border-box;
 }
+
+.b-row1 .b-row1__block,
+.b-row1-block .b-row1-block__img {
+    float: left;
+}
+
+
 
 .b-row1 .b-row1__block{
     padding: 60px 0;
     box-sizing: border-box;
     width: 30%;
     color: #fff;
-    float: left;
     margin-right: 34px;
 }
 
@@ -17,28 +22,27 @@
     padding-right: 0;
 }
 
-.b-row-block .b-row1-block__img, .b-row-block .b-row1-block__text{
+.b-row1-block .b-row1-block__img, .b-row1-block .b-row1-block__text{
     box-sizing: border-box;
 }
 
-.b-row-block .b-row1-block__img{
-    float: left;
+.b-row1-block .b-row1-block__img{
     width: 19%;
 }
 
-.b-row-block .b-row1-block__text{
+.b-row1-block .b-row1-block__text{
     float: right;
     width: 81%;
     padding-left: 30px;
 }
 
-.b-row-block .b-row1-text__head{
+.b-row1-block .b-row1-text__head{
     font-family: 'Source Sans Pro Bold', arial;
     font-size: 19px;
     letter-spacing: 1px;
 }
 
-.b-row-block .b-row1-text__intro{
+.b-row1-block .b-row1-text__intro{
     font-family: 'Source Sans Pro Light', arial;
     padding: 20px 0;
     font-size: 13px;
@@ -46,18 +50,18 @@
     line-height: 24px;
 }
 
-.b-row-block .b-row1__link{
+.b-row1-block .b-row1__link{
     text-decoration: none;
     color: #fff;
     position: relative;
     font-family: 'Source Sans Pro Bold', arial;
 }
 
-.b-row-block .b-row1__link:hover{
+.b-row1-block .b-row1__link:hover{
     text-decoration: underline;
 }
 
-.b-row-block .b-row1__link:after{
+.b-row1-block .b-row1__link:after{
     content: url(../images/pointer.png);
     position: absolute;
     left: 85px;

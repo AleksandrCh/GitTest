@@ -8,25 +8,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', end
     padding-top: 50px;
 }
 
-.b-banner .b-banner__img{
+.b-banner .b-banner__img,
+.b-banner .b-banner__text{
     margin-left: 100px;
     float: left;
 }
 
  .b-banner .b-banner__text{
     padding-top: 35px;
-    float: left;
-    margin-left: 100px;
+}
+
+.b-banner-text .b-banner-text__top,
+.b-banner-text .b-banner-text__mid {
+    color: #003d48;
+}
+
+.b-banner-text .b-banner-text__top,
+.b-banner-text .b-banner-text__button {
+    font-family: 'Source Sans Pro Light', arial;
 }
 
 .b-banner-text .b-banner-text__top{
-    color: #003d48;
-    font-family: 'Source Sans Pro Light', arial;
     font-size: 28px;
 }
 
 .b-banner-text .b-banner-text__mid{
-    color: #003d48;
     font-family: 'Source Sans Pro Bold', arial;
     font-size: 40px;
     text-transform: uppercase;
@@ -48,6 +54,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7e7e7', end
     padding: 12px 25px;
     text-decoration: none;
     text-transform: uppercase;
-    font-family: 'Source Sans Pro Light', arial;
     font-size: 18px;
 }
