@@ -63,8 +63,8 @@ var DateFormatter = function() {
         },
         "M" : {
             parse : function(startIndex, length, dateTimeString, date){
-              var subDate = dateTimeString.substr(startIndex, startIndex + length);  
-              date.setMonth(parseInt(subDate) - 1);
+                var subDate = dateTimeString.substr(startIndex, startIndex + length);  
+                date.setMonth(parseInt(subDate) - 1);
             },
             format : function(date){
                 return date.getMonth() + 1;
@@ -129,8 +129,9 @@ var DateFormatter = function() {
     };
 
     var zeroInsert = function(number, format) {
-        var result = "";
-        var diff = format.length - number.toString().length;
+        var result = "",
+            diff = format.length - number.toString().length;
+
         if (diff > 0 ) {
             while (diff != 0) {
                 result += "0";
@@ -158,12 +159,12 @@ var DateFormatter = function() {
     var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Nowember", "December"]; 
 
     var parse = function(dateTimeString, dateTimeInputFormat) {
-        var date = new Date();
+        var date = new Date(),
+            startIndex;
 
         if (dateTimeString.length != dateTimeInputFormat.length) 
             throw new Error("Different input length.");
 
-        var startIndex;
         for (var key in specifiers) {
             if ((startIndex = dateTimeInputFormat.indexOf(key)) != -1) {
                 specifiers[key].parse(startIndex, key.length, dateTimeString, date);
@@ -184,8 +185,9 @@ var DateFormatter = function() {
     };
 
     var replaceSpecifier = function(format, startIndex, length, value) {
-        var formatPart1, formatPart2;
-        var result;
+        var formatPart1 = "",
+            formatPart2 = "",
+            result = "";
     
         if (startIndex == 0) {
             formatPart1 = format.substring(startIndex+length, format.length);
@@ -203,20 +205,21 @@ var DateFormatter = function() {
     }   
     
     var format = function(date, format){
-        var result = "";
-        var startIndex;
-        var value;
-        var components = [],
+        var result = "",
+            startIndex,
+            start=0,
+            value = 0,
+            components = [],
             formatBool = [];
     
         formatBool = initialFormatBool(formatBool, format.length);
     
-        var start=0;
         for (var key in specifiers) {
             while ((startIndex = format.indexOf(key, start)) != -1) {
                 if (components.indexOf(startIndex) == -1 && formatBool[startIndex] == true) {
-                    formatBool = changeFormatBool(formatBool, startIndex, startIndex + key.length);
                     var tmpObj= {};
+
+                    formatBool = changeFormatBool(formatBool, startIndex, startIndex + key.length);
                     tmpObj["start"] = startIndex;
                     tmpObj["specifier"] = key; 
                     components.push(tmpObj);
