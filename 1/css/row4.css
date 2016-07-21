@@ -113,13 +113,13 @@
     margin-top: 30px;
 }
 
-.b-row4-message{
+.b-row4-right-side-message{
     float: left;
     width: 68%;
     margin-top: 5px;
 }
 
-.b-row4-message .b-message__text{
+.b-row4-right-side-message .b-row4-right-side-message__text{
     letter-spacing: 1px;
     font-size: 12px;
     line-height: 25px;
@@ -129,13 +129,13 @@
     font-family: 'Source Sans Pro Light', arial;
 }
 
-.b-row4-message .b-message__auth{
+.b-row4-right-side-message .b-row4-right-side-message__auth{
     color: #f77462;
     font-family: 'Source Sans Pro Bold', arial;
     font-size: 15px;
 }
 
-.b-row4 .b-message__img{
+.b-row4-right-side .b-row4-right-side__item-img{
     float: left;
     margin-left: 40px;
 }
