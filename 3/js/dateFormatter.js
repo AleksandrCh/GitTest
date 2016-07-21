@@ -176,7 +176,7 @@ var DateFormatter = function() {
         return date;
     };
 
-    var initialFormatBool = function(arr, length){
+    var initFormatBool = function(arr, length){
         for (var j = 0; j < length; j++) {
             arr[j] = true;
         }
@@ -212,21 +212,23 @@ var DateFormatter = function() {
             components = [],
             formatBool = [];
     
-        formatBool = initialFormatBool(formatBool, format.length);
+        formatBool = initFormatBool(formatBool, format.length);
     
-        for (var key in specifiers) {
-            while ((startIndex = format.indexOf(key, start)) != -1) {
-                if (components.indexOf(startIndex) == -1 && formatBool[startIndex] == true) {
-                    var tmpObj= {};
+        for (var specifier in specifiers) {
+            if (specifiers.hasOwnProperty(specifier)) {
+                while ((startIndex = format.indexOf(specifier, start)) != -1) {
+                    if (components.indexOf(startIndex) == -1 && formatBool[startIndex] == true) {
+                        var tmpObj= {};
+                        tmpObj["start"] = startIndex;
+                        tmpObj["specifier"] = specifier; 
+                        components.push(tmpObj);
 
-                    formatBool = changeFormatBool(formatBool, startIndex, startIndex + key.length);
-                    tmpObj["start"] = startIndex;
-                    tmpObj["specifier"] = key; 
-                    components.push(tmpObj);
+                        formatBool = changeFormatBool(formatBool, startIndex, startIndex + specifier.length);
+                    }
+                    start += specifier.length;
                 }
-                start += key.length;
-            }
-            start = 0;
+                start = 0;
+            }  
         }
     
         components.sort(function(a, b) {
