@@ -44,6 +44,6 @@ Ellipse.prototype  = Object.create(Circle.prototype);
 
 var dot = new Dot(1, 5, "Black");
 var ellipse = new Ellipse(2, 3, 5, "Red");
-
+/*
 if (dot instanceof Figure)  console.log("true");
-if (ellipse instanceof Figure)  console.log("true");
+if (ellipse instanceof Figure)  console.log("true");*/
