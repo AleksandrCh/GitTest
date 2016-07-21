@@ -1,12 +1,17 @@
 <html>
 <head>
 	<title>tesk4</title>
-	<script type="text/javascript" src="js/Shape.js"></script>
-	<script type="text/javascript" src="js/Dot.js"></script>
+	<script type="text/javascript" src="js/shape.js"></script>
+	<script type="text/javascript" src="js/dot.js"></script>
+	<script type="text/javascript" src="js/circle.js"></script>
 	<script type="text/javascript">
 		(function() {
     		var dot = new Dot('dot', 1, 10);
     		console.log(dot.draw());
+		})();
+		(function() {
+    		var circle = new Circle('circle', 1, 1, 5);
+    		console.log(circle.draw());
 		})();
 	</script>
 </head>
