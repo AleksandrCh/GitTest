@@ -32,8 +32,8 @@
                 },
                 format: function(date){
                     var day = date.getDate() + 1;
-                    day = day < 10 ? '0' + day.toString() : day;
-                    return day; 
+                    day = day < 10 ? '0' + day : day;
+                    return day + ''; 
                 }
             },
             d: {
@@ -43,7 +43,7 @@
                 },
                 format: function(date) {
                     var day = date.getDate() + 1;
-                    return day;
+                    return day + '';
                 }
             },
             MMMM: {
@@ -70,7 +70,7 @@
                 format: function(date) {
                     var month = date.getMonth() + 1;
                     month = month < 10 ? '0' + month : month;
-                    return month;
+                    return month + '';
                 }
             },
             M: {
@@ -79,7 +79,7 @@
                     date.setMonth(parseInt(subDate) - 1);
                 },
                 format: function(date){
-                    return date.getMonth() + 1;
+                    return date.getMonth() + 1 + '';
                 }
             },
             yyyyy: {
@@ -118,13 +118,9 @@
                     date.setFullYear(parseInt(subDate));
                 },
                 format: function(date) {
-                    var year = date.getFullYear();
-                    year = [(year / 10 >> 0) % 10, year % 10];
-                    var strYear = '';
-                    year[0] == 0 ? strYear += '0' : strYear += year[0].toString();
-                    year[1] == 0 ? strYear += '0' : strYear += year[1].toString();
-                    
-                    return strYear;
+                    var year = date.getFullYear() + '';
+                    year = year.substr(year.length - 2, 2);
+                    return zeroInsert(year, 'yy');
                 }
             },
             y: {
@@ -133,9 +129,9 @@
                     date.setFullYear(parseInt(subDate));
                 },  
                 format: function(date) {
-                    var year = date.getFullYear();
-                    year = [(year / 10 >> 0) % 10, year % 10]; 
-                    return (year[0]*10 + year[1]);
+                    var year = date.getFullYear() + '';
+                    year = year.substr(year.length - 2, 2);
+                    return parseInt(year) + '';
                 }
             }
         };
