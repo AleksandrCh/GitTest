@@ -2,70 +2,78 @@
     'use strict';
     global.DateFormatter = function() {
     
-        var dayNamesShort = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-            dayNames = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            monthNamesShort = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Nowember", "December"], 
+        var dayNamesShort = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            dayNames = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            monthNamesShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'Nowember', 'December'], 
             specifiers = {
-            "dddd" : {
-                parse: function(startIndex, length, dateTimeString, date){},
+            dddd : {
+                parse: function(startIndex, length, dateTimeString, date){
+                    throw new Error('This method not supported');
+                },
                 format: function(date){
                     var dayOfWeek = date.getDay();
                     return dayNames[dayOfWeek];
                 }
             },
-            "ddd": {
-                parse: function(startIndex, length, dateTimeString, date){},
+            ddd: {
+                parse: function(startIndex, length, dateTimeString, date){
+                    throw new Error('This method not supported');
+                },
                 format: function(date){
                     var dayOfWeek = date.getDay();
                     return dayNamesShort[dayOfWeek];
                 }
             },
-            "dd": {
+            dd: {
                 parse: function(startIndex, length, dateTimeString, date) {
                   var subDate = dateTimeString.substr(startIndex, startIndex + length);   
                   date.setDate(parseInt(subDate) - 1);
                 },
                 format: function(date){
                     var day = date.getDate() + 1;
-                    day = day < 10 ? "0" + day.toString() : day;
-                    return day.toString(); 
+                    day = day < 10 ? '0' + day.toString() : day;
+                    return day; 
                 }
             },
-            "d": {
+            d: {
                 parse: function(startIndex, length, dateTimeString, date) {
                     var subDate = dateTimeString.substr(startIndex, startIndex + length);  
                     date.setDate(parseInt(subDate) - 1);
                 },
                 format: function(date) {
                     var day = date.getDate() + 1;
-                    return day.toString();
+                    return day;
                 }
             },
-            "MMMM": {
-                parse: function(startIndex, length, dateTimeString, date){},
+            MMMM: {
+                parse: function(startIndex, length, dateTimeString, date){
+                    throw new Error('This method not supported');
+                },
                 format: function(date) {
                     return monthNames[date.getMonth()];
                 }
             },
-            "MMM": {
-                parse: function(startIndex, length, dateTimeString, date){},
+            MMM: {
+                parse: function(startIndex, length, dateTimeString, date){
+                    throw new Error('This method not supported');
+                },
                 format: function(date) {
                     return monthNamesShort[date.getMonth()];
                 }
             },
-            "MM": {
+            MM: {
                 parse: function(startIndex, length, dateTimeString, date){
                     var subDate = dateTimeString.substr(startIndex, startIndex + length);   
                     date.setMonth(parseInt(subDate) - 1);
                 },
                 format: function(date) {
                     var month = date.getMonth() + 1;
-                    month = month < 10 ? "0" + month.toString() : month;
+                    month = month < 10 ? '0' + month : month;
                     return month;
                 }
             },
-            "M": {
+            M: {
                 parse: function(startIndex, length, dateTimeString, date) {
                     var subDate = dateTimeString.substr(startIndex, startIndex + length);  
                     date.setMonth(parseInt(subDate) - 1);
@@ -74,37 +82,37 @@
                     return date.getMonth() + 1;
                 }
             },
-            "yyyyy": {
+            yyyyy: {
                 parse: function(startIndex, length, dateTimeString, date) {
                     var subDate = dateTimeString.substr(startIndex, startIndex + length);  
                     date.setFullYear(parseInt(subDate));
                 },
                 format: function(date) {
                     var year = date.getFullYear();
-                    return zeroInsert(year, "yyyyy");
+                    return zeroInsert(year, 'yyyyy');
                 }
             },
-            "yyyy": {
+            yyyy: {
                 parse: function(startIndex, length, dateTimeString, date) {
                     var subDate = dateTimeString.substr(startIndex, startIndex + length);  
                     date.setFullYear(parseInt(subDate));
                 },
                 format: function(date) {
                     var year = date.getFullYear();
-                    return zeroInsert(year, "yyyy");
+                    return zeroInsert(year, 'yyyy');
                 }
             },
-            "yyy": {
+            yyy: {
                 parse: function(startIndex, length, dateTimeString, date) {
                     var subDate = dateTimeString.substr(startIndex, startIndex + length);  
                     date.setFullYear(parseInt(subDate));
                 },
                 format: function(date) {
                     var year = date.getFullYear();
-                    return zeroInsert(year, "yyy");
+                    return zeroInsert(year, 'yyy');
                 }   
             },
-            "yy": {
+            yy: {
                 parse: function(startIndex, length, dateTimeString, date) {
                     var subDate = dateTimeString.substr(startIndex, startIndex + length);  
                     date.setFullYear(parseInt(subDate));
@@ -112,14 +120,14 @@
                 format: function(date) {
                     var year = date.getFullYear();
                     year = [(year / 10 >> 0) % 10, year % 10];
-                    var strYear = "";
-                    year[0] == 0 ? strYear += "0" : strYear += year[0].toString();
-                    year[1] == 0 ? strYear += "0" : strYear += year[1].toString();
+                    var strYear = '';
+                    year[0] == 0 ? strYear += '0' : strYear += year[0].toString();
+                    year[1] == 0 ? strYear += '0' : strYear += year[1].toString();
                     
                     return strYear;
                 }
             },
-            "y": {
+            y: {
                 parse: function(startIndex, length, dateTimeString, date) {
                     var subDate = dateTimeString.substr(startIndex, startIndex + length);  
                     date.setFullYear(parseInt(subDate));
@@ -133,8 +141,8 @@
         };
     
         var zeroInsert = function(number, format) {
-            var s = number+"";
-            while (s.length < format.length) s = "0" + s;
+            var s = number+'';
+            while (s.length < format.length) s = '0' + s;
             return s;
         }
     
@@ -154,13 +162,13 @@
                 startIndex;
     
             if (dateTimeString.length != dateTimeInputFormat.length) 
-                throw new Error("Different input length.");
+                throw new Error('Different input length.');
     
             for (var key in specifiers) {
                 if (!specifiers.hasOwnProperty(key )) continue;
                 if ((startIndex = dateTimeInputFormat.indexOf(key)) != -1) {
                     specifiers[key].parse(startIndex, key.length, dateTimeString, date);
-                    dateTimeInputFormat = dateTimeInputFormat.replace(key, "");
+                    dateTimeInputFormat = dateTimeInputFormat.replace(key, '');
                     dateTimeString = dateTimeString.replace(dateTimeString.substr(startIndex, key.length), "");
                 }
             }
@@ -177,9 +185,9 @@
         };
     
         var replaceSpecifier = function(format, startIndex, length, value) {
-            var formatPart1 = "",
-                formatPart2 = "",
-                result = "";
+            var formatPart1 = '',
+                formatPart2 = '',
+                result = '';
         
             if (startIndex == 0) {
                 formatPart1 = format.substring(startIndex+length, format.length);
@@ -190,14 +198,14 @@
             } else {
                 formatPart1 = format.substring(0, startIndex);
                 formatPart2 = format.substring(startIndex+length, format.length);
-                result = formatPart1.concat(value.toString(), formatPart2);
+                result = formatPart1.concat(value, formatPart2);
             }
         
             return result;
         }   
         
         var format = function(date, format) {
-            var result = "",
+            var result = '',
                 startIndex,
                 start=0,
                 value = 0,
@@ -212,9 +220,9 @@
                 
                 while ((startIndex = format.indexOf(specifier, start)) != -1) {
                     if (components.indexOf(startIndex) == -1 && formatBool[startIndex] == true) {
-                        var tmpObj= {
-                            "startIndex": startIndex,
-                            "specifier": specifier
+                        var tmpObj = {
+                            startIndex: startIndex,
+                            specifier: specifier
                         }; 
                         components.push(tmpObj);
 
@@ -226,7 +234,7 @@
             }
         
             components.sort(function(a, b) {
-                return a["startIndex"] - b["startIndex"];
+                return a.startIndex - b.startIndex;
             });
         
             for (var i = components.length-1; i >= 0; i--) {
