@@ -4,7 +4,7 @@ var curry = function(func){
         throw new Error('Given parameter is not a function.');
 
     var arity = func.length;
-    console.log(arity);
+
     function given (argsSoFar) {
         return function helper () {
             var args = Array.prototype.slice.call(arguments, 0);
@@ -16,8 +16,8 @@ var curry = function(func){
             else {
                 return given(updatedArgsSoFar);
             }
-        }
-    }
+        };
+    };
   
     return given([]);
-}
+};

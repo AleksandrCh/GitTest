@@ -1,6 +1,6 @@
 'use strict';
 
-var filter = function(array, callback) {
+var first = function(array, callback) {
     if (!(array instanceof Array))
         throw new Error('First parameter must be an array.');
     if (typeof callback !== 'function')
@@ -10,8 +10,8 @@ var filter = function(array, callback) {
     	result;
     for (var i=0, len = array.length; i < len; i++) {
     	result = callback(array[i], i, array);
-    	if (result === true) newArray.push(array[i]);
+    	if (result === true) return array[i];
     }
 
-    return newArray;
+    return undefined;
 };

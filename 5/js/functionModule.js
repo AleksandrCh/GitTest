@@ -1,6 +1,6 @@
 (function (global, undefined){
 	'use strict';
-    global.functions = function() {
+    global.FunctionModule = function() {
     	var patrial,
     		curry,
     		linearFold,

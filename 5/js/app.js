@@ -1,16 +1,10 @@
 'use strict';
 
-var t = 5;
+var t = 10;
 
-var f = function(a, b, c) {
-	return a + b + c;
-}
+var arr = [1, 3, 4, 5, 10, 10, 8];
 
-function add(a, b) {
-	return a+b;
-}
+var res = sumOfRandomNumbers(arr);
 
 
-
-var func = lazyEval(add, 4, 5);
-console.log(func());
+console.log(res);
