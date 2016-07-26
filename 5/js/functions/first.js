@@ -1,6 +1,7 @@
 'use strict';
+var functionModule = FunctionModule || {};
 
-var first = function(array, callback) {
+functionModule.first = function(array, callback) {
     if (!(array instanceof Array))
         throw new Error('First parameter must be an array.');
     if (typeof callback !== 'function')

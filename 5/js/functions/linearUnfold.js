@@ -1,11 +1,17 @@
 'use strict';
+var functionModule = FunctionModule || {};
 
-var linearUnfold = function(callback, initialValue) {
+functionModule.linearUnfold = function(callback, initialValue) {
 	var array = [],
-		currentValue = initialValue;
+		currentValue = {
+			state: initialValue,
+		};
 
-	while(currentValue !== false && currentValue !== NaN && currentValue !== undefined && currentValue !== null) {
-		array.push(currentValue);
+	while(currentValue.state !== false &&
+		  currentValue.state !== NaN && 
+		  currentValue.state !== undefined && 
+		  currentValue.state !== null) {
+		array.push(currentValue.element);
 		currentValue = callback(currentValue);
 	}
 

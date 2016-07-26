@@ -1,5 +1,7 @@
 'use strict';
-var partial = function(func) {
+var functionModule = FunctionModule || {};
+
+functionModule.partial = function(func) {
     if (typeof func !== 'function')
         throw new Error('Given parameter is not a function.');
 	

@@ -1,5 +1,7 @@
 'use strict';
-var sumOfRandomNumbers = function(array) {
+var functionModule = FunctionModule || {};
+
+functionModule.sumOfRandomNumbers = function(array) {
     if (!(array instanceof Array))
         throw new Error('Given parameter must be an array.');
 
@@ -12,8 +14,10 @@ var sumOfRandomNumbers = function(array) {
 			if (i < 10) {
 				return false;
 			}
-
-			return getRandomIndex(len);
+			return {
+				state: i+1,
+				element: getRandomIndex(len)	
+			};
 		}, 0);
 
 	console.log(newArray);

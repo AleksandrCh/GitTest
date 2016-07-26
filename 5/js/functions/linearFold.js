@@ -1,6 +1,7 @@
 'use strict';
+var functionModule = FunctionModule || {};
 
-var linearFold = function(array, callback, initialValue) {
+functionModule.linearFold = function(array, callback, initialValue) {
 	if (!(array instanceof Array))
         throw new Error('First parameter must be an array.');
     if (typeof callback !== 'function')

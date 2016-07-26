@@ -1,10 +1,9 @@
 'use strict';
 
-var t = 10;
+function add(a, b) {
+	return a + b;
+};
 
-var arr = [1, 3, 4, 5, 10, 10, 8];
+var f = functionModule.lazyEval(add, 5, 6);
 
-var res = sumOfRandomNumbers(arr);
-
-
-console.log(res);
+console.log(f());

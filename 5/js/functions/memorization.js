@@ -1,6 +1,7 @@
 'use strict';
+var functionModule = FunctionModule || {};
 
-var memorization = function(func) {
+functionModule.memorization = function(func) {
 	if (typeof func !== 'function')
         throw new Error('Given parameter is not a function.');
 

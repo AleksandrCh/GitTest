@@ -1,5 +1,8 @@
 'use strict';
-var curry = function(func){
+
+var functionModule = FunctionModule || {};
+
+functionModule.curry = function(func){
     if (typeof func !== 'function')
         throw new Error('Given parameter is not a function.');
 

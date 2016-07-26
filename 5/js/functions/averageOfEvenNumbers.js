@@ -1,5 +1,8 @@
 'use strict';
-var averageOfEvenNumbers = function(array) {
+
+var functionModule = FunctionModule || {};
+
+functionModule.averageOfEvenNumbers = function(array) {
     if (!(array instanceof Array))
         throw new Error('Given parameter must be an array.');
 
