@@ -9,7 +9,7 @@ functionModule.filter = function(array, callback) {
 
     var newArray = [],
     	result;
-    for (var i=0, len = array.length; i < len; i++) {
+    for (var i = 0, len = array.length; i < len; i++) {
     	result = callback(array[i], i, array);
     	if (result === true) newArray.push(array[i]);
     }

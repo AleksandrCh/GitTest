@@ -9,9 +9,9 @@ functionModule.averageOfEvenNumbers = function(array) {
 		sum = 0,
 		newArray = [];
 
-	newArray = filter(array, function(a) { return a % 2 === 0; });
+	newArray = functionModule.filter(array, function(a) { return a % 2 === 0; });
 	amount = newArray.length;
-	sum = linearFold(newArray, function(res, a) { return res + a; }, 0);
-	
+	sum = functionModule.linearFold(newArray, function(res, a) { return res + a; }, 0);
+    
 	return sum / amount;
 };
