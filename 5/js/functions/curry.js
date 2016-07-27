@@ -1,5 +1,4 @@
 'use strict';
-
 var functionModule = FunctionModule || {};
 
 functionModule.curry = function(func){

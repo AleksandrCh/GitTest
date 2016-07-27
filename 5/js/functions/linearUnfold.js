@@ -2,6 +2,9 @@
 var functionModule = FunctionModule || {};
 
 functionModule.linearUnfold = function(callback, initialValue) {
+    if (typeof callback !== 'function')
+        throw new Error('First parameter must be a function.');
+    
 	var array = [],
 		currentValue = {
 			state: initialValue,

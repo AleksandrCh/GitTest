@@ -1,9 +1,7 @@
 'use strict';
 
-function add(a, b) {
-	return a + b;
-};
+var app = new this.TestModule();
 
-var f = functionModule.lazyEval(add, 5, 6);
-
-console.log(f());
+app.partialTest();
+app.curryTest();
+app.linearFoldTest();
