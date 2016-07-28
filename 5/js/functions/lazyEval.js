@@ -1,10 +1,13 @@
-'use strict';
-var functionModule = FunctionModule || {};
+(function (global, undefined){
+	'use strict';
+    global.functionModule = global.functionModule || {};
 
-functionModule.functionModule = FunctionModule || {};
-
-functionModule.lazyEval = function(func) {
-	if (typeof func !== 'function')
-        throw new Error('Given parameter must be a function.');
-	return func.bind.apply(func, arguments);
-};
+    functionModule.lazyEval = function(func) {
+        if (typeof func !== 'function') {
+            throw new Error('Given parameter must be a function.');
+        }
+        return function() {
+            func.apply(func, arguments);
+        }; 
+    };
+})(this);
