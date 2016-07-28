@@ -6,8 +6,13 @@
         if (typeof func !== 'function') {
             throw new Error('Given parameter must be a function.');
         }
+        
+        var args = Array.prototype.slice.call(arguments, 0),
+            func = args.shift();
+        
         return function() {
-            func.apply(func, arguments);
-        }; 
+            debugger;
+            return func.apply(func, args);
+        }
     };
 })(this);

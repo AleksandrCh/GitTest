@@ -3,8 +3,9 @@
     global.functionModule = global.functionModule || {};
 
     functionModule.curry = function(func){
-        if (typeof func !== 'function')
+        if (typeof func !== 'function') {
             throw new Error('Given parameter is not a function.');
+        }
         
         var arity = func.length;
         

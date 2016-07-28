@@ -68,7 +68,7 @@
         };
         
         var linearUnfoldTest = function() {
-            var expectedResult = 10,
+            var expectedResult = null,
                 actualResult;
             
             actualResult = (functionModule.linearUnfold(function(a) {
@@ -79,7 +79,7 @@
                 a[0] += 1;
                 a[1] = Math.floor(Math.random() * (5 + 1));
                 return a;
-            }, 0)).length;
+            }, false));
             
             areEqual('linearUnfoldTest', expectedResult, actualResult);
         };
