@@ -1,6 +1,6 @@
 (function( $ ) {
-    
-    $.fn.inputNavigator = function(options) {
+      
+    $.fn.inputNavigator = function() {
         table = this.first();
         
         var col = table.find('tr').first().find('td').length,
