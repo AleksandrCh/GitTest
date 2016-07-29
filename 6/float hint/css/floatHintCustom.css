@@ -1,34 +1,32 @@
-.float-hint {
+.float-hint-custom {
     position: absolute;
     z-index: 999;
     display: none;
     text-align: center;
-    border-radius: 5px;
-    background: #2a2a2a;
+    background: #0076ff;
     padding: 10px 16px;
-    color: #fff;
-    box-shadow: 5px 5px 7px rgba(160, 160, 160, 0.74);
+    box-shadow: 5px 5px 7px rgba(0, 108, 255, 0.74);
 }
 
-.float-hint .text {
+.float-hint-custom .float-hint-text-custom {
     display: block;
     position: relative;
-    top: -7.5px;
+    top: -20px;
     color: #eaeaea;
-    font-size: 12px;
+    font-size: 16px;
     font-family: Arial;
 }
 
-/*.float-hint:before{
+.float-hint-custom:before{
     display: block;
     content: '';
     position: relative;
     width: 0;
     height: 0;
     margin: 0 auto;
-    top: -16px;
-    border: solid 8px rgba(0, 0, 0, 0.74);
+    top: -50px;
+    border: solid 20px #0076ff;
     border-left-color: transparent;
     border-right-color: transparent;
     border-top-color: transparent;
-}*/
+}

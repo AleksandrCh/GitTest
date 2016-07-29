@@ -1,0 +1,18 @@
+.float-hint {
+    position: absolute;
+    z-index: 999;
+    display: none;
+    text-align: center;
+    border-radius: 5px;
+    background: #2a2a2a;
+    padding: 10px 16px;
+    color: #fff;
+    box-shadow: 5px 5px 7px rgba(160, 160, 160, 0.74);
+}
+
+.float-hint .float-hint-text {
+    display: block;
+    position: relative;
+    font-size: 12px;
+    font-family: Arial;
+}
