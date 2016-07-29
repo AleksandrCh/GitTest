@@ -9,7 +9,6 @@
             current = 0,
             trCount = table.find('tr').length;
                     
-        
         function keyDown(e) {
             key = e.keyCode;
             
@@ -62,13 +61,15 @@
             }
         };
         
-        table.find('td').focusin(function() {
+        
+        tdElements = table.find('td');
+        tdElements.focusin(function() {
             $(this).find('input').addClass('active');
         });
-        table.find('td').focusout(function() {
+        tdElements.focusout(function() {
             $(this).find('input').removeClass('active');
         });
-        table.find('td').click(function() {
+        tdElements.click(function() {
             var currentParent = $(this).parent().index(),
                 currentElement = $(this).index() + 1;
             
