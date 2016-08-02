@@ -6,11 +6,14 @@
     <link rel="stylesheet" href="css/clearfix.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/order-cart.css">
+    <link rel="stylesheet" href="css/interfaceBlocker.css">
     <script type="text/javascript" src="js/knockout-3.4.0.js" defer></script>
-    <script src="js/DishViewModel.js" defer></script>
-    <script src="js/CartViewModel.js" defer></script>
-    <script src="js/ComplexLunchViewModel.js" defer></script>
-    <script src="js/app.js" defer></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/interfaceBlocker/interfaceBlocker.js"></script>
+    <script type="text/javascript" src="js/DishViewModel.js" defer></script>
+    <script type="text/javascript" src="js/CartViewModel.js" defer></script>
+    <script type="text/javascript" src="js/ComplexLunchViewModel.js" defer></script>
+    <script type="text/javascript" src="js/app.js" defer></script>
 </head>
 <body>
     <div class="main-container clearfix">
@@ -23,7 +26,7 @@
                 </div>
                 <div class="accept-button">
                     <form action="#" data-bind="submit: makeOrderHandler">
-                        <button type="submit">Подтвердить заказ</button>
+                        <button id="b1" type="submit">Подтвердить заказ</button>
                     </form>
                 </div>
             </div>

@@ -9,7 +9,7 @@
     
     var init = function(config) {
         if (!($('*').is('.interface-blocker-overlay'))) {
-            var html ='<div class="interface-blocker-overlay"><div class="' + config.interfaceBlockerBox + '"><div class="' + config.interfaceBlockerText + '">' + config.text + '</div><div class="interface-blocker-button">OK</div></div></div>';
+            var html ='<div class="interface-blocker-overlay"><div class="' + config.interfaceBlockerBox + '"><div class="' + config.interfaceBlockerText + '">' + config.text + '</div><div class="interface-blocker-button-ok">OK</div><div class="interface-blocker-button-cancel">Отмена</div></div></div>';
             
             $('body').append(html);
         
@@ -33,6 +33,7 @@
         
     $.fn.interfaceBlocker = function(options) {
         var config = $.extend({}, defaults, options)
+        var confirm = false;
         
         init(config);
         
@@ -41,13 +42,14 @@
             $('.interface-blocker-text').text(config.text);
             e.preventDefault();
             var flag;
-            $('.interface-blocker-overlay').find('.interface-blocker-button').click(function(e) {
+            $('.interface-blocker-overlay').find('.interface-blocker-button-ok').click(function(e) {
+                $('.interface-blocker-overlay').css('display', 'none');
+            });
+            $('.interface-blocker-overlay').find('.interface-blocker-button-cancel').click(function(e) {
                 $('.interface-blocker-overlay').css('display', 'none');
             });
             
-        });
-        
-        
+        });        
         
         return this;
     };
