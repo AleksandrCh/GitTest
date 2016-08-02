@@ -1,0 +1,16 @@
+.container {
+    background: #eaeaea;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.38);   
+    width: 400px;
+    margin: 0 auto;
+    padding: 100px;
+}
+
+button {
+    background: #1a1a1a;
+    width: 300px;
+    display: block;
+    height: 100px;
+    margin: 0 auto;
+    color: #fff;
+}
