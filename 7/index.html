@@ -5,36 +5,41 @@
     <title>Task 7</title>
     <link rel="stylesheet" href="css/clearfix.css">
     <link rel="stylesheet" href="css/main.css">
-    <script type='text/javascript' src='js/knockout-3.4.0.js'></script>
-    <script src="js/Dish.js" defer></script>
+    <link rel="stylesheet" href="css/order-cart.css">
+    <script type="text/javascript" src="js/knockout-3.4.0.js" defer></script>
+    <script src="js/DishViewModel.js" defer></script>
+    <script src="js/CartViewModel.js" defer></script>
     <script src="js/ComplexLunchViewModel.js" defer></script>
+    <script src="js/app.js" defer></script>
 </head>
 <body>
     <div class="main-container clearfix">
         <header>Конструктор комплексного обеда</header>
         <div class="shop-container clearfix">
-            <div class="order-container">
+            <div class="cart-container">
                 <div class="overall-cost">
                     <p>Общая стоимость:</p>
-                    <div class="cost" data-bind="text: overallCost"></div>
+                    <div class="cost" data-bind="text: cart.overallCost"></div>
                 </div>
                 <div class="accept-button">
-                    <button>Подтвердить заказ</button>
+                    <form action="#" data-bind="submit: makeOrderHandler">
+                        <button type="submit">Подтвердить заказ</button>
+                    </form>
                 </div>
             </div>
-            <div class="menu-container">
-                <div class="menu-item">
-                    <div class="menu-item-name">Салат</div>
-                    <div class="menu-item-price">9.00</div>
+            <div class="menu-container" data-bind="foreach: dishes">
+                <div class="menu-item" data-bind="css: { 'added-dish': added}">
                     <div class="menu-item-photo">
-                        <img src="images/dishes/104.jpg" alt="Salat">
+                        <img data-bind="attr: {src: $data.photoUrl}" alt="Salat">
                     </div>
+                    <div class="menu-item-name" data-bind="text: $data.name"></div>
+                    <div class="menu-item-price" data-bind="text: $data.price"></div>
                     <div class="menu-item-amount">
-                        <button class="add">+</button>
-                        <input type="text" class="amount">
-                        <button class="remove">-</button>
+                        <button class="increase-button" data-bind="click: $parent.increaseDishHandler">+</button>
+                        <input type="text" class="amount-dishes" data-bind="textInput: amountDishes">
+                        <button class="reduce-button" data-bind="click: $parent.reduceDishHandler">-</button>
                     </div>
-                    <div class="add-button">Добавить</div>
+                    <div class="add-button" data-bind="click: $parent.addDishInCartHandler">Добавить</div>
                 </div>
             </div>
         </div>

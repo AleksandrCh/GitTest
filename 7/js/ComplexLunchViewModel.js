@@ -1,21 +1,37 @@
-(function(global, undefined) {
+(function(global, undefined) {   
     global.ComplexLunchViewModel = function() {
-        dishes: [
-            new Dish('Чёрный хлеб', '19.jpg', 1, '9.00р.'),
-            new Dish('Белый хлеб', '20.jpg', 1, '9.00р.'),
-            new Dish('Пирожок с мясом', '37.jpg', 1, '9.00р.'),
-            new Dish('Салат с колбасой', '80.jpg', 1, '9.00р.'),
-            new Dish('Вареный картофель', '104.jpg', 1, '9.00р.'),
-            new Dish('Макароны с мясом', '171.jpg', 1, '9.00р.'),
-            new Dish('Котлета из рыбы', '181.jpg', 1, '9.00р.'),
-            new Dish('Суп "Харчо"', '190.jpg', 1, '9.00р.'),
-            new Dish('Суп "Борщ"', '294.jpg', 1, '9.00р.'),
-            new Dish('Сок апельсиновый', '554.jpg', 1, '9.00р.'),
-            new Dish('Сырный соус', '573.jpg', 1, '9.00р.'),
-            new Dish('Соус "Барбеккю"', '574.jpg', 1, '9.00р.'),
-            new Dish('Кисло-сладкий соус', '575.jpg', 1, '9.00р.'),
-            new Dish('Сок яблочный', '585.jpg', 1, '9.00р.'),
-            new Dish('Салат из моркови', '613.jpg', 1, '9.00р.'),
-        ]
+        var self = this;
+        
+        self.dishes = [];
+        self.cart = new CartViewModel();       
+        
+        self.increaseDishHandler = function() {
+            var previousCount = this.amountDishes();
+            this.amountDishes(previousCount + 1);
+        };
+        
+        self.reduceDishHandler = function() {
+            var previousCount = this.amountDishes();
+            this.amountDishes(previousCount - 1);
+        };
+        
+        self.addDishInCartHandler = function(selectedDish) {
+            if (selectedDish.amountDishes() > 0) {
+                selectedDish.added(true);
+                self.cart.orders.push(selectedDish);
+            }
+        };
+        
+        self.makeOrderHandler = function() {
+            ("make order");
+            
+            return true;
+        };
+        
+        self.init = function (options) {
+            self.dishes = options.dishesArray;
+        }
+                
     };
+
 })(this);

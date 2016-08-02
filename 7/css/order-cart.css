@@ -1,0 +1,26 @@
+.cart-container {
+    text-align: center;
+}
+
+.cart-container .overall-cost p {
+    font-size: 20px;    
+}
+
+.cart-container .cost {
+    background: #eaeaea;
+    color: #191919;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.cart-container .accept-button {
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.cart-container .accept-button button {
+    padding: 10px;
+    
+}

@@ -21,7 +21,7 @@ header {
     margin-top: 50px;
 }
 
-.order-container {
+.cart-container {
     width: 20%;
     min-width: 200px;
     height: 300px;
@@ -43,6 +43,7 @@ header {
     background: #eaeaea;
     padding: 10px;
     border-radius: 5px;
+    text-align: center;
 }
 
 .menu-item:hover {
@@ -51,6 +52,8 @@ header {
 
 .menu-item-photo {
     width: 200px;
+    height: 200px;
+    margin: auto;
 }
 
 .menu-item-photo img {
@@ -61,12 +64,30 @@ header {
 .add-button {
     width: 80%;
     margin: 0 auto;
-    text-align: center;
     background: #f8df89;
-    margin-top: 15px;
     padding: 10px;
 }
 
 .add-button:hover {
     background: #f4cf4f;
+    cursor: pointer;
+}
+
+.menu-item-amount {
+    width: 50%;
+    margin: 10px auto;
+}
+
+.menu-item-amount .amount-dishes {
+    text-align: center;
+    width: 40px;
+}
+
+.menu-item-amount .increase-button, 
+.menu-item-amount .reduce-button {
+    width: 30px;    
+}
+
+.added-dish {
+    background: #5cadfd;
 }
