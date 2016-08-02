@@ -1,7 +1,6 @@
 (function(global, undefined) {   
     global.ComplexLunchViewModel = function() {
         var self = this;
-        var confirm = $( '#b1' ).interfaceBlocker({ text: 'Вы действительно хотите сделать заказ?' });
         
         self.dishes = [];
         self.cart = new CartViewModel();       
@@ -24,14 +23,9 @@
         };
         
         self.makeOrderHandler = function() {
-            $('.interface-blocker-overlay').find('.interface-blocker-button-ok').click(function(e) {
-                confirm = true;
-            });
-            $('.interface-blocker-overlay').find('.interface-blocker-button-cancel').click(function(e) {
-                confirm = false;
-            });
+            var answer = confirm('Вы действительно хотите сделать заказ?');
             
-            if (confirm) {
+            if (answer) {
                 return true;
             }
             
@@ -41,7 +35,6 @@
         self.init = function (options) {
             self.dishes = options.dishesArray;
         }
-                
     };
 
 })(this);
