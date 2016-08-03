@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/order-cart.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/popup-window.css">
     <script type="text/javascript" src="js/knockout-3.4.0.js" defer></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" defer></script>
     <script type="text/javascript" src="js/bootstrap.min.js" defer></script>
@@ -56,6 +57,23 @@
                     <div class="add-button" data-bind="click: $root.addDishInCartHandler">Добавить</div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="popup-window">
+        <div class="look-cart">
+            <div class="look-cart-title">Ваша корзина</div>
+            <ul data-bind="foreach: cart.orders" class="look-cart-list">
+                <li class="look-cart-item clearfix">
+                    <div data-bind="text: $data.name" class="look-cart-item-dish-name"></div>
+                    <div class="look-cart-item-dish-amount">
+                        <button class="look-cart-item-reduce-button" data-bind="click: $parent.reduceDishHandler">-</button>
+                        <input type="text" class="look-cart-item-dish-amount-input" data-bind="textInput: $data.amountDishes, numberFilter">
+                        <button class="look-cart-item-increase-button" data-bind="click: $root.increaseDishHandler">+</button>
+                    </div>
+                    <div data-bind="text: $data.price" class="look-cart-item-dish-price"></div>
+                    <div class="look-cart-item-dish-delete-button">Удалить</div>
+                </li>
+            </ul>
         </div>
     </div>
 </body>

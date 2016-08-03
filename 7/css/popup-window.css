@@ -1,0 +1,65 @@
+.popup-window {
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.46);
+}
+
+.popup-window .look-cart {
+    width: 1024px;
+    margin: 0 auto;
+    background: #535353;
+    color: #fff;
+}
+
+.look-cart .look-cart-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.look-cart .look-cart-list {
+    list-style: none;
+}
+
+.look-cart-list .look-cart-item {
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.look-cart-item .look-cart-item-dish-name {
+    display: inline;
+}
+
+.look-cart-item .look-cart-item-dish-amount {
+    display: inline;
+}
+
+.look-cart-item-dish-amount .look-cart-item-reduce-button {
+    
+}
+
+.look-cart-item-dish-amount .look-cart-item-dish-amount-input {
+    color: #000;
+}
+
+.look-cart-item-dish-amount .look-cart-item-increase-button {
+    
+}
+
+.look-cart-item .look-cart-item-dish-price {
+    display: inline;
+}
+
+.look-cart-item .look-cart-item-dish-delete-button {
+    display: inline;
+    height: 30px;
+    padding: 5px;
+    background: #ff7d7d;
+}
+
+.look-cart-item .look-cart-item-dish-delete-button:hover {
+    background: #ff3a3a;
+}
