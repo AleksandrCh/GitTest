@@ -45,5 +45,6 @@
         }
     };
     
+    
     ko.applyBindings(complexLunchViewModel);
 })(this);

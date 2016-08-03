@@ -29,14 +29,13 @@
             }
         };
         
-        self.makeOrderHandler = function() {
-            var answer = confirm('Вы действительно хотите сделать заказ?');
-            
-            if (answer) {
-                return true;
-            }
-            
-            return false;
+        self.makeOrderHandler = function() {   
+            var answer = false;
+            bootbox.confirm('Вы действительно хотите подтвердить заказ?', function(result) {
+                if (result) {
+                    location.reload();
+                }
+            }); 
         };
         
         self.init = function (options) {
