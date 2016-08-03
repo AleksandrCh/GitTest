@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/bootbox.min.js" defer></script>
     <script type="text/javascript" src="js/DishViewModel.js" defer></script>
     <script type="text/javascript" src="js/CartViewModel.js" defer></script>
+    <script type="text/javascript" src="js/Category.js"></script>
     <script type="text/javascript" src="js/ComplexLunchViewModel.js" defer></script>
     <script type="text/javascript" src="js/numberFilter.js" defer></script>
     <script type="text/javascript" src="js/app.js" defer></script>
@@ -21,30 +22,38 @@
     <div class="main-container clearfix">
         <header>Конструктор комплексного обеда</header>
         <div class="shop-container clearfix">
-            <div class="cart-container">
-                <div class="overall-cost">
-                    <p>Общая стоимость:</p>
-                    <div class="cost" data-bind="text: cart.overallCost"></div>
+            <div class="right-container">
+                <div class="cart">
+                    <div class="overall-cost">
+                        <p>Общая стоимость:</p>
+                        <div class="cost" data-bind="text: cart.overallCost, click: lookCartHandler"></div>
+                    </div>
+                    <div class="accept-button">
+                        <form action="#" data-bind="submit: makeOrderHandler">
+                            <button id="b1" type="submit">Подтвердить заказ</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="accept-button">
-                    <form action="#" data-bind="submit: makeOrderHandler">
-                        <button id="b1" type="submit">Подтвердить заказ</button>
-                    </form>
+                <div class="dish-category">
+                    <div class="dish-category-title">Выберите категорию</div>
+                    <ul class="dish-category-menu" data-bind="foreach: categories">
+                        <li class="dish-category-menu-item" data-bind="text: $data.name, click: $parent.chooseCategoryHandler"></li>
+                    </ul>
                 </div>
             </div>
-            <div class="menu-container" data-bind="foreach: dishes">
-                <div class="menu-item" data-bind="css: { 'added-dish': added}">
+            <div class="menu-container" data-bind="foreach: chosenCategory">
+                <div class="menu-item" data-bind="css: { 'added-dish': $data.added}">
                     <div class="menu-item-photo">
                         <img data-bind="attr: {src: $data.photoUrl}" alt="Salat">
                     </div>
                     <div class="menu-item-name" data-bind="text: $data.name"></div>
                     <div class="menu-item-price" data-bind="text: $data.price"></div>
                     <div class="menu-item-amount">
-                        <button class="increase-button" data-bind="click: $parent.increaseDishHandler">+</button>
-                        <input type="text" class="amount-dishes" data-bind="textInput: amountDishes, numberFilter">
                         <button class="reduce-button" data-bind="click: $parent.reduceDishHandler">-</button>
+                        <input type="text" class="amount-dishes" data-bind="textInput: $data.amountDishes, numberFilter">
+                        <button class="increase-button" data-bind="click: $root.increaseDishHandler">+</button>
                     </div>
-                    <div class="add-button" data-bind="click: $parent.addDishInCartHandler">Добавить</div>
+                    <div class="add-button" data-bind="click: $root.addDishInCartHandler">Добавить</div>
                 </div>
             </div>
         </div>

@@ -4,6 +4,10 @@
         
         self.dishes = [];
         self.cart = new CartViewModel(); 
+        self.categories = [];
+        
+        self.chosenCategory;
+        
         
         self.increaseDishHandler = function() {
             var previousCount = this.amountDishes();
@@ -20,8 +24,6 @@
                 selectedDish.added(true);
                 if (self.cart.orders.indexOf(selectedDish) !== -1) {
                     var index = self.cart.orders.indexOf(selectedDish);
-                    console.log(index);
-                    console.log(self.cart.orders()[index]);
                     self.cart.orders()[index].amountDishes(selectedDish.amountDishes());
                 } else {
                     self.cart.orders.push(selectedDish);
@@ -38,8 +40,17 @@
             }); 
         };
         
+        self.chooseCategoryHandler = function(category) {
+            self.chosenCategory(category.dishes);
+        };
+        
+        self.lookCartHandler = function(p) {
+            console.log(self.cart.orders());
+        }
+        
         self.init = function (options) {
-            self.dishes = options.dishesArray;
+            self.categories = options.categoriesArray;
+            self.chosenCategory = ko.observableArray(self.categories[0].dishes);
         }
     };
 

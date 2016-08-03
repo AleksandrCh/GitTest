@@ -21,12 +21,14 @@ header {
     margin-top: 50px;
 }
 
-.cart-container {
+.right-container {
     width: 20%;
     min-width: 200px;
-    height: 300px;
     float: left;
     padding: 15px;
+    border-right: 1px solid #8d8d8d;
+    position: relative;
+    left: 1px;
 }
 
 .menu-container {
@@ -90,4 +92,30 @@ header {
 
 .added-dish {
     background: #5cadfd;
+}
+
+.dish-category{
+    margin-top: 10px;
+}
+
+.dish-category-title {
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dish-category-menu {
+    list-style: none;
+}
+
+.dish-category-menu-item {
+    background: #eaeaea;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.dish-category-menu-item:hover {
+    background: #585858;
+    color: #fff;
 }

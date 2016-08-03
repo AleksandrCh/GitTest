@@ -18,12 +18,24 @@
         new DishViewModel('Салат из моркови', 'images/dishes/613.jpg', 0, '9.00р.')
     ];
     
+    var categories =  [
+        new Category('Салаты', [dishes[3], dishes[14]]),
+        new Category('Хлеб', [dishes[0], dishes[1]]),
+        new Category('Напитки', [dishes[13], dishes[9]]),
+        new Category('Гарниры', [dishes[4]]),
+        new Category('Вторые блюда', [dishes[5], dishes[6]]),
+        new Category('Пирожки', [dishes[2]]),
+        new Category('Супы', [dishes[7], dishes[8]]),
+        new Category('Соусы', [dishes[12], dishes[11], dishes[10]])
+    ];
+    
     var complexLunchViewModel = new ComplexLunchViewModel();
     complexLunchViewModel.init({
-       dishesArray: dishes
+        categoriesArray: categories    
     });
     
     numberFilter();
+    
     
     ko.applyBindings(complexLunchViewModel);
 })(this);

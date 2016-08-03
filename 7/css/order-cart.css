@@ -1,26 +1,31 @@
-.cart-container {
+.right-container {
     text-align: center;
 }
 
-.cart-container .overall-cost p {
+.right-container .overall-cost p {
     font-size: 20px;    
 }
 
-.cart-container .cost {
+.right-container .cost {
     background: #eaeaea;
     color: #191919;
     font-size: 20px;
     font-weight: bold;
     padding: 10px;
+    cursor: pointer;
 }
 
-.cart-container .accept-button {
+.right-container .cost:hover {
+    background: #585858;
+    color: #fff;
+}
+
+.right-container .accept-button {
     margin: auto;
     text-align: center;
     padding: 10px;
 }
 
-.cart-container .accept-button button {
+.right-container .accept-button button {
     padding: 10px;
-    
 }

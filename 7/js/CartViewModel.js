@@ -9,7 +9,7 @@
                     total += self.orders()[i].amountDishes() * parseFloat(self.orders()[i].price);
                 }
     
-            return total + 'p.';
+            return total + ' p.';
         });
     };
 })(this);
