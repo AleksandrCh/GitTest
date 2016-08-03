@@ -1,4 +1,5 @@
-function numberFilter() { 
+(function() { 
+    'use strict';
     ko.bindingHandlers.numberFilter = {
         init: function (element, valueAccessor) {
             $(element).keydown(function (event) {
@@ -20,4 +21,4 @@ function numberFilter() {
             });
         }
     };
-};
+})();

@@ -1,4 +1,5 @@
-(function(global, undefined) {   
+(function(global, ko, undefined) { 
+    'use strict';
     global.ComplexLunchViewModel = function() {
         var self = this;
         
@@ -54,4 +55,4 @@
         }
     };
 
-})(this);
+})(this, ko);

@@ -1,12 +1,13 @@
-(function(global, undefined) {       
+(function(global, undefined) { 
+    'use strict';
     global.CartViewModel = function() {
         var self = this;
-        self.orders = ko.observableArray();
+        var orders = self.orders = ko.observableArray();
         
         self.overallCost = ko.pureComputed(function() {
             var total = 0;
-                for (var i = 0; i < self.orders().length; i++) {
-                    total += self.orders()[i].amountDishes() * parseFloat(self.orders()[i].price);
+                for (var i = 0; i < orders().length; i++) {
+                    total += orders()[i].amountDishes() * parseFloat(orders()[i].price);
                 }
     
             return total + ' p.';

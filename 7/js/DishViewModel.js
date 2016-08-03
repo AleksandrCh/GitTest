@@ -1,4 +1,5 @@
- (function(global, undefined) {   
+(function(global, undefined) {  
+    'use strict'; 
     global.DishViewModel = function(name, photoUrl, amount, price, category) {
         this.name = name;
         this.photoUrl = photoUrl;

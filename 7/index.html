@@ -47,7 +47,7 @@
                         <img data-bind="attr: {src: $data.photoUrl}" alt="Salat">
                     </div>
                     <div class="menu-item-name" data-bind="text: $data.name"></div>
-                    <div class="menu-item-price" data-bind="text: $data.price"></div>
+                    <div class="menu-item-price" data-bind="text: $data.price + '.00 p.'"></div>
                     <div class="menu-item-amount">
                         <button class="reduce-button" data-bind="click: $parent.reduceDishHandler">-</button>
                         <input type="text" class="amount-dishes" data-bind="textInput: $data.amountDishes, numberFilter">
