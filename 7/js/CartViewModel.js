@@ -3,27 +3,13 @@
         var self = this;
         self.orders = ko.observableArray();
         
-        self.overallCost = ko.observable('0p.');
-        
-        self.orders.subscribe(function() {
+        self.overallCost = ko.pureComputed(function() {
             var total = 0;
-            for (var i = 0; i < self.orders().length; i++) {
-                total += self.orders()[i].amountDishes() * parseFloat(self.orders()[i].price);
-            }
-
-            self.overallCost(total + 'p.');
-        });
-        
-     /*   self.overallCost = ko.pureComputed({
-            write: function (value) {
-                var total = 0;
                 for (var i = 0; i < self.orders().length; i++) {
                     total += self.orders()[i].amountDishes() * parseFloat(self.orders()[i].price);
                 }
     
-                self.overallCost(total + 'p.');
-            },
-            owner: this
-        });*/
-    }
+            return total + 'p.';
+        });
+    };
 })(this);

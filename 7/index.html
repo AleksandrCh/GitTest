@@ -39,7 +39,7 @@
                     <div class="menu-item-price" data-bind="text: $data.price"></div>
                     <div class="menu-item-amount">
                         <button class="increase-button" data-bind="click: $parent.increaseDishHandler">+</button>
-                        <input type="text" class="amount-dishes" data-bind="textInput: amountDishes">
+                        <input type="text" class="amount-dishes" data-bind="textInput: amountDishes, numberFilter">
                         <button class="reduce-button" data-bind="click: $parent.reduceDishHandler">-</button>
                     </div>
                     <div class="add-button" data-bind="click: $parent.addDishInCartHandler">Добавить</div>
