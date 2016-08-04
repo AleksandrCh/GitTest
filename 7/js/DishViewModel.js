@@ -1,11 +1,12 @@
 (function(global, undefined) {  
     'use strict'; 
     global.DishViewModel = function(name, photoUrl, amount, price, category) {
-        this.name = name;
-        this.photoUrl = photoUrl;
-        this.amountDishes = ko.observable(amount);
-        this.price = price;
-        this.category = category;
-        this.added = ko.observable(false);
+        self = this;
+        self.name = name;
+        self.photoUrl = photoUrl;
+        self.amountDishes = ko.observable(amount);
+        self.price = price;
+        self.category = category;
+        self.added = ko.observable(false); 
     };
 })(this);

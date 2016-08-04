@@ -25,13 +25,13 @@
         <div class="shop-container clearfix">
             <div class="right-container">
                 <div class="cart">
-                    <div class="overall-cost">
+                    <div data-bind="click: lookCartHandler" class="overall-cost">
                         <p>Общая стоимость:</p>
-                        <div class="cost" data-bind="text: cart.overallCost, click: lookCartHandler"></div>
+                        <div class="cost" data-bind="text: cart.overallCost"></div>
                     </div>
                     <div class="accept-button">
                         <form action="#" data-bind="submit: makeOrderHandler">
-                            <button id="b1" type="submit">Подтвердить заказ</button>
+                            <button type="submit">Подтвердить заказ</button>
                         </form>
                     </div>
                 </div>
@@ -59,9 +59,14 @@
             </div>
         </div>
     </div>
-    <div class="popup-window">
-        <div class="look-cart">
-            <div class="look-cart-title">Ваша корзина</div>
+    <div data-bind="visible: display" class="popup-window">
+        <div class="look-cart clearfix">
+            <div class="look-cart-title clearfix">Ваша корзина</div>
+            <div class="look-cart-list-title clearfix">
+                <div class="look-cart-list-title-name">Наименование</div>
+                <div class="look-cart-list-title-amount">Количество</div>
+                <div class="look-cart-list-title-cost">Сумма</div>
+            </div>
             <ul data-bind="foreach: cart.orders" class="look-cart-list">
                 <li class="look-cart-item clearfix">
                     <div data-bind="text: $data.name" class="look-cart-item-dish-name"></div>
@@ -70,10 +75,17 @@
                         <input type="text" class="look-cart-item-dish-amount-input" data-bind="textInput: $data.amountDishes, numberFilter">
                         <button class="look-cart-item-increase-button" data-bind="click: $root.increaseDishHandler">+</button>
                     </div>
-                    <div data-bind="text: $data.price" class="look-cart-item-dish-price"></div>
-                    <div class="look-cart-item-dish-delete-button">Удалить</div>
+                    <div data-bind="text: $data.price * $data.amountDishes() +' p.'" class="look-cart-item-dish-price"></div>
+                    <div data-bind="click: $root.deleteChosenDishHandler" class="look-cart-item-dish-delete-button">Удалить</div>
                 </li>
             </ul>
+            <div data-bind="text: cart.overallCost" class="look-cart-overall-cost"></div>
+            <div class="make-order clearfix">
+                <form action="#" data-bind="submit: makeOrderHandler">
+                    <button type="submit" data-bind="submit: makeOrderHandler" class="make-order-button">Заказать</button>
+                    <button data-bind="click: lookCartHandler" class="make-order-button">Назад</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
