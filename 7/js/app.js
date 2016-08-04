@@ -19,7 +19,7 @@
     ];
     
     var categories =  [
-        new Category('Салаты', [dishes[3], dishes[14]]),
+        new Category('Салаты', [dishes[3], dishes[14], dishes[1], dishes[2], dishes[4], dishes[5], dishes[6], dishes[7], dishes[8], dishes[9]]),
         new Category('Хлеб', [dishes[0], dishes[1]]),
         new Category('Напитки', [dishes[13], dishes[9]]),
         new Category('Гарниры', [dishes[4]]),

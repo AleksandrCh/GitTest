@@ -7,10 +7,10 @@
         self.overallCost = ko.pureComputed(function() {
             var total = 0;
                 for (var i = 0; i < orders().length; i++) {
-                    total += orders()[i].amountDishes() * parseFloat(orders()[i].price);
+                    total += orders()[i].amountDishes() * orders()[i].price;
                 }
     
-            return total + ' p.';
+            return total;
         });
     };
 })(this);

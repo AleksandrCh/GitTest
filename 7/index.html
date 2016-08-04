@@ -14,9 +14,10 @@
     <script type="text/javascript" src="js/bootbox.min.js" defer></script>
     <script type="text/javascript" src="js/DishViewModel.js" defer></script>
     <script type="text/javascript" src="js/CartViewModel.js" defer></script>
-    <script type="text/javascript" src="js/Category.js"></script>
+    <script type="text/javascript" src="js/Category.js" defer></script>
     <script type="text/javascript" src="js/ComplexLunchViewModel.js" defer></script>
     <script type="text/javascript" src="js/numberFilter.js" defer></script>
+    <script type="text/javascript" src="js/pagingForeach.js" defer></script>
     <script type="text/javascript" src="js/app.js" defer></script>
 </head>
 <body>
@@ -27,7 +28,7 @@
                 <div class="cart">
                     <div data-bind="click: lookCartHandler" class="overall-cost">
                         <p>Общая стоимость:</p>
-                        <div class="cost" data-bind="text: cart.overallCost"></div>
+                        <div class="cost" data-bind="text: cart.overallCost() + ' p.'"></div>
                     </div>
                     <div class="accept-button">
                         <form action="#" data-bind="submit: makeOrderHandler">
@@ -45,7 +46,7 @@
             <div class="menu-container" data-bind="foreach: chosenCategory">
                 <div class="menu-item" data-bind="css: { 'added-dish': $data.added}">
                     <div class="menu-item-photo">
-                        <img data-bind="attr: {src: $data.photoUrl}" alt="Salat">
+                        <img data-bind="attr: {src: $data.photoUrl}" alt="">
                     </div>
                     <div class="menu-item-name" data-bind="text: $data.name"></div>
                     <div class="menu-item-price" data-bind="text: $data.price + '.00 p.'"></div>
@@ -79,7 +80,7 @@
                     <div data-bind="click: $root.deleteChosenDishHandler" class="look-cart-item-dish-delete-button">Удалить</div>
                 </li>
             </ul>
-            <div data-bind="text: cart.overallCost" class="look-cart-overall-cost"></div>
+            <div data-bind="text: cart.overallCost() + ' p.'" class="look-cart-overall-cost"></div>
             <div class="make-order clearfix">
                 <form action="#" data-bind="submit: makeOrderHandler">
                     <button type="submit" data-bind="submit: makeOrderHandler" class="make-order-button">Заказать</button>
@@ -88,5 +89,23 @@
             </div>
         </div>
     </div>
+    
+    <!---------------------------------------------------------------------------------->
+    <div class="menu-container" data-bind="pagingForeach: chosenCategory">
+        <div class="menu-item" data-bind="css: { 'added-dish': $data.added}">
+            <div class="menu-item-photo">
+                <img data-bind="attr: {src: $data.photoUrl}" alt="Salat">
+            </div>
+            <div class="menu-item-name" data-bind="text: $data.name"></div>
+            <div class="menu-item-price" data-bind="text: $data.price + '.00 p.'"></div>
+            <div class="menu-item-amount">
+                <button class="reduce-button" data-bind="click: $root.reduceDishHandler">-</button>
+                <input type="text" class="amount-dishes" data-bind="textInput: $data.amountDishes, numberFilter">
+                <button class="increase-button" data-bind="click: $root.increaseDishHandler">+</button>
+            </div>
+            <div class="add-button" data-bind="click: $root.addDishInCartHandler">Добавить</div>
+        </div>
+    </div>
+    <!---------------------------------------------------------------------------------->
 </body>
 </html>
