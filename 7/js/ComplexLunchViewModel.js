@@ -6,7 +6,7 @@
         self.dishes = [];
         self.cart = new CartViewModel(); 
         self.categories = [];
-        self.chosenCategory;
+        self.chosenCategory = ko.observableArray([]);
         self.display = ko.observable(false);
         
         self.increaseDishHandler = function() {
@@ -22,12 +22,7 @@
         self.addDishInCartHandler = function(selectedDish) {
             if (selectedDish.amountDishes() > 0) {
                 selectedDish.added(true);
-                if (self.cart.orders.indexOf(selectedDish) !== -1) {
-                    var index = self.cart.orders.indexOf(selectedDish);
-                    self.cart.orders()[index].amountDishes(selectedDish.amountDishes());
-                } else {
-                    self.cart.orders.push(selectedDish);
-                }
+                self.cart.addDishInOrders(selectedDish);
             }
         };
         
@@ -45,15 +40,12 @@
         };
         
         self.lookCartHandler = function() {
-            if(self.display() === true) {
-                self.display(false);
-            } else {
-                self.display(true);
-            }
+            var display = self.display();
+            self.display(!display);
         };
         
         self.deleteChosenDishHandler = function(selectedDish) {
-            self.cart.orders.remove(selectedDish);
+            self.cart.removeItem(selectedDish);
             selectedDish.added(false);
             selectedDish.amountDishes(0);
         };
@@ -63,8 +55,8 @@
         };
         
         self.init = function (options) {
-            self.categories = ko.observableArray(options.categoriesArray);
-            self.chosenCategory = ko.observableArray(self.categories()[0].dishes);
+            self.categories = options.categoriesArray;
+            self.chosenCategory = ko.observableArray(self.categories[0].dishes);
         }
     };
 

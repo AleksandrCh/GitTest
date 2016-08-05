@@ -2,13 +2,28 @@
     'use strict';
     global.CartViewModel = function() {
         var self = this;
-        var orders = self.orders = ko.observableArray();
+        self.orders = ko.observableArray();
+        
+        self.removeItem = function(item) {
+            self.orders.remove(item);
+        };
+        
+        self.addDishInOrders = function(dish) {
+            if (self.orders.indexOf(dish) !== -1) {
+                var index = self.orders.indexOf(dish);
+                    self.orders()[index].amountDishes(dish.amountDishes());
+            } else {
+                self.orders.push(dish);
+            }  
+        };
         
         self.overallCost = ko.pureComputed(function() {
-            var total = 0;
-                for (var i = 0; i < orders().length; i++) {
-                    total += orders()[i].amountDishes() * orders()[i].price;
-                }
+            var total = 0,
+                orders = self.orders();
+            
+            for (var i = 0; i < orders.length; i++) {
+                total += orders[i].amountDishes() * orders[i].price;
+            }
     
             return total;
         });

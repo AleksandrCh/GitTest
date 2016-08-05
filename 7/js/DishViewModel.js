@@ -4,9 +4,9 @@
         self = this;
         self.name = name;
         self.photoUrl = photoUrl;
-        self.amountDishes = ko.observable(amount);
         self.price = price;
         self.category = category;
+        self.amountDishes = ko.observable(amount);
         self.added = ko.observable(false); 
     };
 })(this);

@@ -19,14 +19,14 @@
     ];
     
     var categories =  [
-        new Category('Салаты', [dishes[3], dishes[14], dishes[1], dishes[2], dishes[4], dishes[5], dishes[6], dishes[7], dishes[8], dishes[9], dishes[5], dishes[6], dishes[7], dishes[8], dishes[9]]),
-        new Category('Хлеб', [dishes[0], dishes[1]]),
-        new Category('Напитки', [dishes[13], dishes[9]]),
-        new Category('Гарниры', [dishes[4]]),
-        new Category('Вторые блюда', [dishes[5], dishes[6]]),
-        new Category('Пирожки', [dishes[2]]),
-        new Category('Супы', [dishes[7], dishes[8]]),
-        new Category('Соусы', [dishes[12], dishes[11], dishes[10]])
+        new CategoryViewModel('Салаты', [dishes[3], dishes[14], dishes[1], dishes[2], dishes[4], dishes[5], dishes[6], dishes[7], dishes[8], dishes[9], dishes[5], dishes[6], dishes[7], dishes[8], dishes[9]]),
+        new CategoryViewModel('Хлеб', [dishes[0], dishes[1]]),
+        new CategoryViewModel('Напитки', [dishes[13], dishes[9]]),
+        new CategoryViewModel('Гарниры', [dishes[4]]),
+        new CategoryViewModel('Вторые блюда', [dishes[5], dishes[6]]),
+        new CategoryViewModel('Пирожки', [dishes[2]]),
+        new CategoryViewModel('Супы', [dishes[7], dishes[8]]),
+        new CategoryViewModel('Соусы', [dishes[12], dishes[11], dishes[10]])
     ];
     
     var complexLunchViewModel = new ComplexLunchViewModel();

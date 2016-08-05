@@ -52,14 +52,6 @@
                 dishesCount = dishes.length,
                 pageCount = calculatePagesCount(dishesCount, pageSize);
 
-            ko.bindingHandlers.foreach.init(element, valueAccessor, allBindings, viewModel, bindingContext);
-            
-            createHtmlPages(pageCount, element);
-            
-            $('.paging-foreach-item').click(pageClickHandler);
-            
-            return { controlsDescendantBindings: true };
-            
             function pageClickHandler() {
                 var currentPage = $(this).text() - 1,
                     i = 0,
@@ -79,6 +71,14 @@
                 };
                 ko.bindingHandlers.foreach.update(element, newValue, allBindings, viewModel, bindingContext);
             };
+            
+            ko.bindingHandlers.foreach.init(element, valueAccessor, allBindings, viewModel, bindingContext);
+            
+            createHtmlPages(pageCount, element);
+            
+            $('.paging-foreach-item').click(pageClickHandler);
+            
+            return { controlsDescendantBindings: true };
         },
         
         update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
