@@ -9,11 +9,6 @@
         hintBodyTextClass: 'float-hint-text'
     };
     
-    function init(hintBodyClass, hintBodyTextClass) {
-        var hintBody = '<div class="' + hintBodyClass + '"><div class="' + hintBodyTextClass + '"></div></div>';
-        return hintBody;
-    };
-    
     $.fn.floatHint = function(options) {
         var config = $.extend({}, defaults, options),
             timerId,
@@ -27,6 +22,11 @@
         
         width = $(floatHintClass).first().outerWidth(),
         height = $(floatHintClass).first().outerHeight();
+            
+        function init(hintBodyClass, hintBodyTextClass) {
+            var hintBody = '<div class="' + hintBodyClass + '"><div class="' + hintBodyTextClass + '"></div></div>';
+            return hintBody;
+        };
         
         function mouseHover() {
             var hint = $(floatHintClass).first();
