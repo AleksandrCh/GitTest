@@ -58,6 +58,10 @@
             selectedDish.amountDishes(0);
         };
         
+        self.pageClickHandler = function(p) {
+            console.log(p);
+        };
+        
         self.init = function (options) {
             self.categories = ko.observableArray(options.categoriesArray);
             self.chosenCategory = ko.observableArray(self.categories()[0].dishes);

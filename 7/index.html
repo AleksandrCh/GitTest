@@ -43,7 +43,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="menu-container" data-bind="foreach: chosenCategory">
+            <div class="menu-container" data-bind="pagingForeach: chosenCategory">
                 <div class="menu-item" data-bind="css: { 'added-dish': $data.added}">
                     <div class="menu-item-photo">
                         <img data-bind="attr: {src: $data.photoUrl}" alt="">
@@ -89,23 +89,5 @@
             </div>
         </div>
     </div>
-    
-    <!---------------------------------------------------------------------------------->
-    <div class="menu-container" data-bind="pagingForeach: chosenCategory">
-        <div class="menu-item" data-bind="css: { 'added-dish': $data.added}">
-            <div class="menu-item-photo">
-                <img data-bind="attr: {src: $data.photoUrl}" alt="Salat">
-            </div>
-            <div class="menu-item-name" data-bind="text: $data.name"></div>
-            <div class="menu-item-price" data-bind="text: $data.price + '.00 p.'"></div>
-            <div class="menu-item-amount">
-                <button class="reduce-button" data-bind="click: $root.reduceDishHandler">-</button>
-                <input type="text" class="amount-dishes" data-bind="textInput: $data.amountDishes, numberFilter">
-                <button class="increase-button" data-bind="click: $root.increaseDishHandler">+</button>
-            </div>
-            <div class="add-button" data-bind="click: $root.addDishInCartHandler">Добавить</div>
-        </div>
-    </div>
-    <!---------------------------------------------------------------------------------->
 </body>
 </html>
