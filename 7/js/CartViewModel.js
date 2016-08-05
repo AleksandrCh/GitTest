@@ -9,9 +9,10 @@
         };
         
         self.addDishInOrders = function(dish) {
+            var orders = self.orders();
             if (self.orders.indexOf(dish) !== -1) {
                 var index = self.orders.indexOf(dish);
-                    self.orders()[index].amountDishes(dish.amountDishes());
+                    orders[index].amountDishes(dish.amountDishes());
             } else {
                 self.orders.push(dish);
             }  
