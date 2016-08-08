@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    width: 1024px;
+    margin: 100px auto;
+}
+
+header {
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    border-bottom: 1px solid #8d8d8d;
+}
+
+.shop-container {
+    margin-top: 50px;
+}
+
+.right-container {
+    width: 20%;
+    min-width: 200px;
+    float: left;
+    padding: 15px;
+    border-right: 1px solid #8d8d8d;
+    position: relative;
+    left: 1px;
+}
+
+.menu-container {
+    border-left: 1px solid #8d8d8d;
+    width: 80%;
+    float: left;
+}
+
+.menu-item {
+    width: 29%;
+    min-width: 200px;
+    float: left;
+    margin: 15px;
+    background: #eaeaea;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.menu-item:hover {
+    box-shadow: 0 4px 10px #767676;
+}
+
+.menu-item-photo {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.menu-item-photo img {
+    max-width: 100%;
+    display: block;
+}
+
+.add-button {
+    width: 80%;
+    margin: 0 auto;
+    background: #f8df89;
+    padding: 10px;
+}
+
+.add-button:hover {
+    background: #f4cf4f;
+    cursor: pointer;
+}
+
+.menu-item-amount {
+    width: 50%;
+    margin: 10px auto;
+}
+
+.menu-item-amount .amount-dishes {
+    text-align: center;
+    width: 40px;
+}
+
+.menu-item-amount .increase-button, 
+.menu-item-amount .reduce-button {
+    width: 30px;    
+}
+
+.added-dish {
+    background: #5cadfd;
+}
+
+.dish-category{
+    margin-top: 10px;
+}
+
+.dish-category-title {
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dish-category-menu {
+    list-style: none;
+}
+
+.dish-category-menu-item {
+    background: #eaeaea;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.dish-category-menu-item:hover {
+    background: #585858;
+    color: #fff;
+}
