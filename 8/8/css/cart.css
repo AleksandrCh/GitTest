@@ -1,0 +1,16 @@
+.cart-container {
+    text-align: center;
+    background: #3ba775;
+    padding: 10px 20px;
+}
+
+.cart-container .cart-title {
+    color: #fff;
+    font-size: 24px;
+
+}
+
+.cart-container .cart-info {
+    font-size: 20px;
+    color: #fff;
+}

@@ -1,0 +1,1 @@
+﻿var purchaseApp = angular.module("myApp", []);

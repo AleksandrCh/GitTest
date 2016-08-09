@@ -1,0 +1,37 @@
+.ready-pizza {
+    padding: 20px;
+}
+
+.ready-pizza .pizza-item {
+    margin-bottom: 20px;
+    background: #eaeaea;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.pizza-item .pizza-photo {
+    width: 300px;
+    float: left;
+}
+
+.pizza-item .pizza-photo img {
+    width: 100%;
+}
+
+.pizza-item .pizza-info {
+    float: left;
+    padding: 0 20px;
+}
+
+.pizza-info .pizza-title {
+    font-size: 30px;
+}
+
+.pizza-info .pizza-desc {
+    
+}
+
+.pizza-info .pizza-add-button {
+    position: absolute;
+    
+}
