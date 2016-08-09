@@ -1,10 +1,84 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
     <title></title>
 	<meta charset="utf-8" />
+    <link href="/css/ng-cloak.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <link href="/css/cart.css" rel="stylesheet" />
+    <link href="/css/ready-pizza.css" rel="stylesheet">
+    <script type="text/javascript" src="js/angular.min.js" defer></script>
+    <script type="text/javascript" src="js/angular-route.min.js" defer></script>
+    <script type="text/javascript" src="js/main.js" defer></script>
 </head>
-<body>
-    {{1 + 1}}
+<body ng-cloak>
+    <div class="main-container">
+        <div class="header"></div>
+        <div class="nav clearfix">
+            <ul>
+                <li><a href="#">Конструктор пиццы</a></li>
+                <li><a href="#">Готовая пицца</a></li>
+                <li><a href="#">История заказов</a></li>
+                <li><a href="#">Корзина</a></li>
+            </ul>
+        </div>
+        <div class="content-container clearfix">
+            <div class="left-side">
+                <div class="ready-pizza">
+                    <div class="pizza-item clearfix">
+                        <div class="pizza-photo"><img src="images/pizza/barbecu800_6.jpg" alt=""></div>
+                        <div class="pizza-info">
+                            <div class="pizza-title">Some Pizza</div>
+                            <div class="pizza-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis assumenda facere ratione!</div>
+                            <div class="pizza-amount">
+                                <button class="pizza-reduce-button">-</button>
+                                <input type="text" class="amount-pizza">
+                                <button class="pizza-increase-button">+</button>
+                            </div>
+                            <form class="pizza-form" action="">
+                                <input class="pizza-add-button" type="submit" value="Добавить">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="pizza-item clearfix">
+                        <div class="pizza-photo"><img src="images/pizza/barbecu800_6.jpg" alt=""></div>
+                        <div class="pizza-info">
+                            <div class="pizza-title">Some Pizza</div>
+                            <div class="pizza-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis assumenda facere ratione!</div>
+                            <div class="pizza-amount">
+                                <button class="pizza-reduce-button">-</button>
+                                <input type="text" class="amount-pizza">
+                                <button class="pizza-increase-button">+</button>
+                            </div>
+                            <form class="pizza-form" action="">
+                                <input class="pizza-add-button" type="submit" value="Добавить">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="pizza-item clearfix">
+                        <div class="pizza-photo"><img src="images/pizza/barbecu800_6.jpg" alt=""></div>
+                        <div class="pizza-info">
+                            <div class="pizza-title">Some Pizza</div>
+                            <div class="pizza-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis assumenda facere ratione!</div>
+                            <div class="pizza-amount">
+                                <button class="pizza-reduce-button">-</button>
+                                <input type="text" class="amount-pizza">
+                                <button class="pizza-increase-button">+</button>
+                            </div>
+                            <form class="pizza-form" action="">
+                                <input class="pizza-add-button" type="submit" value="Добавить">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="cart-container">
+                    <div class="cart-title">Корзина</div>
+                    <div class="cart-info">Корзина пуста</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
