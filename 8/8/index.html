@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html ng-app="myApp">
+﻿<!DOCTYPE html>
+<html ng-app="app">
 <head>
     <title></title>
 	<meta charset="utf-8" />
@@ -9,9 +9,13 @@
     <link href="/css/ready-pizza.css" rel="stylesheet">
     <script type="text/javascript" src="js/angular.min.js" defer></script>
     <script type="text/javascript" src="js/angular-route.min.js" defer></script>
+    <script type="text/javascript" src="js/angular-mocks.js" defer></script>
+    <script type="text/javascript" src="js/json/ingredients.js" defer></script>
+    <script type="text/javascript" src="js/json/readyPizza.js" defer></script>
+    <script type="text/javascript" src="app/app.module.js" defer></script>
     <script type="text/javascript" src="js/main.js" defer></script>
 </head>
-<body ng-cloak>
+<body ng-cloak ng-controller="pizzaController">
     <div class="main-container">
         <div class="header"></div>
         <div class="nav clearfix">
@@ -24,47 +28,18 @@
         </div>
         <div class="content-container clearfix">
             <div class="left-side">
-                <div class="ready-pizza">
+                <div class="ready-pizza" ng-repeat="item in list.items">
                     <div class="pizza-item clearfix">
-                        <div class="pizza-photo"><img src="images/pizza/barbecu800_6.jpg" alt=""></div>
+                        <div class="pizza-photo"><img src={{item.imgUrl}} alt=""></div>
                         <div class="pizza-info">
-                            <div class="pizza-title">Some Pizza</div>
-                            <div class="pizza-desc">Lorem ipsum dolor sit amet, consectetur adipisicidng elit. Perspiciatis assumenda facere ratione!</div>
+                            <div class="pizza-title">{{item.name}}</div>
+                            <div class="pizza-desc">{{item.desc}}</div>
                             <div class="pizza-amount">
                                 <button class="pizza-reduce-button">-</button>
-                                <input type="text" class="amount-pizza">
+                                <input type="text" ng-model="item.amount" class="amount-pizza">
                                 <button class="pizza-increase-button">+</button>
                             </div>
-                            <form class="pizza-form" action="">
-                                <input class="pizza-add-button" type="submit" value="Добавить">
-                            </form>
-                        </div>
-                    </div>
-                    <div class="pizza-item clearfix">
-                        <div class="pizza-photo"><img src="images/pizza/barbecu800_6.jpg" alt=""></div>
-                        <div class="pizza-info">
-                            <div class="pizza-title">Some Pizza</div>
-                            <div class="pizza-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis assumenda facere ratione!</div>
-                            <div class="pizza-amount">
-                                <button class="pizza-reduce-button">-</button>
-                                <input type="text" class="amount-pizza">
-                                <button class="pizza-increase-button">+</button>
-                            </div>
-                            <form class="pizza-form" action="">
-                                <input class="pizza-add-button" type="submit" value="Добавить">
-                            </form>
-                        </div>
-                    </div>
-                    <div class="pizza-item clearfix">
-                        <div class="pizza-photo"><img src="images/pizza/barbecu800_6.jpg" alt=""></div>
-                        <div class="pizza-info">
-                            <div class="pizza-title">Some Pizza</div>
-                            <div class="pizza-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis assumenda facere ratione!</div>
-                            <div class="pizza-amount">
-                                <button class="pizza-reduce-button">-</button>
-                                <input type="text" class="amount-pizza">
-                                <button class="pizza-increase-button">+</button>
-                            </div>
+                            <div class="pizza-price">{{item.price}}</div>
                             <form class="pizza-form" action="">
                                 <input class="pizza-add-button" type="submit" value="Добавить">
                             </form>
