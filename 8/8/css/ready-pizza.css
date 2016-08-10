@@ -1,6 +1,6 @@
-﻿.ready-pizza {
+.ready-pizza {
     padding: 20px 0;
-    background: #fff;
+    background: #3b3b3b;
 }
 
 .ready-pizza .pizza-item {
@@ -45,26 +45,31 @@
     margin-top: 20px;
 }
 
+.pizza-info .pizza-price-wrap {
+    position: absolute;
+    top: 20px;
+    left: 100%;
+}
+
 .pizza-info .pizza-price {
-    background: #262626;
+    background: #3b3b3b;
     display: block;
     height: 50px;
     color: #fff;
     font-size: 20px;
     line-height: 50px;
-    padding: 0 20px;
     border-radius: 50px;
-    float: right;
-}
-
-.pizza-info .pizza-form {
-    display: block;
-    float: right;
-    margin-top: 45px;
-    margin-left: 50px;
+    padding: 0 20px;
+    position: relative;
+    left: -100%;
+    margin-right: 25px;
 }
 
 .pizza-info .pizza-add-button {
+    display: block;
+    float: right;
+    margin-top: 75px;
+    margin-left: 50px;
     background: #2fc340;
     border: none;
     padding: 10px 20px;
@@ -82,7 +87,7 @@
 .pizza-amount {
     height: 35px;
     float: right;
-    margin-top: 50px;
+    margin-top: 80px;
     margin-left: 50px;
 }
 
@@ -96,6 +101,7 @@
     outline: none;
     border: none;
     color: #6c6c6c;
+    cursor: pointer;
 }
 
 .pizza-amount .pizza-increase-button {

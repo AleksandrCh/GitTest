@@ -1,2 +1,39 @@
-﻿body {
+.pizzaConstructorController {
+    
+}
+
+.pizza-constructor-info {
+    
+}
+
+.ingredient-name,
+.ingredient-price,
+.ingredient-amount,
+.ingredient-wight {
+    float: left;
+    width: 25%;
+}
+
+.ingredients-info .ingredient-price {
+}
+
+.ingredients-info .ingredient-amount {
+}
+
+.ingredients-info .ingredient-wight {
+}
+
+.ingredient-item {
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #3b3b3b;
+    margin-bottom: 5px;
+}
+
+.ingredient-reduce-button,
+.ingredient-increase-button {
+    width: 20px;
+    height: 20px;
+    text-align: center;
 }
