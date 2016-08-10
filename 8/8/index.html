@@ -17,31 +17,14 @@
         <div class="nav clearfix">
             <ul>
                 <li><a href="#/constructor">Конструктор пиццы</a></li>
-                <li><a href="#/readyPizza">Готовая пицца</a></li>
+                <li><a href="#/pizza">Готовая пицца</a></li>
                 <li><a href="#/orderHistory">История заказов</a></li>
                 <li><a href="#/cart">Корзина</a></li>
             </ul>
         </div>
         <div class="content-container clearfix">
             <div class="left-side">
-                <div class="ready-pizza" ng-repeat="item in list">
-                    <div class="pizza-item clearfix">
-                        <div class="pizza-photo"><img ng-src={{item.imgUrl}} alt=""></div>
-                        <div class="pizza-info">
-                            <div class="pizza-title">{{item.name}}</div>
-                            <div class="pizza-desc">{{item.desc}}</div>
-                            <div class="pizza-amount">
-                                <button class="pizza-reduce-button">-</button>
-                                <input type="text" ng-model="item.amount" class="amount-pizza">
-                                <button class="pizza-increase-button">+</button>
-                            </div>
-                            <div class="pizza-price">{{item.price}}</div>
-                            <form class="pizza-form" action="">
-                                <input class="pizza-add-button" type="submit" value="Добавить">
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                <ng-view></ng-view>
             </div>
             <div class="right-side">
                 <div class="cart-container">
