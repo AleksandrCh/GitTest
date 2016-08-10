@@ -1,1 +1,27 @@
-﻿this is constructor
+﻿<div ng-controller="pizzaConstructorController" class="pizza-constructor">
+    <div class="pizza-constructor-info">
+        <div class="pizza-constructor-info-price"></div>
+        <div class="pizza-constructor-info-weight"></div>
+    </div>
+    <div class="ingredients-info">
+        <div class="ingredient-name">Название</div>
+        <div class="ingredient-price">Цена</div>
+        <div class="ingredient-amount">Кол-во</div>
+        <div class="ingredient-weight">Вес</div>
+    </div>
+    <div class="ingredients" ng-repeat="ingredient in ingredients">
+        <div class="ingredient-item ">
+            <div class="ingredient-name">{{ingredient.name}}</div>
+            <div class="ingredient-price">{{ingredient.price}}</div>
+            <div class="ingredient-amount">
+                <button class="ingredient-reduce-button">-</button>
+                <input type="text" ng-model="ingredient.amount" class="amount-ingredient">
+                <button class="ingredient-increase-button">+</button>
+            </div>
+            <div class="ingredient-weight">{{ingredient.weight}}</div>
+        </div>
+    </div>
+    <form action="/" method="post">
+        <input type="submit" name="name" value="Добавить в корзину" />
+    </form>
+</div>
