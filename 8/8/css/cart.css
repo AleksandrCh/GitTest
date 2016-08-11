@@ -1,4 +1,4 @@
-﻿.cart-container {
+.cart-container {
     text-align: center;
     background: #3ba775;
     padding: 10px 20px;
@@ -13,4 +13,26 @@
 .cart-container .cart-info {
     font-size: 20px;
     color: #fff;
+}
+
+.cart-list {
+    
+}
+
+.cart-list .cart-item {
+    margin-bottom: 5px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.cart-item .cart-item-name,
+.cart-item .cart-item-price,
+.cart-item .cart-item-pizza-amount,
+.cart-item .delete-from-cart-button{
+    float: left;
+    width: 25%;
+}
+
+.cart-item .cart-price {
+    
 }

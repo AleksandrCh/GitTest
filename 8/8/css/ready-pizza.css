@@ -1,12 +1,12 @@
 .ready-pizza {
-    padding: 20px 0;
+    padding: 55px 0 0 0;
     background: #3b3b3b;
 }
 
 .ready-pizza .pizza-item {
     padding: 30px;
     box-sizing: border-box;
-    margin-bottom: 20px;
+
     background: #fff;
     overflow: hidden;
     position: relative;

@@ -10,7 +10,7 @@
             <button class="pizza-add-button" ng-click="addPizzaToCart(pizza)">Добавить</button>
             <div class="pizza-amount">
                 <button class="pizza-reduce-button" ng-click="pizzaReduce(pizza)">-</button>
-                <input type="text" ng-model="pizza.amount" class="amount-pizza">
+                <input type="text" ng-model="pizza.amount" ng-keydown="onlyNumbers($event)" class="amount-pizza">
                 <button class="pizza-increase-button" ng-click="pizzaIncrease(pizza)">+</button>
             </div>
         </div>
