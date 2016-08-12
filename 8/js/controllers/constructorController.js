@@ -29,15 +29,28 @@
                 name: pizzaName == '' ? 'Custom pizza' : pizzaName,
                 price: $scope.totalPrice,
                 weight: $scope.totalWeight,
-                amount: 1
+                amount: 1,
+                ingredients: bindIngredients()
             };
             
+            console.log(customPizza.ingredients);
             if (cartData.cart.indexOf(customPizza) == -1) {
                 cartData.cart.push(customPizza);
             } else {
                 return;
             }
             cartData.overallCost = cartData.calculateOveralCost(cartData.cart);
+        };
+        
+        var bindIngredients = function() {
+            var ingredients = [];
+            for (var i = 0, max = $scope.ingredients.length; i < max; i++) {
+                if ($scope.ingredients[i].amount > 0) {
+                    ingredients.push($scope.ingredients[i]);
+                }
+            }
+            
+            return ingredients;
         };
         
         var calculateTotalInfo = function(ingredients) {
