@@ -32,8 +32,7 @@
                 amount: 1,
                 ingredients: bindIngredients()
             };
-            
-            console.log(customPizza.ingredients);
+
             if (cartData.cart.indexOf(customPizza) == -1) {
                 cartData.cart.push(customPizza);
             } else {
