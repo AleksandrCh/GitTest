@@ -1,25 +1,25 @@
-<div class="ingredients-info">
-    <div class="ingredient-name">Название</div>
-    <div class="ingredient-price">Цена</div>
-    <div class="ingredient-amount">Кол-во</div>
-    <div class="ingredient-weight">Вес</div>
-</div>
-<div class="cart-list" ng-repeat="pizza in data.cart">
-    <div class="cart-item">
+<div ng-if="data.cart.length > 0" class="cart-wrapper">
+    <div class="clearfix">
+        <div class="ingredient-name">Название</div>
+        <div class="ingredient-price">Цена</div>
+        <div class="ingredient-amount">Кол-во</div>
+    </div>
+    <div class="cart-list clearfix" ng-repeat="pizza in data.cart">
         <div class="cart-item-name">{{ pizza.name }}</div>
         <div class="cart-item-price">{{ ((pizza.price * pizza.amount) | number:2) + ' p.'}}</div>
         <div class="cart-item-pizza-amount">
-            <button ng-click="pizzaReduce(pizza)">-</button>
-            <input type="text" ng-model="pizza.amount" only-number>
-            <button ng-click="pizzaIncrease(pizza)">+</button>
+            <button class="pizza-reduce-button" ng-click="pizzaReduce(pizza)">-</button>
+            <input type="text" class="amount-ingredient" ng-model="pizza.amount" maxlength="2" only-number>
+            <button class="pizza-increase-button" ng-click="pizzaIncrease(pizza)">+</button>
         </div>
         <div class="delete-from-cart-button">
             <button ng-click="deletePizzaFromCart(pizza)">Удалить</button>
         </div>
     </div>
+    <div class="do-order">
+        <form>
+            <button type="submit" class="do-order-button" ng-click="doOrder(data, doOrderForm)">Сделать заказ</button>
+        </form>
+    </div>
 </div>
-<div class="do-order-button">
-    <form>
-        <button type="submit" ng-click="doOrder(data, doOrderForm)">Сделать заказ</button>
-    </form>
-</div>
+<div ng-if="data.cart.length == 0" class="cart-message">Корзина пуста</div>

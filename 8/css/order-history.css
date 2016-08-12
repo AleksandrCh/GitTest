@@ -1,16 +1,18 @@
 .order-history {
-    border: 1px solid #414141;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
+    background: #eaeaea;
+    border-radius: 8px;
+    color: #292828;
 }
 
 .order-history-date,
 .order-history-total-rice{
     margin-bottom: 10px;
+    font-size: 20px;
 }
 
 .order-history-list {
-    background: #fff;
     height: 30px;
     line-height: 30px;
 }
@@ -19,7 +21,7 @@
     margin-bottom: 10px;
     height: 30px;
     line-height: 30px;
-    background: #eaeaea;
+    background: #fff;
 }
 
 .order-history-item-name,
@@ -27,4 +29,20 @@
 .order-history-item-pizza-amount {
     float: left;
     width: 33.333%;
+    text-align: center;
+}
+
+.order-history-re-button button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: #3ba775;
+    color: #fff;
+    font-size: 20px;
+}
+
+.order-history-re-button button:hover {
+    background: #49ce90;
 }

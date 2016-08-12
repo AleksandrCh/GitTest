@@ -7,7 +7,6 @@
 .cart-container .cart-title {
     color: #fff;
     font-size: 24px;
-
 }
 
 .cart-container .cart-info {
@@ -15,24 +14,101 @@
     color: #fff;
 }
 
-.cart-list {
-    
+.cart-list:nth-child(even) {
+    background: #eaeaea;
 }
 
-.cart-list .cart-item {
-    margin-bottom: 5px;
+.cart-list {
+    text-align: center;
     height: 40px;
     line-height: 40px;
 }
 
-.cart-item .cart-item-name,
-.cart-item .cart-item-price,
-.cart-item .cart-item-pizza-amount,
-.cart-item .delete-from-cart-button{
+.cart-wrapper .ingredient-name,
+.cart-wrapper .ingredient-price,
+.cart-wrapper .ingredient-amount,
+.cart-wrapper .ingredient-weight {
+    padding: none;
     float: left;
+    height: 30px;
+    line-height: 30px;
     width: 25%;
+    text-align: center;
+}
+ 
+.cart-list .cart-item-name,
+.cart-list .cart-item-price,
+.cart-list .cart-item-pizza-amount,
+.cart-list .delete-from-cart-button{
+    float: left;
+    box-sizing: border-box;
+    width: 25%;
+    overflow: hidden;
+    height: 40px;
 }
 
-.cart-item .cart-price {
-    
+.cart-list .delete-from-cart-button button {
+    background: #e25050;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cart-list .delete-from-cart-button button:hover {
+    background: red;
+}
+
+.cart-list .pizza-reduce-button,
+.cart-list .pizza-increase-button {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: none;
+    background: #b4b4b4;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cart-list .pizza-reduce-button:hover{
+    background: #f84545;
+}
+
+.cart-list .pizza-increase-button:hover{
+    background: #3ba775;
+}
+
+.cart-list .amount-ingredient {
+    width: 50px;
+    background: inherit;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+
+.do-order {
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #3b3b3b;
+}
+
+.do-order .do-order-button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    float: right;
+    outline: none;
+    background: #3ba775;
+    color: #fff;
+    font-size: 20px;
+}
+
+.do-order .do-order-button:hover {
+    background: #49ce90;
 }

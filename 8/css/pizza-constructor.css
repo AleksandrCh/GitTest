@@ -1,40 +1,106 @@
-.pizzaConstructorController {
-    
-}
-
 .pizza-constructor-info {
-    
+    height: 70px;
+    line-height: 70px;
+    background: #3ba775;
+    margin-bottom: 20px;
 }
 
-.ingredient-name,
-.ingredient-price,
-.ingredient-amount,
-.ingredient-wight {
+.pizza-constructor-info .pizza-constructor-info-price,
+.pizza-constructor-info .pizza-constructor-info-weight {
+    float: left;
+    margin-left: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.add-custom-pizza-wrap {
+    background: #3ba775;
+    margin-left: 100px;
+    float: right;
+    padding-right: 20px;
+}
+
+.add-custom-pizza-wrap .custon-pizza-name-input {
+    outline: none;
+    border: none;
+    height: 30px;
+    width: 200px;
+    border-radius: 30px;
+    padding: 0 10px;
+}
+
+.add-custom-pizza-wrap .add-to-cart-button {
+    height: 32px;
+    width: 130px;
+    border: none;
+    background: #56d399;
+    outline: none;
+    border-radius: 30px;
+    color: #262626;
+    cursor: pointer;
+}
+
+.add-custom-pizza-wrap .add-to-cart-button:hover {
+    background: #6dffbb;
+}
+
+.ingredients-info {
+    height: 30px;
+    line-height: 30px;
+}
+
+.ingredients .ingredient-name,
+.ingredients .ingredient-price,
+.ingredients .ingredient-amount,
+.ingredients .ingredient-weight,
+.ingredients-info .ingredient-name,
+.ingredients-info .ingredient-price,
+.ingredients-info .ingredient-amount,
+.ingredients-info .ingredient-weight {
     float: left;
     width: 25%;
+    padding-left: 10px;
+    text-align: center;
+    box-sizing: border-box;
 }
 
-.ingredients-info .ingredient-price {
-}
-
-.ingredients-info .ingredient-amount {
-}
-
-.ingredients-info .ingredient-wight {
-}
-
-.ingredient-item {
-    padding: 0 10px;
+.ingredients {
     height: 40px;
     line-height: 40px;
-    box-sizing: border-box;
-    border: 1px solid #3b3b3b;
-    margin-bottom: 5px;
 }
 
-.ingredient-reduce-button,
-.ingredient-increase-button {
+.ingredients:nth-child(odd) {
+    background: #eaeaea;
+}
+
+.ingredients .amount-ingredient {
+    width: 50px;
+    background: inherit;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+
+.ingredients .ingredient-reduce-button,
+.ingredients .ingredient-increase-button {
+    cursor: pointer;
     width: 20px;
     height: 20px;
+    line-height: 20px;
     text-align: center;
+    border: none;
+    background: #b4b4b4;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+.ingredients .ingredient-reduce-button:hover{
+    background: #f84545;
+}
+
+.ingredients .ingredient-increase-button:hover{
+    background: #3ba775;
 }

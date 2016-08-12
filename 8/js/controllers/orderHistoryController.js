@@ -2,6 +2,7 @@
     'use strict';
     app.controller('orderHistoryController', ['$scope', '$http', 'orderHistoryService','cartData', function($scope, $http, orderHistoryService, cartData) {
         $scope.data = orderHistoryService.getOrderList();
+        console.log($scope.data);
         
         $scope.response = {};
         $scope.repeatOrder = function(order) {

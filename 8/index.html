@@ -42,7 +42,8 @@
             <div class="right-side">
                 <div class="cart-container" ng-controller="cartController">
                     <div class="cart-title">Корзина</div>
-                    <div class="cart-info">{{ (data.overallCost | number:2) + ' p.'}}</div>
+                    <div ng-if="data.overallCost > 0" class="cart-info">{{ (data.overallCost | number:2) + ' p.'}}</div>
+                    <div ng-if="data.overallCost == 0" class="cart-info">Корзина пуста</div>
                 </div>
             </div>
         </div>
