@@ -1,0 +1,30 @@
+.order-history {
+    border: 1px solid #414141;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.order-history-date,
+.order-history-total-rice{
+    margin-bottom: 10px;
+}
+
+.order-history-list {
+    background: #fff;
+    height: 30px;
+    line-height: 30px;
+}
+
+.order-history-item {
+    margin-bottom: 10px;
+    height: 30px;
+    line-height: 30px;
+    background: #eaeaea;
+}
+
+.order-history-item-name,
+.order-history-item-price,
+.order-history-item-pizza-amount {
+    float: left;
+    width: 33.333%;
+}

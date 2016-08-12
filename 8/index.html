@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>task 8</title>
+    <meta charset="utf-8" />
+    <link href="css/ng-cloak.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/cart.css" rel="stylesheet" />
+    <link href="css/ready-pizza.css" rel="stylesheet">
+    <link href="css/order-history.css" rel="stylesheet" >
+    <link href="css/pizza-constructor.css" rel="stylesheet" >
+    <script type="text/javascript" src="js/angular.min.js" defer></script>
+    <script type="text/javascript" src="js/angular-route.min.js" defer></script>
+    <script type="text/javascript" src="js/angular-resource.min.js" defer></script>
+    <script type="text/javascript" src="js/angular-cookies.min.js" defer></script>
+    <script type="text/javascript" src="js/main.js" defer></script>
+    <script type="text/javascript" src="js/directives/onlyNumber.js" defer></script>
+    <script type="text/javascript" src="js/config/routing.js" defer></script>
+    <script type="text/javascript" src="js/factories/cartData.js" defer></script>
+    <script type="text/javascript" src="js/services/pizzaService.js" defer></script>
+    <script type="text/javascript" src="js/services/orderHistoryService.js" defer></script>
+    <script type="text/javascript" src="js/services/constructorService.js" defer></script>
+    <script type="text/javascript" src="js/controllers/constructorController.js" defer></script>
+    <script type="text/javascript" src="js/controllers/pizzaController.js" defer></script>
+    <script type="text/javascript" src="js/controllers/cartController.js" defer></script>
+    <script type="text/javascript" src="js/controllers/orderHistoryController.js" defer></script>
+</head>
+<body ng-app="app">
+    <div ng-cloak class="main-container">
+        <div class="nav clearfix">
+            <ul>
+                <li><a href="#/constructor">Конструктор пиццы</a></li>
+                <li><a href="#/pizza">Готовая пицца</a></li>
+                <li><a href="#/orderHistory">История заказов</a></li>
+                <li><a href="#/cart">Корзина</a></li>
+            </ul>
+        </div>
+        <div class="content-container clearfix">
+            <div class="left-side">
+                <ng-view></ng-view>
+            </div>
+            <div class="right-side">
+                <div class="cart-container" ng-controller="cartController">
+                    <div class="cart-title">Корзина</div>
+                    <div class="cart-info">{{ (data.overallCost | number:2) + ' p.'}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

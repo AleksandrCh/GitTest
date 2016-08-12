@@ -1,0 +1,26 @@
+<div ng-controller="pizzaConstructorController" class="pizza-constructor">
+    <div class="pizza-constructor-info">
+        <div class="pizza-constructor-info-price">{{ 'Цена: ' + totalPrice }}</div>
+        <div class="pizza-constructor-info-weight">{{ 'Вес: ' + totalWeight }}</div>
+    </div>
+    <div class="ingredients-info">
+        <div class="ingredient-name">Название</div>
+        <div class="ingredient-price">Цена</div>
+        <div class="ingredient-amount">Кол-во</div>
+        <div class="ingredient-weight">Вес</div>
+    </div>
+    <div class="ingredients" ng-repeat="ingredient in ingredients">
+        <div class="ingredient-item ">
+            <div class="ingredient-name">{{ingredient.name}}</div>
+            <div class="ingredient-price">{{(ingredient.price | number:2) + ' p.'}}</div>
+            <div class="ingredient-amount">
+                <button class="ingredient-reduce-button" ng-click="reduceIngredient(ingredient)">-</button>
+                <input type="text" ng-model="ingredient.amount" only-number class="amount-ingredient">
+                <button class="ingredient-increase-button" ng-click="increaseIngredient(ingredient)">+</button>
+            </div>
+            <div class="ingredient-weight">{{ingredient.weight}}</div>
+        </div>
+    </div>
+    <input type="text" ng-model="customPizzaName" class="custon-pizza-name" placeholder="Введите название вашей пиццы" />
+    <button class="add-to-cart-button" ng-click="addCustomPizzaToCart(customPizzaName)">Добавить в корзину</button>
+</div>

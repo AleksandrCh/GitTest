@@ -1,0 +1,17 @@
+<div class="order-history" ng-repeat="item in data">
+    <div class="order-history-date">{{ 'Дата заказа: '+ (item.date | date:'dd-MM-yyyy hh-mm') }}</div>
+    <div class="order-history-list">
+        <div class="order-history-item-name">Название пиццы</div>
+        <div class="order-history-item-price">Сумма</div>
+        <div class="order-history-item-pizza-amount">Количество</div>
+    </div>
+    <div class="order-history-item" ng-repeat="pizza in item.orderList.cart">
+        <div class="order-history-item-name">{{ pizza.name }}</div>
+        <div class="order-history-item-price">{{ ((pizza.price * pizza.amount) | number:2) + ' p.'}}</div>
+        <div class="order-history-item-pizza-amount">{{ pizza.amount }}</div>
+    </div>
+    <div class="order-history-total-rice">{{'Итоговая сумма: ' + (item.totalPrice | number:2) + ' p.'}}</div>
+    <div class="order-history-re-button">
+        <button ng-click="repeatOrder(item)">Повторить заказ</button>
+    </div>
+</div>
