@@ -7,6 +7,8 @@
         $scope.repeatOrder = function(order) { 
             $http.post("postAnswer.php", order).success(function (response) {
                 $scope.response = response;
+            }).error(function(response, status) {
+                alert(status);
             });
         };
         

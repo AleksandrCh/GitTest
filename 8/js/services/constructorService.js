@@ -7,7 +7,9 @@
                 ingredient;
             $http.get('json/ingredients.json').success(function(data) {
                 deferred.resolve(data);
-            });
+            }).error(function() {
+                bootbox.alert('Произошла ошибка загрузки данных с сервера.');
+            });;
             
             return deferred.promise;
         };

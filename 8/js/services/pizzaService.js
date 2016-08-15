@@ -6,7 +6,9 @@
             var deferred = $q.defer(),
                 pizza;
             $http.get('json/readyPizza.json').success(function(data) {
-                deferred.resolve(data);
+                deferred.resolve(data, 100);
+            }).error(function() {
+                bootbox.alert('Произошла ошибка загрузки данных с сервера.');
             });
             
             return deferred.promise;
