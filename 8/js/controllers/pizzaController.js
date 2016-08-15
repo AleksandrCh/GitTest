@@ -24,6 +24,7 @@
             if (pizza.amount != 0) {
                 if ((index = cartData.cart.indexOf(pizza)) == -1) {
                     cartData.cart.push(pizza);
+                    cartData.cart = Array.prototype.slice.call(cartData.cart, 0);
                 } else {
                     cartData.cart[index].amount = pizza.amount;
                 }

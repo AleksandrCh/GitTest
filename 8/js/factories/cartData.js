@@ -11,9 +11,6 @@
                 }
                 return cost;
             },
-            removePizzaFromCart: function(data, pizza) {
-                data.cart.remove(pizza);
-            }
         };
     });
 })(app);

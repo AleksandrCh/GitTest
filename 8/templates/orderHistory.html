@@ -13,6 +13,7 @@
     <div class="order-history-total-rice">{{'Итоговая сумма: ' + (item.totalPrice | number:2) + ' p.'}}</div>
     <div class="order-history-re-button">
         <button ng-click="repeatOrder(item)">Повторить заказ</button>
+        <button ng-click="editOrder(item.orderList)">Редактировать заказ</button>
     </div>
 </div>
 <div ng-if="data == undefined || data.length == 0" class="order-history-message">В истории нет заказов</div>

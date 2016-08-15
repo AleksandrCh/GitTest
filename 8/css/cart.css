@@ -39,7 +39,7 @@
 .cart-list .cart-item-name,
 .cart-list .cart-item-price,
 .cart-list .cart-item-pizza-amount,
-.cart-list .delete-from-cart-button{
+.cart-list .delete-from-cart{
     float: left;
     box-sizing: border-box;
     width: 25%;
@@ -47,13 +47,16 @@
     height: 40px;
 }
 
-.cart-list .delete-from-cart-button button {
+.cart-list .delete-from-cart .delete-from-cart-button {
     background: #e25050;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     color: #fff;
     cursor: pointer;
+    height: 30px;
+    line-height: 20px;
+    
 }
 
 .cart-list .delete-from-cart-button button:hover {

@@ -25,7 +25,7 @@
     outline: none;
     border: none;
     height: 30px;
-    width: 200px;
+    width: 230px;
     border-radius: 30px;
     padding: 0 10px;
 }
@@ -37,17 +37,21 @@
 
 .add-custom-pizza-wrap .add-to-cart-button {
     height: 32px;
-    width: 130px;
+    line-height: 32px;
+    width: 140px;
     border: none;
     background: #56d399;
     outline: none;
     border-radius: 30px;
     color: #262626;
     cursor: pointer;
+    position: relative;
+    color: #fff;
+    padding: 0 5px;
 }
 
 .add-custom-pizza-wrap .add-to-cart-button:hover {
-    background: #6dffbb;
+    background: #54c38f;
 }
 
 .ingredients-info {
