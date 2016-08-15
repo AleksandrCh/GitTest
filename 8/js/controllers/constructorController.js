@@ -25,20 +25,22 @@
         };
         
         $scope.addCustomPizzaToCart = function(pizzaName) {
-            var customPizza = {
-                name: pizzaName == '' ? 'Custom pizza' : pizzaName,
-                price: $scope.totalPrice,
-                weight: $scope.totalWeight,
-                amount: 1,
-                ingredients: bindIngredients()
-            };
-
-            if (cartData.cart.indexOf(customPizza) == -1) {
-                cartData.cart.push(customPizza);
-            } else {
-                return;
+            if (validInput()) {
+                var customPizza = {
+                    name: pizzaName == '' ? 'Custom pizza' : pizzaName + '(Сконструированная)',
+                    price: $scope.totalPrice,
+                    weight: $scope.totalWeight,
+                    amount: 1,
+                    ingredients: bindIngredients()
+                };
+    
+                if (cartData.cart.indexOf(customPizza) == -1) {
+                    cartData.cart.push(customPizza);
+                } else {
+                    return;
+                }
+                cartData.overallCost = cartData.calculateOveralCost(cartData.cart);
             }
-            cartData.overallCost = cartData.calculateOveralCost(cartData.cart);
         };
         
         var bindIngredients = function() {
@@ -64,6 +66,17 @@
             $scope.totalPrice = price;
             $scope.totalWeight = weight;
         };
+        
+        var validInput = function() {
+            var elem = document.getElementsByClassName('custon-pizza-name-input')[0];
+            if (elem.value.trim() === '') {
+                elem.classList.add('custon-pizza-name-input-error');
+            } else {
+                elem.classList.remove('custon-pizza-name-input-error');
+                return true;
+            }
+            return false;
+        }
         
     }]);
 })(app);

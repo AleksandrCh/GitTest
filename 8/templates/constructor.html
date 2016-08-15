@@ -3,8 +3,8 @@
         <div class="pizza-constructor-info-price">{{ 'Стоимость: ' + totalPrice }}</div>
         <div class="pizza-constructor-info-weight">{{ 'Текущий вес, грамм: ' + totalWeight }}</div>
         <div class="add-custom-pizza-wrap">
-            <input type="text" ng-model="customPizzaName" class="custon-pizza-name-input" placeholder="Введите название вашей пиццы" />
-            <button class="add-to-cart-button" ng-click="addCustomPizzaToCart(customPizzaName)">Добавить в корзину</button>
+            <input type="text" ng-model="customPizzaName" class="custon-pizza-name-input" placeholder="Введите название вашей пиццы" required />
+            <button class="add-to-cart-button" ng-click="addCustomPizzaToCart(customPizzaName, $event)">Добавить в корзину</button>
         </div>
     </div>
     <div class="ingredients-info">

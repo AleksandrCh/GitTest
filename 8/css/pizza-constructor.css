@@ -30,6 +30,11 @@
     padding: 0 10px;
 }
 
+.add-custom-pizza-wrap .custon-pizza-name-input-error {
+    border: 1px solid red;
+    background: #ffe8e8;
+}
+
 .add-custom-pizza-wrap .add-to-cart-button {
     height: 32px;
     width: 130px;
