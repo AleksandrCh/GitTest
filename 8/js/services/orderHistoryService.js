@@ -1,18 +1,41 @@
 (function(app, undefined) {
     'use strict';
-    app.service('orderHistoryService', ['$cookies', function($cookies) {   
+    app.service('orderHistoryService', ['$window', function($window) { 
         this.addOrder = function(order) {
-            if ($cookies.getObject('orderHistory') == undefined) {
-                $cookies.putObject('orderHistory', []);
+            if (!supportsHtml5Storage()) return alert(2123);
+            
+            var obj;
+            
+            if ($window.localStorage.getItem('orderHistory') == null) {
+                obj = { "order": []};
+                obj = JSON.stringify(obj);
+                $window.localStorage.setItem('orderHistory', obj);
             }
-            var obj = $cookies.getObject('orderHistory');
-            obj.push(order);
-            $cookies.putObject('orderHistory', obj);
+            
+            obj = $window.localStorage.getItem('orderHistory');
+            obj = JSON.parse(obj);
+            obj['order'].push(order);
+            obj = JSON.stringify(obj);
+            $window.localStorage.setItem('orderHistory', obj);
         };
         
         this.getOrderList = function() {
-            return $cookies.getObject('orderHistory');
+            if (!supportsHtml5Storage()) return alert(2123);
+
+            if ($window.localStorage.getItem('orderHistory') != null) {
+                var obj = JSON.parse($window.localStorage.getItem('orderHistory'));
+                return obj.order;
+            }
+            return [];
         };
+        
+        var supportsHtml5Storage = function() {
+            try {
+                return 'localStorage' in $window && $window.localStorage !== null;
+            } catch (e) {
+                return false;
+            }
+        }
         
     }]);
 })(app);
