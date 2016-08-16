@@ -170,7 +170,7 @@ select FirstName from Employee as e join Salary as s on e.Id = s.Id_Employee
 GO
 
 -- #11
-select FirstName, DATEDIFF(DAY, EmploymentDate, GETDATE()) from Employee as e join Career as c
+select FirstName, DATEDIFF(DAY, EmploymentDate, GETDATE()) from Employee as e left join Career as c
 	on e.Id = c.Id_Employee
 GO
 
