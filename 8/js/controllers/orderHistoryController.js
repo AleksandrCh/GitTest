@@ -1,15 +1,11 @@
 (function(app, undefined) {
     'use strict';
-    app.controller('orderHistoryController', ['$scope', '$http', '$window', 'orderHistoryService','cartData', function($scope, $http, $window, orderHistoryService, cartData) {
+    app.controller('orderHistoryController', ['$scope', 'httpService', '$window', 'orderHistoryService','cartData', function($scope, httpService, $window, orderHistoryService, cartData) {
         $scope.data = orderHistoryService.getOrderList();
         
         $scope.response = {};
         $scope.repeatOrder = function(order) { 
-            $http.post("postAnswer.php", order).success(function (response) {
-                $scope.response = response;
-            }).error(function(response, status) {
-                alert(status);
-            });
+            httpService.post("postAnswer.php", order);
         };
         
         $scope.editOrder = function(order) {

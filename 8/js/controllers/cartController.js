@@ -1,6 +1,6 @@
 (function(app, undefined) {
     'use strict';
-    app.controller('cartController', ['$scope', '$http', 'orderHistoryService', 'cartData', function($scope, $http, orderHistoryService, cartData) {
+    app.controller('cartController', ['$scope', 'httpService', 'orderHistoryService', 'cartData', function($scope, httpService, orderHistoryService, cartData) {
         $scope.data = cartData;
         
         $scope.pizzaReduce = function(pizza) {
@@ -32,9 +32,7 @@
                     totalPrice: cartData.overallCost
                 }; 
                 
-                $http.post("postAnswer.php", order).success(function (response) {
-                    $scope.response = response;
-                });
+                httpService.post("postAnswer.php", order);
                 
                 orderHistoryService.addOrder(order);
             }

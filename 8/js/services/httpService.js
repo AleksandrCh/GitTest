@@ -1,32 +1,22 @@
 (function(app, undefined) {
     'use strict';
-    app.service('httpService', ['$http', '$q', function($http, $q) {
+    app.service('httpService', ['$timeout', function($timeout) {
         
-        this.getIngredients = function() {
-            var deferred = $q.defer(),
-                ingredient;
-            $http.get('json/ingredients.json').success(function(data) {
-                deferred.resolve(data);
-            });
-            
-            return deferred.promise;
+        this.post = function(url, data) {
+            var probability = Math.random() * 100;
+            if (probability > 20){
+                $timeout(success, 500);
+            } else {
+                $timeout(error, 3000);
+            }
         };
         
-        this.get = function(url, data) {
-            var deferred = $q.defer();
-            $http({method: 'GET', url: url}).
-                success(function(data) {
-                    deferred.resolve(data);
-                }).
-                error(function(data, status) {
-                    deferred.reject(status);
-                });
-            
-            return deferred.promise;
+        var success = function() {
+            bootbox.alert('Ваш заказ успешно принят');
         };
         
-        this.post = function() {
-            
+        var error = function() {
+            bootbox.alert('Что-то пошло не так. Повторите заказ.');
         };
         
     }]);
