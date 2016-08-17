@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using DAL.Initializators;
+using Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,6 +11,11 @@ namespace DAL.DataContext
 {
     public class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext() : base("CompanyConnection")
+        {
+            Database.SetInitializer(new CompanyDbInitializer());
+        }
+
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employes { get; set; }
         public DbSet<Job> Jobs { get; set; }

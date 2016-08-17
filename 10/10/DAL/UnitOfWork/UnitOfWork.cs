@@ -17,6 +17,8 @@ namespace DAL.UnitOfWork
         private CareerRepository careerRepository;
         private SalaryRepository salaryRepository;
 
+
+
         public DepartmentRepository Departments
         {
             get

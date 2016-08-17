@@ -17,6 +17,10 @@ namespace ConsoleUI
             
         }
 
-
+        public void Action()
+        {
+            var department = unitOfWork.Departments.GetAll();
+  
+        }
     }
 }
