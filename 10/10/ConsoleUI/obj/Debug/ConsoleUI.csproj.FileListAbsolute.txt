@@ -10,3 +10,5 @@ D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\bin\Debug\Domain.dll
 D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\bin\Debug\DAL.pdb
 D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\bin\Debug\EntityFramework.xml
 D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\bin\Debug\Domain.pdb
+D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\bin\Debug\EntityFramework.SqlServer.dll
+D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\bin\Debug\EntityFramework.SqlServer.xml

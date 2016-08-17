@@ -12,6 +12,10 @@ namespace Domain.Models
         public string Name { get; set; }
         public int MinSalary { get; set; }
 
-
+        public virtual ICollection<Career> Careers { get; set; }
+        public Job()
+        {
+            Careers = new List<Career>();
+        }
     }
 }

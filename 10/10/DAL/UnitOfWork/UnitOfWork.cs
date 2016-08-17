@@ -10,14 +10,17 @@ namespace DAL.UnitOfWork
 {
     public class UnitOfWork : IDisposable
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db;
         private DepartmentRepository departmentRepository;
         private EmployeeRepository employeeRepository;
         private JobRepository jobRepository;
         private CareerRepository careerRepository;
         private SalaryRepository salaryRepository;
 
-
+        public UnitOfWork()
+        {
+            db = new ApplicationDbContext();
+        }
 
         public DepartmentRepository Departments
         {
@@ -75,7 +78,6 @@ namespace DAL.UnitOfWork
         }
 
         private bool disposed = false;
-
         public virtual void Dispose(bool disposing)
         {
             if (!this.disposed)
@@ -92,6 +94,12 @@ namespace DAL.UnitOfWork
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        public void Task1()
+        {
+            var employeis = from p in Employes.GetAll() select p;
+            
         }
     }
 }

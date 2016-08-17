@@ -10,6 +10,9 @@ namespace Domain.Models
         public DateTime EmploymentDate { get; set; }
         public DateTime? DismissalDate { get; set; }
 
+        public int JobId { get; set; }
+        public virtual Job Job { get; set; }
+
         public int DepartmentId { get; set; }
         public virtual Department Department { get; set; }
 

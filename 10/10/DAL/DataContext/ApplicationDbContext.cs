@@ -1,11 +1,6 @@
 ﻿using DAL.Initializators;
 using Domain.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.DataContext
 {
@@ -21,5 +16,10 @@ namespace DAL.DataContext
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Career> Careers { get; set; }
         public DbSet<Salary> Salaries { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

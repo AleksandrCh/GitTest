@@ -1,9 +1,4 @@
-﻿using DAL.UnitOfWork;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace ConsoleUI
 {
@@ -12,7 +7,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             AppController app = new AppController();
-            app.Action();
+            app.Run();
 
             Console.ReadKey();
         }

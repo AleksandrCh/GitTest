@@ -1,26 +1,17 @@
 ﻿using DAL.UnitOfWork;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleUI
 {
     class AppController
     {
-        private UnitOfWork unitOfWork;
-
-        public AppController()
+        public void Run()
         {
-            unitOfWork = new UnitOfWork();
-            
-        }
+            using (var uof = new UnitOfWork())
+            {
+                var departments = from p in uof.Departments.GetAll() select p;
 
-        public void Action()
-        {
-            var department = unitOfWork.Departments.GetAll();
-  
+            }
         }
     }
 }
