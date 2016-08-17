@@ -2,7 +2,7 @@
 
 namespace Domain.Repositories
 {
-    interface IRepository<T> where T : class
+    public interface IRepository<T> where T : class
     {
         IQueryable<T> GetAll();
         T Get(int id);
