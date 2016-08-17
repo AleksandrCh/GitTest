@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 7</title>
+    <link rel="stylesheet" href="css/clearfix.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/order-cart.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/popup-window.css">
+    <script type="text/javascript" src="js/knockout-3.4.0.js" defer></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" defer></script>
+    <script type="text/javascript" src="js/bootstrap.min.js" defer></script>
+    <script type="text/javascript" src="js/bootbox.min.js" defer></script>
+    <script type="text/javascript" src="js/DishViewModel.js" defer></script>
+    <script type="text/javascript" src="js/CartViewModel.js" defer></script>
+    <script type="text/javascript" src="js/CategoryViewModel.js" defer></script>
+    <script type="text/javascript" src="js/ComplexLunchViewModel.js" defer></script>
+    <script type="text/javascript" src="js/numberFilter.js" defer></script>
+    <script type="text/javascript" src="js/pagingForeach.js" defer></script>
+    <script type="text/javascript" src="js/app.js" defer></script>
+</head>
+<body>
+    <div class="main-container clearfix">
+        <header>Конструктор комплексного обеда</header>
+        <div class="shop-container clearfix">
+            <div class="right-container">
+                <div class="cart">
+                    <div data-bind="click: lookCartHandler" class="overall-cost">
+                        <p>Общая стоимость:</p>
+                        <div class="cost" data-bind="text: cart.overallCost() + ' p.'"></div>
+                    </div>
+                    <div class="accept-button">
+                        <form action="#" data-bind="submit: makeOrderHandler">
+                            <button type="submit">Подтвердить заказ</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="dish-category">
+                    <div class="dish-category-title">Выберите категорию</div>
+                    <ul class="dish-category-menu" data-bind="foreach: categories">
+                        <li class="dish-category-menu-item" data-bind="text: $data.name, click: $parent.chooseCategoryHandler"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu-container" data-bind="pagingForeach: chosenCategory">
+                <div class="menu-item" data-bind="css: { 'added-dish': $data.added}">
+                    <div class="menu-item-photo">
+                        <img data-bind="attr: {src: $data.photoUrl}" alt="">
+                    </div>
+                    <div class="menu-item-name" data-bind="text: $data.name"></div>
+                    <div class="menu-item-price" data-bind="text: $data.price + '.00 p.'"></div>
+                    <div class="menu-item-amount">
+                        <button class="reduce-button" data-bind="click: $parent.reduceDishHandler">-</button>
+                        <input type="text" class="amount-dishes" data-bind="textInput: $data.amountDishes, numberFilter">
+                        <button class="increase-button" data-bind="click: $root.increaseDishHandler">+</button>
+                    </div>
+                    <div class="add-button" data-bind="click: $root.addDishInCartHandler">Добавить</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-bind="visible: display" class="popup-window">
+        <div class="look-cart clearfix">
+            <div class="look-cart-title clearfix">Ваша корзина</div>
+            <div class="look-cart-list-title clearfix">
+                <div class="look-cart-list-title-name">Наименование</div>
+                <div class="look-cart-list-title-amount">Количество</div>
+                <div class="look-cart-list-title-cost">Сумма</div>
+            </div>
+            <ul data-bind="foreach: cart.orders" class="look-cart-list">
+                <li class="look-cart-item clearfix">
+                    <div data-bind="text: $data.name" class="look-cart-item-dish-name"></div>
+                    <div class="look-cart-item-dish-amount">
+                        <button class="look-cart-item-reduce-button" data-bind="click: $parent.reduceDishHandler">-</button>
+                        <input type="text" class="look-cart-item-dish-amount-input" data-bind="textInput: $data.amountDishes, numberFilter">
+                        <button class="look-cart-item-increase-button" data-bind="click: $root.increaseDishHandler">+</button>
+                    </div>
+                    <div data-bind="text: $data.price * $data.amountDishes() +' p.'" class="look-cart-item-dish-price"></div>
+                    <div data-bind="click: $root.deleteChosenDishHandler" class="look-cart-item-dish-delete-button">Удалить</div>
+                </li>
+            </ul>
+            <div data-bind="text: cart.overallCost() + ' p.'" class="look-cart-overall-cost"></div>
+            <div class="make-order clearfix">
+                <form action="#" data-bind="submit: makeOrderHandler">
+                    <button type="submit" data-bind="submit: makeOrderHandler" class="make-order-button">Заказать</button>
+                    <button data-bind="click: lookCartHandler" class="make-order-button">Назад</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
