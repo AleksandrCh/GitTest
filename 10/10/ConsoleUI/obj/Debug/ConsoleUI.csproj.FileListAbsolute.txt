@@ -1,1 +1,6 @@
 D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\bin\Debug\ConsoleUI.exe.config
+D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\bin\Debug\ConsoleUI.exe
+D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\bin\Debug\ConsoleUI.pdb
+D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\obj\Debug\ConsoleUI.csprojResolveAssemblyReference.cache
+D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\obj\Debug\ConsoleUI.exe
+D:\AleksandrChechyotko\StLab2016\10\10\ConsoleUI\obj\Debug\ConsoleUI.pdb

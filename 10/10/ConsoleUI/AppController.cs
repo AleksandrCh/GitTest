@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleUI
 {
-    class Program
+    class AppController
     {
-        static void Main(string[] args)
+        private UnitOfWork unitOfWork;
+
+        public AppController()
         {
-            AppController app = new AppController();
-
-
-            Console.ReadKey();
+            unitOfWork = new UnitOfWork();
         }
+
+
     }
 }

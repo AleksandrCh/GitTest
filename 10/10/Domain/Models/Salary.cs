@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Models
 {
-    class Salary
+    public class Salary
     {
         [Key]
         public int SalaryId { get; set; }
         public int Month { get; set; }
         public int Year { get; set; }
         public int Wages { get; set; }
+
+        public int EmployeeId { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }

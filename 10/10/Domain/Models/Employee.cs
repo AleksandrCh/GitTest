@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Models
 {
-    class Employee
+    public class Employee
     {
         [Key]
         public int EmployeeId { get; set; }
@@ -16,5 +13,13 @@ namespace Domain.Models
         [Required]
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
+
+        public virtual ICollection<Career> Careers { get; set; }
+        public virtual ICollection<Salary> Salaries { get; set; }
+        public Employee()
+        {
+            Careers = new List<Career>();
+            Salaries = new List<Salary>();
+        }
     }
 }
