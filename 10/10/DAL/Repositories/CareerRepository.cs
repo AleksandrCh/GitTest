@@ -1,6 +1,6 @@
 ﻿using DAL.DataContext;
 using Domain.Models;
-using Domain.Repositories;
+using Domain.Repository;
 using System.Data.Entity;
 using System.Linq;
 

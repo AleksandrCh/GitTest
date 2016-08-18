@@ -1,28 +1,27 @@
 ﻿using DAL.DataContext;
 using DAL.Repositories;
+using Domain.Models;
+using Domain.Repository;
+using Domain.UnitOfWork;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.UnitOfWork
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IUnitOfWork
     {
         private ApplicationDbContext db;
-        private DepartmentRepository departmentRepository;
-        private EmployeeRepository employeeRepository;
-        private JobRepository jobRepository;
-        private CareerRepository careerRepository;
-        private SalaryRepository salaryRepository;
+        private IRepository<Department> departmentRepository;
+        private IRepository<Employee> employeeRepository;
+        private IRepository<Job> jobRepository;
+        private IRepository<Career> careerRepository;
+        private IRepository<Salary> salaryRepository;
 
         public UnitOfWork()
         {
             db = new ApplicationDbContext();
         }
 
-        public DepartmentRepository Departments
+        public IRepository<Department> Departments
         {
             get
             {
@@ -32,7 +31,7 @@ namespace DAL.UnitOfWork
             }
         }
 
-        public JobRepository Jobs
+        public IRepository<Job> Jobs
         {
             get
             {
@@ -42,7 +41,7 @@ namespace DAL.UnitOfWork
             }
         }
 
-        public EmployeeRepository Employes
+        public IRepository<Employee> Employes
         {
             get
             {
@@ -52,7 +51,7 @@ namespace DAL.UnitOfWork
             }
         }
 
-        public CareerRepository Careers
+        public IRepository<Career> Careers
         {
             get
             {
@@ -62,7 +61,7 @@ namespace DAL.UnitOfWork
             }
         }
 
-        public SalaryRepository Salaries
+        public IRepository<Salary> Salaries
         {
             get
             {
@@ -94,12 +93,6 @@ namespace DAL.UnitOfWork
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-        }
-
-        public void Task1()
-        {
-            var employeis = from p in Employes.GetAll() select p;
-            
         }
     }
 }

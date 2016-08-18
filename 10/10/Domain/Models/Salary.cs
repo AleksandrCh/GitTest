@@ -8,7 +8,7 @@ namespace Domain.Models
         public int SalaryId { get; set; }
         public int Month { get; set; }
         public int Year { get; set; }
-        public int Wages { get; set; }
+        public double Wages { get; set; }
 
         public int EmployeeId { get; set; }
         public virtual Employee Employee { get; set; }

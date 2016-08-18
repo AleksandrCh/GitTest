@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace DAL.Initializators
 {
-    class CompanyDbInitializer : CreateDatabaseIfNotExists<ApplicationDbContext>
+    class CompanyDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {

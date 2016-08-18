@@ -10,7 +10,7 @@ namespace Domain.Models
         public int JobId { get; set; }
         [Required]
         public string Name { get; set; }
-        public int MinSalary { get; set; }
+        public double MinSalary { get; set; }
 
         public virtual ICollection<Career> Careers { get; set; }
         public Job()
