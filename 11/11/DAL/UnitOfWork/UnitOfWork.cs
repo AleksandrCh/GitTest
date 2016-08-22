@@ -1,6 +1,5 @@
 ﻿using DAL.DataContext;
 using DAL.Repositories.MongoImpl;
-using Domain.Models;
 using Domain.Repository;
 using Domain.UnitOfWork;
 using MongoDBApp.Models;
@@ -8,7 +7,7 @@ using System;
 
 namespace DAL.UnitOfWork
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private MongoDbContext db;
         private IRepository<Computer> computerRepository;
@@ -19,7 +18,7 @@ namespace DAL.UnitOfWork
             db = new MongoDbContext();
         }
 
-        public IRepository<Computer> Departments
+        public IRepository<Computer> Computers
         {
             get
             {
@@ -29,29 +28,8 @@ namespace DAL.UnitOfWork
             }
         }
 
-       
-
-        public void Save()
-        {
-            //db.SaveChanges();
-        }
-
-        private bool disposed = false;
-        public virtual void Dispose(bool disposing)
-        {
-            //if (!this.disposed)
-            //{
-            //    if (disposing)
-            //    {
-            //        db.Dispose();
-            //    }
-            //    this.disposed = true;
-            //}
-        }
-
         public void Dispose()
         {
-            Dispose(true);
             GC.SuppressFinalize(this);
         }
     }

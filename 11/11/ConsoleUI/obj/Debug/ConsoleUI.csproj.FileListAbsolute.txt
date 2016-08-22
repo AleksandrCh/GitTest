@@ -26,11 +26,9 @@ D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\MongoDB.Bson.dll
 D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\MongoDB.Driver.Core.dll
 D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\MongoDB.Driver.dll
 D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\MongoDB.Driver.Legacy.dll
-D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\EntityFramework.dll
 D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\DAL.pdb
 D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\Domain.pdb
 D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\MongoDB.Bson.xml
 D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\MongoDB.Driver.xml
 D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\MongoDB.Driver.Legacy.xml
-D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\bin\Debug\EntityFramework.xml
 D:\AleksandrChechyotko\StLab2016\11\11\ConsoleUI\obj\Debug\ConsoleUI.csprojResolveAssemblyReference.cache
