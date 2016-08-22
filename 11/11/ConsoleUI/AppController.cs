@@ -14,18 +14,18 @@ namespace ConsoleUI
             using (var uof = new UnitOfWork())
             {
                 Task1(uof);
-                Task2(uof);
-                Task3(uof);
-                Task4(uof);
-                Task5(uof);
-                Task6(uof);
-                Task7(uof);
-                Task8(uof);
-                Task9(uof);
-                Task10(uof);
-                Task11(uof);
-                Task12(uof);
-                Task13(uof);
+                //Task2(uof);
+                //Task3(uof);
+                //Task4(uof);
+                //Task5(uof);
+                //Task6(uof);
+                //Task7(uof);
+                //Task8(uof);
+                //Task9(uof);
+                //Task10(uof);
+                //Task11(uof);
+                //Task12(uof);
+                //Task13(uof);
             }
         }
 

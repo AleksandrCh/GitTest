@@ -1,75 +1,35 @@
 ﻿using DAL.DataContext;
-using DAL.Repositories;
+using DAL.Repositories.MongoImpl;
 using Domain.Models;
 using Domain.Repository;
 using Domain.UnitOfWork;
+using MongoDBApp.Models;
 using System;
 
 namespace DAL.UnitOfWork
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork
     {
         private MongoDbContext db;
-        private IRepository<Department> departmentRepository;
-        private IRepository<Employee> employeeRepository;
-        private IRepository<Job> jobRepository;
-        private IRepository<Career> careerRepository;
-        private IRepository<Salary> salaryRepository;
+        private IRepository<Computer> computerRepository;
+
 
         public UnitOfWork()
         {
             db = new MongoDbContext();
         }
 
-        public IRepository<Department> Departments
+        public IRepository<Computer> Departments
         {
             get
             {
-                if (departmentRepository == null)
-                    departmentRepository = new DepartmentRepository(db);
-                return departmentRepository;
+                if (computerRepository == null)
+                    computerRepository = new ComputerRepository(db);
+                return computerRepository;
             }
         }
 
-        public IRepository<Job> Jobs
-        {
-            get
-            {
-                if (jobRepository == null)
-                    jobRepository = new JobRepository(db);
-                return jobRepository;
-            }
-        }
-
-        public IRepository<Employee> Employes
-        {
-            get
-            {
-                if (employeeRepository == null)
-                    employeeRepository = new EmployeeRepository(db);
-                return employeeRepository;
-            }
-        }
-
-        public IRepository<Career> Careers
-        {
-            get
-            {
-                if (careerRepository == null)
-                    careerRepository = new CareerRepository(db);
-                return careerRepository;
-            }
-        }
-
-        public IRepository<Salary> Salaries
-        {
-            get
-            {
-                if (salaryRepository == null)
-                    salaryRepository = new SalaryRepository(db);
-                return salaryRepository;
-            }
-        }
+       
 
         public void Save()
         {
