@@ -3,9 +3,11 @@ using DAL.Identity;
 using DAL.Interfaces;
 using DAL.Repositories;
 using Domain.Entities;
+using Domain.Interfaces.Repository;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,18 +16,18 @@ namespace DAL.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private ApplicationContext db;
+        private readonly DbContext _dbContext;
 
         private UserManager userManager;
         private RoleManager roleManager;
-        private IClientManager clientManager;
+        private IGenericRepository<ClientProfile> clientRepository;
 
-        public UnitOfWork(string connectionString)
+        public UnitOfWork(DbContext dbContext)
         {
-            db = new ApplicationContext(connectionString);
-            userManager = new UserManager(new UserStore<User>(db));
-            roleManager = new RoleManager(new RoleStore<Role>(db));
-            clientManager = new ClientManager(db);
+            _dbContext = dbContext;
+
+            userManager = new UserManager(new UserStore<User>(_dbContext));
+            roleManager = new RoleManager(new RoleStore<Role>(_dbContext));
         }
 
         public UserManager UserManager
@@ -33,9 +35,9 @@ namespace DAL.UnitOfWork
             get { return userManager; }
         }
 
-        public IClientManager ClientManager
+        public IGenericRepository<ClientProfile> Client
         {
-            get { return clientManager; }
+            get { return clientRepository; }
         }
 
         public RoleManager RoleManager
@@ -45,7 +47,7 @@ namespace DAL.UnitOfWork
 
         public async Task SaveAsync()
         {
-            await db.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
         }
 
         public void Dispose()
@@ -63,7 +65,7 @@ namespace DAL.UnitOfWork
                 {
                     userManager.Dispose();
                     roleManager.Dispose();
-                    clientManager.Dispose();
+                    clientRepository.Dispose();
                 }
                 this.disposed = true;
             }

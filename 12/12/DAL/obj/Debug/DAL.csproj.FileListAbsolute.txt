@@ -13,3 +13,4 @@ D:\AleksandrChechyotko\StLab2016\12\12\DAL\bin\Debug\Microsoft.AspNet.Identity.C
 D:\AleksandrChechyotko\StLab2016\12\12\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\AleksandrChechyotko\StLab2016\12\12\DAL\obj\Debug\DAL.dll
 D:\AleksandrChechyotko\StLab2016\12\12\DAL\obj\Debug\DAL.pdb
+D:\AleksandrChechyotko\StLab2016\12\12\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache

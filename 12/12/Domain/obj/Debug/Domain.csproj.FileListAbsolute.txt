@@ -11,3 +11,4 @@ D:\AleksandrChechyotko\StLab2016\12\12\Domain\bin\Debug\Microsoft.AspNet.Identit
 D:\AleksandrChechyotko\StLab2016\12\12\Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\AleksandrChechyotko\StLab2016\12\12\Domain\obj\Debug\Domain.dll
 D:\AleksandrChechyotko\StLab2016\12\12\Domain\obj\Debug\Domain.pdb
+D:\AleksandrChechyotko\StLab2016\12\12\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
