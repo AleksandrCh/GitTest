@@ -4,6 +4,7 @@ using DAL.Interfaces;
 using DAL.Repositories;
 using Domain.Entities;
 using Domain.Interfaces.Repository;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -30,17 +31,17 @@ namespace DAL.UnitOfWork
             roleManager = new RoleManager(new RoleStore<Role>(_dbContext));
         }
 
-        public UserManager UserManager
-        {
-            get { return userManager; }
-        }
-
-        public IGenericRepository<ClientProfile> Client
+        public IGenericRepository<ClientProfile> Clients
         {
             get { return clientRepository; }
         }
 
-        public RoleManager RoleManager
+        public UserManager<User> Users
+        {
+            get { return userManager; }
+        }
+
+        public RoleManager<Role> Roles
         {
             get { return roleManager; }
         }
@@ -65,7 +66,6 @@ namespace DAL.UnitOfWork
                 {
                     userManager.Dispose();
                     roleManager.Dispose();
-                    clientRepository.Dispose();
                 }
                 this.disposed = true;
             }

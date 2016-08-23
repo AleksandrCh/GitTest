@@ -7,7 +7,7 @@ namespace DAL.DataContext
 {
     public class ApplicationContext : IdentityDbContext<User>
     {
-        public ApplicationContext(string conectionString) : base(conectionString) { }
+        public ApplicationContext() : base("DefaultConnection") { }
 
         public DbSet<ClientProfile> ClientProfiles { get; set; }
     }

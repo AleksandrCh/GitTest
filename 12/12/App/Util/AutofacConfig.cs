@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using BLL.Interfaces;
+using BLL.Services;
 using DAL.DataContext;
 using DAL.Interfaces;
 using DAL.Repositories;
@@ -25,7 +27,7 @@ namespace App.Util
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             builder.RegisterType<ApplicationContext>().As<DbContext>().InstancePerRequest();
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>)).InstancePerRequest();
-
+            builder.RegisterType<UserService>().As<IUserService>().InstancePerRequest();
 
             var container = builder.Build();
 

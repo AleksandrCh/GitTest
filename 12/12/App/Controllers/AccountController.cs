@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BLL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,13 @@ namespace App.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: Account
+        private IUserService userServise;
+
+
         public ActionResult Login()
         {
+            
+
             return View();
         }
     }

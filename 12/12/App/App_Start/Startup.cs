@@ -15,10 +15,9 @@ namespace App.App_Start
 {
     public class Startup
     {
-        IServiceCreator serviceCreator = new ServiceCreator();
+
         public void Configuration(IAppBuilder app)
         {
-            app.CreatePerOwinContext<IUserService>(CreateUserService);
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
@@ -26,9 +25,5 @@ namespace App.App_Start
             });
         }
 
-        private IUserService CreateUserService()
-        {
-            return serviceCreator.CreateUserService("DefaultConnection");
-        }
     }
 }

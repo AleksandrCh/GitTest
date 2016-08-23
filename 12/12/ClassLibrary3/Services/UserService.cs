@@ -15,28 +15,26 @@ namespace BLL.Services
 {
     public class UserService : IUserService
     {
-        IUnitOfWork Database { get; set; }
+        private readonly IUnitOfWork _uow;
 
         public UserService(IUnitOfWork uow)
         {
-            Database = uow;
+            _uow = uow;
         }
 
         public async Task<OperationDetails> Create(UserDTO userDTO)
         {
-            User user = await Database.UserManager.FindByEmailAsync(userDTO.Email);
+            User user = await _uow.Users.FindByEmailAsync(userDTO.Email);
             if (user == null)
             {
                 user = new User { Email = userDTO.Email, UserName = userDTO.Email };
-                var result = await Database.UserManager.CreateAsync(user, userDTO.Password);
+                var result = await _uow.Users.CreateAsync(user, userDTO.Password);
                 if (result.Errors.Count() > 0)
                     return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
-                // добавляем роль
-                await Database.UserManager.AddToRoleAsync(user.Id, userDTO.Role);
-                // создаем профиль клиента
+                await _uow.Users.AddToRoleAsync(user.Id, userDTO.Role);
                 ClientProfile clientProfile = new ClientProfile { Id = user.Id, Address = userDTO.Address, Name = userDTO.Name };
-                Database.ClientManager.Create(clientProfile);
-                await Database.SaveAsync();
+                _uow.Clients.Create(clientProfile);
+                await _uow.SaveAsync();
                 return new OperationDetails(true, "Регистрация успешно пройдена", "");
             }
             else
@@ -48,25 +46,22 @@ namespace BLL.Services
         public async Task<ClaimsIdentity> Authenticate(UserDTO userDto)
         {
             ClaimsIdentity claim = null;
-            // находим пользователя
-            User user = await Database.UserManager.FindAsync(userDto.Email, userDto.Password);
-            // авторизуем его и возвращаем объект ClaimsIdentity
+            User user = await _uow.Users.FindAsync(userDto.Email, userDto.Password);
             if (user != null)
-                claim = await Database.UserManager.CreateIdentityAsync(user,
+                claim = await _uow.Users.CreateIdentityAsync(user,
                                             DefaultAuthenticationTypes.ApplicationCookie);
             return claim;
         }
 
-        // начальная инициализация бд
         public async Task SetInitialData(UserDTO adminDto, List<string> roles)
         {
             foreach (string roleName in roles)
             {
-                var role = await Database.RoleManager.FindByNameAsync(roleName);
+                var role = await _uow.Roles.FindByNameAsync(roleName);
                 if (role == null)
                 {
                     role = new Role { Name = roleName };
-                    await Database.RoleManager.CreateAsync(role);
+                    await _uow.Roles.CreateAsync(role);
                 }
             }
             await Create(adminDto);
@@ -74,7 +69,7 @@ namespace BLL.Services
 
         public void Dispose()
         {
-            Database.Dispose();
+            _uow.Dispose();
         }
     }
 }
