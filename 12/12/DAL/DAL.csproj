@@ -58,8 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContext\ApplicationContext.cs" />
-    <Compile Include="Identity\RoleManager.cs" />
-    <Compile Include="Identity\UserManager.cs" />
+    <Compile Include="DataInitializer\ApplicationDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />

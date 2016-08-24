@@ -1,16 +1,9 @@
-﻿using DAL.DataContext;
-using DAL.Identity;
-using DAL.Interfaces;
+﻿using DAL.Interfaces;
 using DAL.Repositories;
 using Domain.Entities;
 using Domain.Interfaces.Repository;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL.UnitOfWork
@@ -19,31 +12,23 @@ namespace DAL.UnitOfWork
     {
         private readonly DbContext _dbContext;
 
-        private UserManager userManager;
-        private RoleManager roleManager;
-        private IGenericRepository<ClientProfile> clientRepository;
+        private IGenericRepository<ClientProfile> _clientRepository;
 
         public UnitOfWork(DbContext dbContext)
         {
             _dbContext = dbContext;
-
-            userManager = new UserManager(new UserStore<User>(_dbContext));
-            roleManager = new RoleManager(new RoleStore<Role>(_dbContext));
         }
 
         public IGenericRepository<ClientProfile> Clients
         {
-            get { return clientRepository; }
-        }
-
-        public UserManager<User> Users
-        {
-            get { return userManager; }
-        }
-
-        public RoleManager<Role> Roles
-        {
-            get { return roleManager; }
+            get
+            {
+                if (_clientRepository == null)
+                {
+                    _clientRepository = new GenericRepository<ClientProfile>(_dbContext);
+                }
+                return _clientRepository;
+            }
         }
 
         public async Task SaveAsync()
@@ -64,8 +49,6 @@ namespace DAL.UnitOfWork
             {
                 if (disposing)
                 {
-                    userManager.Dispose();
-                    roleManager.Dispose();
                 }
                 this.disposed = true;
             }

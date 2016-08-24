@@ -17,6 +17,6 @@ namespace Domain.Entities
         public string Name { get; set; }
         public string Address { get; set; }
 
-        public virtual User ApplicationUser { get; set; }
+        public virtual User User { get; set; }
     }
 }

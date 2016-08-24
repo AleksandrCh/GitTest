@@ -1,0 +1,40 @@
+﻿header {
+    background: #1d1d1d;
+    height: 60px;
+    width: 100%;
+}
+
+    header .header-container {
+        width: 1024px;
+        margin: 0 auto;
+        line-height: 80px;
+        color: #fff;
+    }
+
+.header-container .account-header {
+
+}
+
+.account-header .account {
+    list-style: none;
+    float: right;
+    padding-right: 30px;
+}
+
+.account li {
+    float: left;
+    margin-right: 20px;
+}
+
+.account li:last-child{
+    margin-right: 0;
+}
+
+    .account li a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+        .account li a:hover {
+            text-decoration: underline;
+        }

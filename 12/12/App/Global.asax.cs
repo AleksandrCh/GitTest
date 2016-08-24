@@ -12,7 +12,7 @@ namespace App
     {
         protected void Application_Start()
         {
-            //AutofacConfig.ConfigureContainer();
+            AutofacConfig.ConfigureContainer();
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
