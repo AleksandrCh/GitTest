@@ -1,16 +1,11 @@
-﻿using DAL.Interfaces;
-using Domain.Interfaces.Repository;
-using System;
-using System.Collections.Generic;
+﻿using Domain.Interfaces;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T>
-        where T: class
+        where T : class
     {
         private readonly DbContext _database;
 
@@ -24,7 +19,7 @@ namespace DAL.Repositories
             return _database.Set<T>();
         }
 
-        public T Get(int id)
+        public T Get(string id)
         {
             return _database.Set<T>().Find(id);
         }
@@ -36,11 +31,10 @@ namespace DAL.Repositories
 
         public void Update(T item)
         {
-            var data = _database.Set<T>();
-            _database.Entry(data).State = EntityState.Modified;
+            _database.Entry(item).State = EntityState.Modified;
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             var data = _database.Set<T>();
             T item = data.Find(id);
