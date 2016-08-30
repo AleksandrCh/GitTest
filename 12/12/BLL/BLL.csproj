@@ -88,12 +88,14 @@
   <ItemGroup>
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Infrastructure\OperationDetails.cs" />
+    <Compile Include="Intefaces\IPostService.cs" />
     <Compile Include="Intefaces\IProfileService.cs" />
     <Compile Include="Intefaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\ApplicationRoleManager.cs" />
     <Compile Include="Security\ApplicationUserManager.cs" />
     <Compile Include="Servises\EmailService.cs" />
+    <Compile Include="Servises\PostService.cs" />
     <Compile Include="Servises\ProfileService.cs" />
     <Compile Include="Servises\UserService.cs" />
   </ItemGroup>

@@ -306,3 +306,9 @@ D:\AleksandrChechyotko\StLab2016\12\12\Application\bin\ru\System.Web.Mvc.resourc
 D:\AleksandrChechyotko\StLab2016\12\12\Application\obj\Debug\Application.csprojResolveAssemblyReference.cache
 D:\AleksandrChechyotko\StLab2016\12\12\Application\obj\Debug\Application.dll
 D:\AleksandrChechyotko\StLab2016\12\12\Application\obj\Debug\Application.pdb
+D:\AleksandrChechyotko\StLab2016\12\12\Application\bin\System.Net.Http.Formatting.dll
+D:\AleksandrChechyotko\StLab2016\12\12\Application\bin\System.Web.Http.dll
+D:\AleksandrChechyotko\StLab2016\12\12\Application\bin\System.Web.Http.WebHost.dll
+D:\AleksandrChechyotko\StLab2016\12\12\Application\bin\System.Net.Http.Formatting.xml
+D:\AleksandrChechyotko\StLab2016\12\12\Application\bin\System.Web.Http.xml
+D:\AleksandrChechyotko\StLab2016\12\12\Application\bin\System.Web.Http.WebHost.xml
