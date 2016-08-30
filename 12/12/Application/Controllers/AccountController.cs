@@ -118,7 +118,7 @@ namespace Application.Controllers
                     return View("ForgotPasswordConfirmation");
                 }
                 string code = await _userService.GeneratePasswordResetTokenAsync(user.Id);
-                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { code = code }, protocol: Request.Url.Scheme);
                 _userService.SendEmail(user.Id, "Сброс пароля", "Для сброса пароля, перейдите по ссылке <a href=\"" + callbackUrl + "\">сбросить</a>");
 
                 return View("ForgotPasswordConfirmation");
@@ -128,13 +128,12 @@ namespace Application.Controllers
 
 
         [AllowAnonymous]
-        public ActionResult ResetPassword(string userId, string code)
+        public ActionResult ResetPassword(string code)
         {
             ResetPasswordViewModel model = new ResetPasswordViewModel();
-            model.Id = userId;
-            model.Code = code;
             if (code != null)
             {
+                model.Code = code;
                 return View("ResetPassword", model);
             }
 
@@ -147,7 +146,7 @@ namespace Application.Controllers
         {
             if (model.NewPassword == model.ConfirmPassword)
             {
-                OperationDetails details = await _userService.ResetPassword(model.Id, model.Code, model.NewPassword);
+                OperationDetails details = await _userService.ResetPassword(model.Email, model.Code, model.NewPassword);
 
                 if (details.Succedeed)
                 {

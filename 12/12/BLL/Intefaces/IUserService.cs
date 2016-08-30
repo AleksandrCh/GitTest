@@ -19,6 +19,6 @@ namespace BLL.Intefaces
         Task<bool> IsEmailConfirmedAsync(string id);
         Task<string> GeneratePasswordResetTokenAsync(string id);
         Task<bool> IsLockout(string name);
-        Task<OperationDetails> ResetPassword(string id, string code, string password);
+        Task<OperationDetails> ResetPassword(string email, string code, string password);
     }
 }

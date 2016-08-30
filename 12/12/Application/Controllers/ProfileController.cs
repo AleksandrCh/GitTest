@@ -145,10 +145,10 @@ namespace Application.Controllers
                 var user = await _userService.FindByNameAsync(email);
                 if (user == null)
                 {
-                    return View("ForgotPasswordConfirmation");
+                    return View("Index");
                 }
                 string code = await _userService.GeneratePasswordResetTokenAsync(user.Id);
-                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { code = code }, protocol: Request.Url.Scheme);
                 _userService.SendEmail(user.Id, "Сброс пароля", "Для сброса пароля, перейдите по ссылке <a href=\"" + callbackUrl + "\">сбросить</a>");
             }
             return RedirectToAction("Index");

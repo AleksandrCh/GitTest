@@ -86,9 +86,9 @@ namespace BLL.Servises
             return await _userManager.GeneratePasswordResetTokenAsync(id);
         }
 
-        public async Task<OperationDetails> ResetPassword(string id, string code, string password)
+        public async Task<OperationDetails> ResetPassword(string email, string code, string password)
         {
-            ApplicationUser user = await _userManager.FindByIdAsync(id);
+            ApplicationUser user = await _userManager.FindByNameAsync(email);
             if (user == null)
             {
                 return new OperationDetails(false, UserNotFound, "password");

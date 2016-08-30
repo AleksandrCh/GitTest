@@ -4,8 +4,11 @@ namespace Application.Models
 {
     public class ResetPasswordViewModel
     {
-        public string Id { get; set; }
         public string Code { get; set; }
+        [Required]
+        [Display(Name = "Email")]
+        [EmailAddress]
+        public string Email { get; set; }
         [Required]
         [StringLength(100, ErrorMessage = "Значение {0} должно содержать символов не менее: {2}.", MinimumLength = 4)]
         [DataType(DataType.Password)]
