@@ -1,0 +1,5 @@
+D:\AleksandrChechyotko\StLab2016\10\10\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+D:\AleksandrChechyotko\StLab2016\10\10\Domain\bin\Debug\Domain.dll
+D:\AleksandrChechyotko\StLab2016\10\10\Domain\bin\Debug\Domain.pdb
+D:\AleksandrChechyotko\StLab2016\10\10\Domain\obj\Debug\Domain.dll
+D:\AleksandrChechyotko\StLab2016\10\10\Domain\obj\Debug\Domain.pdb
