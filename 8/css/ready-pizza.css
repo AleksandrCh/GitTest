@@ -1,0 +1,135 @@
+.ready-pizza {
+    padding: 55px 0 0 0;
+    background: #3b3b3b;
+}
+
+.ready-pizza .pizza-item {
+    padding: 30px;
+    box-sizing: border-box;
+
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.pizza-item .pizza-photo {
+    width: 30%;
+    float: left;
+}
+
+.pizza-item .pizza-photo img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.61);
+}
+
+.pizza-item .pizza-info {
+    font-family: Arial;
+    float: left;
+    width: 70%;
+    padding-left: 40px;
+    box-sizing: border-box;
+}
+
+.pizza-info .pizza-title {
+    margin-top: 40px;
+    font-size: 30px;
+    color: #3b3b3b;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.pizza-info .pizza-desc {
+    color: #525252;
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+.pizza-info .pizza-price-wrap {
+    position: absolute;
+    top: 20px;
+    left: 100%;
+}
+
+.pizza-info .pizza-price {
+    background: #3b3b3b;
+    display: block;
+    height: 50px;
+    color: #fff;
+    font-size: 20px;
+    line-height: 50px;
+    border-radius: 50px;
+    padding: 0 20px;
+    position: relative;
+    left: -100%;
+    margin-right: 25px;
+}
+
+.pizza-info .pizza-add-button {
+    display: block;
+    float: right;
+    margin-top: 75px;
+    margin-left: 50px;
+    background: #2fc340;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.pizza-info .pizza-add-button:hover {
+    background: green;
+}
+
+.pizza-amount {
+    height: 35px;
+    float: right;
+    margin-top: 80px;
+    margin-left: 50px;
+}
+
+.pizza-amount .pizza-increase-button, 
+.pizza-amount .pizza-reduce-button {
+    font-size: 35px;
+    background: none;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    outline: none;
+    border: none;
+    color: #6c6c6c;
+    cursor: pointer;
+}
+
+.pizza-amount .pizza-increase-button {
+    margin-left: 25px;
+}
+
+.pizza-amount .pizza-reduce-button {
+    margin-right: 25px;
+}
+
+.pizza-amount .pizza-increase-button:hover {
+    color: #00c900;
+}
+
+.pizza-amount .pizza-reduce-button:hover {
+    color: red;
+}
+
+.pizza-amount .amount-pizza {
+    box-sizing: border-box;
+    border: 1px solid #eaeaea;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    color: #696969;
+    position: relative;
+    top: -7px;
+    outline: none;
+    font-size: 20px;
+    font-weight: bold;
+}
