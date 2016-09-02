@@ -55,7 +55,6 @@ namespace BLL.Servises
             ApplicationUser user = await _userManager.FindAsync(userDto.Email, userDto.Password);
             if (user != null)
             {
-
                 claim = await _userManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             }
             return claim;

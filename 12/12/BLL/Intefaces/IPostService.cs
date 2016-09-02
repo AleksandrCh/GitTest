@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,13 @@ namespace BLL.Intefaces
 {
     public interface IPostService
     {
+        IEnumerable<Post> GetPosts();
+        Task CreatePost(Post post);
+        Task UpdatePost(Post post);
+        Task DeletePost(int id);
+        Task PutLike(int id);
+        Post GetPostById(int postId);
+        IEnumerable<Post> GetPostsFromCategory(int categoryId);
+        IEnumerable<Post> GetUserPosts(string userId);
     }
 }

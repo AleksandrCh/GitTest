@@ -5,6 +5,7 @@
 
 <div class="account-container">
     <div class="account-title">Login</div>
+    <div class="account-form">
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "app-form" }))
     {
         @Html.AntiForgeryToken()
@@ -29,4 +30,5 @@
             @*Html.ActionLink("Зарегистрироваться", "Register", new { @class = "form-link" })*@
         </div>
     }
+    </div>
 </div>

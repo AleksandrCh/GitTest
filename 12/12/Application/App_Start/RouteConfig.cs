@@ -14,6 +14,11 @@ namespace Application
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                "Category",
+                "Category/{categoryId}",
+                new { controller = "Home", action = "Category" }
+            );
         }
     }
 }

@@ -54,3 +54,17 @@ D:\AleksandrChechyotko\StLab2016\12\12\Domain\bin\Debug\Microsoft.AspNet.Identit
 D:\AleksandrChechyotko\StLab2016\12\12\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
 D:\AleksandrChechyotko\StLab2016\12\12\Domain\obj\Debug\Domain.dll
 D:\AleksandrChechyotko\StLab2016\12\12\Domain\obj\Debug\Domain.pdb
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\Domain.dll.config
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\Domain.dll
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\Domain.pdb
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\EntityFramework.dll
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\EntityFramework.SqlServer.dll
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\EntityFramework.xml
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\EntityFramework.SqlServer.xml
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+D:\StLab2016\StLab2016\12\12\Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\StLab2016\StLab2016\12\12\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+D:\StLab2016\StLab2016\12\12\Domain\obj\Debug\Domain.dll
+D:\StLab2016\StLab2016\12\12\Domain\obj\Debug\Domain.pdb

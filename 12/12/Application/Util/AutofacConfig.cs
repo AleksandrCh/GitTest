@@ -53,6 +53,10 @@ namespace Application.Util
         {
             builder.RegisterType<UserService>().As<IUserService>().InstancePerRequest();
             builder.RegisterType<ProfileService>().As<IProfileService>().InstancePerRequest();
+            builder.RegisterType<PostService>().As<IPostService>().InstancePerRequest();
+            builder.RegisterType<CommentService>().As<ICommentService>().InstancePerRequest();
+            builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerRequest();
+            builder.RegisterType<TagService>().As<ITagService>().InstancePerRequest();
         }
 
         private static void RegisterManagers(ContainerBuilder builder)

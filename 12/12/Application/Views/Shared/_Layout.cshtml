@@ -10,6 +10,8 @@
     <link href="~/Content/css/account/account.css" rel="stylesheet" />
     <link href="~/Content/css/manage/manage.css" rel="stylesheet" />
     <link href="~/Content/css/manage/userList.css" rel="stylesheet" />
+    <link href="~/Content/css/post/post.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/ckeditor/ckeditor.js"></script>
 </head>
 <body>
     <header>
@@ -17,6 +19,11 @@
             <div class="header-nav">
                 <ul class="header-nav-list">
                     <li class="header-nav-item">@Html.ActionLink("Главная", "Index", "Home", null, new { @class = "header-nav-link" })</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li class="header-nav-item">@Html.ActionLink("Мои статьи", "Index", "Post", null, new { @class = "header-nav-link" })</li>
+                        <li class="header-nav-item">@Html.ActionLink("Написать статью", "Create", "Post", null, new { @class = "header-nav-link" })</li>
+                    }
                 </ul>
             </div>
             <div class="header-account">
@@ -25,7 +32,7 @@
         </div>
     </header>
 
-    <div class="content-container">
+    <div class="content-container clearfix">
         @RenderBody()
     </div>
     <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
