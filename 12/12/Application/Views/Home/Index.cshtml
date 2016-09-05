@@ -1,0 +1,45 @@
+﻿@model Application.Models.PostModels.ListViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="blog-container">
+    <div class="filter-container clearfix">
+        <div class="filter">
+            <a class="filter-link" href="@Url.Action("Index", new { filter = "DateDesc" })">По дате+</a>
+        </div>
+        <div class="filter">
+            <a class="filter-link" href="@Url.Action("Index", new { filter = "Date" })">По дате-</a>
+        </div>
+        <div class="filter">
+            <a class="filter-link" href="@Url.Action("Index", new { filter = "LikesDesc" })">По лайкам+</a>
+        </div>
+        <div class="filter">
+            <a class="filter-link" href="@Url.Action("Index", new { filter = "Likes" })">По лайкам-</a>
+        </div>
+    </div>
+    @foreach (var post in Model.Posts)
+    {
+        <div class="blog-post">
+            <div class="post-info clearfix">
+                <div class="post-col">@post.User.Email</div>
+                <div class="post-col">@post.AddedOn.ToString("dd.MM.yyyy")</div>
+            </div>
+            <div class="post-title"><a class="post-title-link" href="@Url.Action("Open", "Post", new { postId = post.Id})">@post.Title</a></div>
+            <div class="tag-list"></div>
+            <div class="post-short-desc clearfix">@MvcHtmlString.Create(post.ShortDescription)</div>
+            <div class="like-container clearfix">
+                <div class="like-count">@post.Likes Лайков</div>
+            </div>
+        </div>
+    }
+</div>
+<div class="blog-nav">
+    <ul class="blog-nav-list">     
+        @foreach (var category in Model.Category)
+        {
+            <li class="blog-nav-item"><a class="blog-nav-link" href="@Url.Action("Category", "Home", new { categoryId = category.Id })">@category.Name</a></li>   
+        }
+     </ul>
+</div>
+
