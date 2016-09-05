@@ -11,12 +11,9 @@ namespace Domain.Entities
         [Required]
         public string Title { get; set; }
         [Required]
-        public string ShortTitle { get; set; }
-        [Required]
         public string Description { get; set; }
         [Required]
         public string ShortDescription { get; set; }
-        public string Author { get; set; }
         public DateTime AddedOn { get; set; }
         public DateTime? PostedOn { get; set; } 
         public bool Published { get; set; }

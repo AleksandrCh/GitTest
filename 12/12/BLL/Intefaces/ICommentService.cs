@@ -1,8 +1,7 @@
-﻿using Domain.Entities;
-using System;
+﻿using BLL.DTO;
+using BLL.Infrastructure;
+using Domain.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL.Intefaces
@@ -10,5 +9,7 @@ namespace BLL.Intefaces
     public interface ICommentService
     {
         IEnumerable<Comment> GetComments();
+        IEnumerable<Comment> GetCommentsByPostId(int postId);
+        Task<OperationDetails> AddComment(CommentDTO commentDTO);
     }
 }

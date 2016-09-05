@@ -1,17 +1,25 @@
-﻿@foreach (var post in Model.Posts)
-{
-    <div class="blog-post">
-        <div class="post-title"><a class="post-title-link" href="@Url.Action("Open", "Post", new { postId = post.Id})">@post.Title</a></div>
-        <div class="post-info clearfix">
-            <div class="post-author">@post.Author</div>
-            <div class="post-date">@post.AddedOn</div>
-        </div>
-        <div class="post-short-desc clearfix">@MvcHtmlString.Create(post.ShortDescription)</div>
-        <div class="like-container clearfix">
-            <div class="like-count">@post.Likes</div>
-            <div class="like-put">
-                <a href="#" class="like-put-button">like</a>
+﻿@model Application.Models.PostModels.ListViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="blog-container">
+    @ViewBag.Error
+    @foreach (var post in Model.Posts)
+    {
+        <div class="blog-post">
+            <div class="post-info clearfix">
+                <div class="post-author">Alesandr</div>
+                <div class="post-date">@post.AddedOn.ToString("dd.MM.yyyy")</div>
+                <div class="post-date"><a href="@Url.Action("EditPost", "Post", new { postId = post.Id})">Редактировать</a></div>
+                <div class="post-date"><a href="@Url.Action("DeletePost", "Post", new { postId = post.Id})">Удалить</a></div>
+            </div>
+            <div class="post-title"><a class="post-title-link" href="@Url.Action("Open", "Post", new { postId = post.Id})">@post.Title</a></div>
+            <div class="tag-list"></div>
+            <div class="post-short-desc clearfix">@MvcHtmlString.Create(post.ShortDescription)</div>
+            <div class="like-container clearfix">
+                <div class="like-count">@post.Likes Лайков</div>
             </div>
         </div>
-    </div>
-}
+    }
+</div>

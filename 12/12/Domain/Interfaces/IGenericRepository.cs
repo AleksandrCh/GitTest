@@ -6,9 +6,9 @@ namespace Domain.Interfaces
         where T : class
     {
         IQueryable<T> GetAll();
-        T Get(string id);
+        T Get(int id);
         void Create(T item);
         void Update(T item);
-        void Delete(string id);
+        void Delete(int id);
     }
 }

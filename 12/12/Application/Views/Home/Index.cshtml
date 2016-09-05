@@ -4,31 +4,42 @@
 }
 
 <div class="blog-container">
+    <div class="filter-container clearfix">
+        <div class="filter">
+            <a class="filter-link" href="@Url.Action("Index", new { filter = "DateDesc" })">По дате+</a>
+        </div>
+        <div class="filter">
+            <a class="filter-link" href="@Url.Action("Index", new { filter = "Date" })">По дате</a>
+        </div>
+        <div class="filter">
+            <a class="filter-link" href="@Url.Action("Index", new { filter = "LikesDesc" })">По лайкам+</a>
+        </div>
+        <div class="filter">
+            <a class="filter-link" href="@Url.Action("Index", new { filter = "Likes" })">По лайкам-</a>
+        </div>
+    </div>
     @foreach (var post in Model.Posts)
     {
         <div class="blog-post">
-            <div class="post-title"><a class="post-title-link" href="@Url.Action("Open", "Post", new { postId = post.Id})">@post.Title</a></div>
             <div class="post-info clearfix">
-                <div class="post-author">@post.Author</div>
-                <div class="post-date">@post.AddedOn</div>
+                <div class="post-author">Alesandr</div>
+                <div class="post-date">@post.AddedOn.ToString("dd.MM.yyyy")</div>
             </div>
+            <div class="post-title"><a class="post-title-link" href="@Url.Action("Open", "Post", new { postId = post.Id})">@post.Title</a></div>
+            <div class="tag-list"></div>
             <div class="post-short-desc clearfix">@MvcHtmlString.Create(post.ShortDescription)</div>
             <div class="like-container clearfix">
-                <div class="like-count">@post.Likes</div>
-                <div class="like-put">
-                    <a href="#" class="like-put-button">like</a>
-                </div>
+                <div class="like-count">@post.Likes Лайков</div>
             </div>
         </div>
     }
 </div>
 <div class="blog-nav">
-    <ul>
-      
-    @foreach (var category in Model.Category)
-    {
-        <li><a href="@Url.Action("Category", "Home", new { categoryId = category.Id })">@category.Name</a></li>   
-    }
+    <ul class="blog-nav-list">     
+        @foreach (var category in Model.Category)
+        {
+            <li class="blog-nav-item"><a class="blog-nav-link" href="@Url.Action("Category", "Home", new { categoryId = category.Id })">@category.Name</a></li>   
+        }
      </ul>
 </div>
 

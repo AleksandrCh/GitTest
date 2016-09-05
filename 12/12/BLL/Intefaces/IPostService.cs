@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using BLL.Infrastructure;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace BLL.Intefaces
         IEnumerable<Post> GetPosts();
         Task CreatePost(Post post);
         Task UpdatePost(Post post);
-        Task DeletePost(int id);
+        Task<OperationDetails> DeletePost(int id, string userId);
         Task PutLike(int id);
         Post GetPostById(int postId);
         IEnumerable<Post> GetPostsFromCategory(int categoryId);

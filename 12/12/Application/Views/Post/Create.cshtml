@@ -8,20 +8,14 @@
             @Html.TextBoxFor(m => m.Title, new { @class = "form-input", placeholder = "Название статьи" })
             @Html.ValidationMessageFor(m => m.Title, "", new { @class = "form-text-danger" })
         </div>
-        <div class="post-title form-group">
-            @Html.TextBoxFor(m => m.ShortTitle, new { @class = "form-input", placeholder = "Короткое название статьи" })
-            @Html.ValidationMessageFor(m => m.ShortTitle, "", new { @class = "form-text-danger" })
-        </div>
         <div class="form-group">
             @if (ViewBag.Categories.Count != 0)
             {
-                @Html.DropDownListFor(m => m.Category, new SelectList(ViewBag.Categories))
+                @Html.DropDownListFor(m => m.Category, new SelectList(ViewBag.Categories, "Id", "Name", 1))
             }
         </div>
-        <div class="form-group">
-            @*Html.ListBoxFor(m => m.Tags, new MultiSelectList(ViewBag.TagList)*@
-        </div>
         <div class="post-desc form-group">
+            @Html.LabelFor(m =>m.ShortDescription, "Короткое описание статьи")
             @Html.TextAreaFor(m => m.ShortDescription, new { @id = "shortDescEditor" })
             @Html.ValidationMessageFor(m => m.ShortDescription, "", new { @class = "form-text-danger" })
             <script>
@@ -29,6 +23,7 @@
             </script>
         </div>
         <div class="post-desc form-group">
+            @Html.LabelFor(m => m.Description, "Полная статья")
             @Html.TextAreaFor(m => m.Description, new { @id = "bodyEditor" })
             @Html.ValidationMessageFor(m => m.Description, "", new { @class = "form-text-danger" })
             <script>

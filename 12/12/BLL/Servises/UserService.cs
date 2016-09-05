@@ -35,7 +35,14 @@ namespace BLL.Servises
             ApplicationUser user = await _userManager.FindByEmailAsync(userDTO.Email);
             if (user == null)
             {
-                user = new ApplicationUser { Email = userDTO.Email, UserName = userDTO.Email };
+                user = new ApplicationUser {
+                    Email = userDTO.Email,
+                    UserName = userDTO.Email,
+                    FirstName = userDTO.FirstName,
+                    LastName = userDTO.LastName,
+                    DateOfBirth = userDTO.DateOfBirth,
+                    PhoneNumber = userDTO.PhoneNumber
+                };
                 var result = await _userManager.CreateAsync(user, userDTO.Password);
                 if (!result.Succeeded)
                 {
@@ -104,6 +111,11 @@ namespace BLL.Servises
         {
             ApplicationUser user = await _userManager.FindByNameAsync(name);
             return await _userManager.IsLockedOutAsync(user.Id);
+        }
+
+        public async Task<ApplicationUser> FindByIdAsync(string id)
+        {
+            return await _userManager.FindByIdAsync(id);
         }
     }
 }

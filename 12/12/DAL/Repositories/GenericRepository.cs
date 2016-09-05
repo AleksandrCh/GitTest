@@ -19,7 +19,7 @@ namespace DAL.Repositories
             return _database.Set<T>();
         }
 
-        public T Get(string id)
+        public T Get(int id)
         {
             return _database.Set<T>().Find(id);
         }
@@ -34,7 +34,7 @@ namespace DAL.Repositories
             _database.Entry(item).State = EntityState.Modified;
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             var data = _database.Set<T>();
             T item = data.Find(id);

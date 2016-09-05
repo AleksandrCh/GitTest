@@ -2,7 +2,9 @@
 using Domain.Entities;
 using Domain.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Threading.Tasks;
 
 namespace DAL.UnitOfWork
@@ -62,7 +64,22 @@ namespace DAL.UnitOfWork
 
         public async Task SaveAsync()
         {
-            await _dbContext.SaveChangesAsync();
+            List<string> errors = new List<string>();
+            try
+            {
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
+                {
+                    errors.Add("Object: " + validationError.Entry.Entity.ToString());
+                    foreach (DbValidationError err in validationError.ValidationErrors)
+                    {
+                        errors.Add(err.ErrorMessage + "");
+                    }
+                }
+            }
         }
 
         public void Dispose()

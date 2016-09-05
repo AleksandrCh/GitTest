@@ -1,4 +1,5 @@
 ﻿using Application.Models.PostModels;
+using BLL.DTO;
 using BLL.Intefaces;
 using Domain.Entities;
 using System;
@@ -26,15 +27,39 @@ namespace Application.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult Index()
+        public ActionResult Index(string filter)
         {
             ListViewModel model = new ListViewModel();
-            model.Posts = _postService.GetPosts().ToList<Post>();
+            model.Posts = _postService.GetPosts()
+                .OrderByDescending(m => m.AddedOn).ToList<Post>();
             model.Category = _categoryService.GetCategories().ToList();
+
+            if (filter != null)
+            {
+                switch (filter)
+                {
+                    case "DateDesc":
+                        model.Posts = model.Posts.OrderByDescending(m => m.AddedOn).ToList();
+                        break;
+                    case "Date":
+                        model.Posts = model.Posts.OrderBy(m => m.AddedOn).ToList();
+                        break;
+                    case "LikesDesc":
+                        model.Posts = model.Posts.OrderByDescending(m => m.Likes).ToList();
+                        break;
+                    case "Likes":
+                        model.Posts = model.Posts.OrderByDescending(m => m.Likes).ToList();
+                        break;
+                    default:
+                        model.Posts = model.Posts.OrderByDescending(m => m.AddedOn).ToList();
+                        break;
+                }
+            }
 
             return View(model);
         }
 
+        [AllowAnonymous]
         public ViewResult Category(int categoryId)
         {
             ListViewModel model = new ListViewModel();

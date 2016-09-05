@@ -1,5 +1,4 @@
 ﻿.blog-container {
-    margin-top: 60px;
     float: left;
     width: 80%;
 }
@@ -7,15 +6,72 @@
 .blog-nav {
     float:left;
     width: 20%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.blog-nav .blog-nav-list{
+    list-style: none;
+    background:#fff;
+}
+
+.blog-nav-list .blog-nav-item{
+    border-bottom: 1px solid #dedede;
+}
+
+.blog-nav-list .blog-nav-item:last-child{
+    border-bottom: none;
+}
+
+.blog-nav-item .blog-nav-link {
+    display: block;
+    text-decoration: none;
+    color: #202125;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+.blog-nav-item .blog-nav-link:hover{
+    color: red;
 }
 
 .blog-container .blog-post{
-    padding: 20px;
     margin-bottom: 40px;
+    background: #fff;
 }
 
+.blog-container .blog-post img {
+    width: 100%;
+}
+
+.filter-container {
+    height: 30px;
+    line-height: 30px;
+    margin: 15px 0;
+    background: #fff;
+}
+
+.filter-container .filter {
+    float: left;
+    padding: 0 10px;
+}
+
+.filter-container .filter-link {
+    color: #202125;
+    text-decoration: none;
+}
+
+.filter-container .filter-link:hover {
+    text-decoration: underline;
+}
+
+
 .blog-post .post-title {
-    line-height: 20px;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dedede;
+    border-top: 1px solid #dedede;
 }
 
 .post-title .post-title-link {
@@ -31,23 +87,39 @@
 .blog-post .post-info {
     height: 20px;
     line-height: 20px;
+    padding-top: 10px;
 }
 
 .blog-post .post-short-desc{
     padding-left: 20px;
+    margin-top: 30px;
 }
 
 .post-info .post-author,
 .post-info .post-date,
 .like-container .like-count,
-.like-container .like-put{
+.like-container .like-put,
+#like-count{
     float: left;
     margin-right: 30px;
     font-size:20px;
 }
 
+.post-info .post-author,
+.post-info .post-date {
+    color: #808080;
+}
+
+.like-container .like-count,
+.like-container .like-put,
+#like-count {
+    color: #fff;
+}
+
 .like-container{
-    background: #eaeaea;
+    margin-top: 20px;
+    background: #202125;
+    padding: 10px;
 }
 
 .post-container {
@@ -68,7 +140,16 @@
 
 .post-container .post-description {
     font-size: 20px;
+    margin-top: 20px;
 }
 
+.put-like {
+    text-decoration:none;
+    color: #fff;
+    float: left;
+}
 
+.put-like:hover{
+    text-decoration: underline;
+}
 

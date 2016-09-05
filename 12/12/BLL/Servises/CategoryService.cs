@@ -22,5 +22,11 @@ namespace BLL.Servises
         {
             return _uow.Categories.GetAll().ToArray();
         }
+
+        public Category GetCategoryById(int id)
+        {
+            Category category = _uow.Categories.Get(id);
+            return category;
+        }
     }
 }

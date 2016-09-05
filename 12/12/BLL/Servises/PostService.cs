@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities;
 using Domain.Interfaces;
+using BLL.DTO;
+using BLL.Infrastructure;
 
 namespace BLL.Servises
 {
@@ -22,13 +24,25 @@ namespace BLL.Servises
 
         public async Task CreatePost(Post post)
         {
-            _uow.Posts.Create(post);
+             _uow.Posts.Create(post);
             await _uow.SaveAsync();
         }
 
-        public Task DeletePost(int id)
+        public async Task<OperationDetails> DeletePost(int postId, string userId)
         {
-            throw new NotImplementedException();
+            Post post = _uow.Posts.GetAll()
+                .Where(p => p.Id == postId && p.UserId == userId)
+                .FirstOrDefault();
+
+            if (post != null)
+            {
+                _uow.Posts.Delete(postId);
+                await _uow.SaveAsync();
+
+                return new OperationDetails(true, "Удаление прошло успешно", "");
+            }
+
+            return new OperationDetails(false, "Нет прав на удаление", "");
         }
 
         public Post GetPostById(int postId)
@@ -71,9 +85,10 @@ namespace BLL.Servises
             await _uow.SaveAsync();
         }
 
-        public Task UpdatePost(Post post)
+        public async Task UpdatePost(Post post)
         {
-            throw new NotImplementedException();
+            _uow.Posts.Update(post);
+            await _uow.SaveAsync();
         }
     }
 }

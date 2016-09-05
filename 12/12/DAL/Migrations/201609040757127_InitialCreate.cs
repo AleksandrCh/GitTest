@@ -3,7 +3,7 @@ namespace DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Migrations : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -22,10 +22,8 @@ namespace DAL.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(nullable: false),
-                        ShortTitle = c.String(nullable: false),
                         Description = c.String(nullable: false),
                         ShortDescription = c.String(nullable: false),
-                        Author = c.String(),
                         AddedOn = c.DateTime(nullable: false),
                         PostedOn = c.DateTime(),
                         Published = c.Boolean(nullable: false),
