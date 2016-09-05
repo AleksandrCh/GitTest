@@ -456,7 +456,6 @@
     <Compile Include="Models\PostModels\ListViewModel.cs" />
     <Compile Include="Models\PostModels\OpenPostViewModel.cs" />
     <Compile Include="Models\PostModels\PostViewModel.cs" />
-    <Compile Include="Models\PostModels\TagViewModel.cs" />
     <Compile Include="Models\ProfileModels\ChangePasswordViewModel.cs" />
     <Compile Include="Models\AccountModels\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\AccountModels\LoginViewModel.cs" />

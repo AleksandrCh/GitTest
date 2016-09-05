@@ -1,9 +1,8 @@
 ﻿using Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace Application.Models.PostModels
 {
@@ -12,10 +11,10 @@ namespace Application.Models.PostModels
         [Required]
         public string Title { get; set; }
         [Required]
+        [DefaultValue(1)]
         public int Category { get; set; } 
         [Required]
-        public IEnumerable<TagViewModel> Tags { get; set; }
-        [Required]
+        [MinLength(10)]
         public string ShortDescription { get; set; }
         [Required]
         public string Description { get; set; }

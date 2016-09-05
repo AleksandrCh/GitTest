@@ -9,7 +9,7 @@
             <a class="filter-link" href="@Url.Action("Index", new { filter = "DateDesc" })">По дате+</a>
         </div>
         <div class="filter">
-            <a class="filter-link" href="@Url.Action("Index", new { filter = "Date" })">По дате</a>
+            <a class="filter-link" href="@Url.Action("Index", new { filter = "Date" })">По дате-</a>
         </div>
         <div class="filter">
             <a class="filter-link" href="@Url.Action("Index", new { filter = "LikesDesc" })">По лайкам+</a>
@@ -22,8 +22,8 @@
     {
         <div class="blog-post">
             <div class="post-info clearfix">
-                <div class="post-author">Alesandr</div>
-                <div class="post-date">@post.AddedOn.ToString("dd.MM.yyyy")</div>
+                <div class="post-col">@post.User.Email</div>
+                <div class="post-col">@post.AddedOn.ToString("dd.MM.yyyy")</div>
             </div>
             <div class="post-title"><a class="post-title-link" href="@Url.Action("Open", "Post", new { postId = post.Id})">@post.Title</a></div>
             <div class="tag-list"></div>

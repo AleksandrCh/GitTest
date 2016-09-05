@@ -39,6 +39,7 @@
         (function (global, undefined) {
             'use strict';
             $(document).ready(function () {
+
                 $('.put-like').click(function (e) {
                     e.preventDefault();
                     $('#like-count').load('@Url.Action("PutLike", "Post")?postId=' + @Model.PostId)

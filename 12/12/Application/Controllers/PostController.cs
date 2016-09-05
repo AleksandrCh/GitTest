@@ -54,19 +54,14 @@ namespace Application.Controllers
         [Authorize(Roles ="admin, user")]
         public ActionResult Create()
         {
-            var categories = _categoryService.GetCategories();
-            var categoryList = new List<CategoryViewModel>();
+            IEnumerable<Category> categories = _categoryService.GetCategories();
+            IList<CategoryViewModel> categoryList = new List<CategoryViewModel>();
 
             if (categories != null)
             {
                 foreach (var item in categories)
                 {
-                    CategoryViewModel model = new CategoryViewModel
-                    {
-                        Id = item.Id,
-                        Name = item.Name
-                    };
-                    categoryList.Add(model);
+                    categoryList.Add(CategoryViewModel.GetViewModel(item));
                 }
             }
             ViewBag.Categories = categoryList;
@@ -79,10 +74,26 @@ namespace Application.Controllers
         [ValidateInput(false)]
         public async Task<ActionResult> Create(CreatePostViewModel model)
         {
-            Post post = CreatePostViewModel.GetDomainModel(model, AuthenticationManager.User.Claims.ElementAt(0).Value);
+            if (ModelState.IsValid)
+            {
+                Post post = CreatePostViewModel.GetDomainModel(model, AuthenticationManager.User.Claims.ElementAt(0).Value);
+                await _postService.CreatePost(post);
+                return RedirectToAction("Index", "Post");
+            }
 
-            await _postService.CreatePost(post);
-            return RedirectToAction("Index", "Post");
+            IEnumerable<Category> categories = _categoryService.GetCategories();
+            IList<CategoryViewModel> categoryList = new List<CategoryViewModel>();
+
+            if (categories != null)
+            {
+                foreach (var item in categories)
+                {
+                    categoryList.Add(CategoryViewModel.GetViewModel(item));
+                }
+            }
+            ViewBag.Categories = categoryList;
+
+            return View(model);
         }
 
         [AllowAnonymous]
@@ -90,14 +101,14 @@ namespace Application.Controllers
         {
             OpenPostViewModel model = new OpenPostViewModel();
             model.CommentsViewModel = new List<CommentViewModel>();
-            var post = _postService.GetPostById(postId);
+            Post post = _postService.GetPostById(postId);
             if (post == null)
             {
                 ModelState.AddModelError("", "Пост не найден");
                 return View("error");
             }
 
-            var user =await _userService.FindByIdAsync(post.UserId);
+            ApplicationUser user = await _userService.FindByIdAsync(post.UserId);
             PostViewModel postModel = new PostViewModel()
             {
                 Title = post.Title,
@@ -106,15 +117,15 @@ namespace Application.Controllers
                 Author = user.Email,
                 Likes = post.Likes
             };
-            var comments = _commentService.GetCommentsByPostId(postId);
+
+            IEnumerable<Comment> comments = _commentService.GetCommentsByPostId(postId);
             if (comments != null)
             {
                 foreach (var item in comments)
                 {
-                    var commentAuthor = await _userService.FindByIdAsync(item.UserId);
                     CommentViewModel commentViewModel = new CommentViewModel
                     {
-                        Author = commentAuthor.Email,
+                        Author = AuthenticationManager.User.Identity.Name,
                         Text = item.Text
                     };
                     model.CommentsViewModel.Add(commentViewModel);
@@ -123,40 +134,45 @@ namespace Application.Controllers
  
             model.PostId = postId;
             model.PostViewModel = postModel;
+
             return View("Open", model);
         }
 
         [Authorize(Roles = "admin, user")]
         public async Task<ActionResult> AddComment(OpenPostViewModel model, int postId)
         {
-            CommentDTO commentDTO = new CommentDTO
+            if (ModelState.IsValid)
             {
-                Text = model.CommentText,
-                PostId = postId,
-                UserId = AuthenticationManager.User.Claims.ElementAt(0).Value
-            };
-
-            OperationDetails result = await _commentService.AddComment(commentDTO);
-            if (result.Succedeed)
-            {
-                IEnumerable<Comment> comments = _commentService.GetCommentsByPostId(postId);
-                if (comments != null)
+                CommentDTO commentDTO = new CommentDTO
                 {
-                    model.CommentsViewModel = new List<CommentViewModel>();
-                    foreach (var item in comments)
+                    Text = model.CommentText,
+                    PostId = postId,
+                    UserId = AuthenticationManager.User.Claims.ElementAt(0).Value
+                };
+
+                OperationDetails result = await _commentService.AddComment(commentDTO);
+                if (result.Succedeed)
+                {
+                    IEnumerable<Comment> comments = _commentService.GetCommentsByPostId(postId);
+                    if (comments != null)
                     {
-                        var commentAuthor = await _userService.FindByIdAsync(item.UserId);
-                        CommentViewModel commentViewModel = new CommentViewModel
+                        model.CommentsViewModel = new List<CommentViewModel>();
+                        foreach (var item in comments)
                         {
-                            Author = commentAuthor.Email,
-                            Text = item.Text
-                        };
-                        model.CommentsViewModel.Add(commentViewModel);
+                            CommentViewModel commentViewModel = new CommentViewModel
+                            {
+                                Author = AuthenticationManager.User.Identity.Name,
+                                Text = item.Text
+                            };
+                            model.CommentsViewModel.Add(commentViewModel);
+                        }
                     }
+                    return PartialView("_CommentsPartial", model);
                 }
+
+                ModelState.AddModelError(result.Property, result.Message);
                 return PartialView("_CommentsPartial", model);
             }
-            ModelState.AddModelError(result.Property, result.Message);
             return PartialView("_CommentsPartial", model);
         }
 
@@ -164,7 +180,7 @@ namespace Application.Controllers
         public async Task<ActionResult> PutLike(OpenPostViewModel model, int postId)
         {
             await _postService.PutLike(postId);
-            var post = _postService.GetPostById(postId);
+            Post post = _postService.GetPostById(postId);
             
             PostViewModel postModel = new PostViewModel()
             {
@@ -195,28 +211,16 @@ namespace Application.Controllers
             Post post = _postService.GetPostById(postId);
             if (post != null)
             {
-                EditPostViewModel model = new EditPostViewModel
-                {
-                    Id = postId,
-                    Title = post.Title,
-                    Description = post.Description,
-                    ShortDescription = post.ShortDescription,
-                    Category = post.CategoryId
-                };
+                EditPostViewModel model = EditPostViewModel.GetViewModel(post);
 
-                var categories = _categoryService.GetCategories();
-                var categoryList = new List<CategoryViewModel>();
+                IEnumerable<Category> categories = _categoryService.GetCategories();
+                IList<CategoryViewModel> categoryList = new List<CategoryViewModel>();
 
                 if (categories != null)
                 {
                     foreach (var item in categories)
                     {
-                        CategoryViewModel categoryViewModel = new CategoryViewModel
-                        {
-                            Id = item.Id,
-                            Name = item.Name
-                        };
-                        categoryList.Add(categoryViewModel);
+                        categoryList.Add(CategoryViewModel.GetViewModel(item));
                     }
                 }
                 ViewBag.Categories = categoryList;
@@ -225,7 +229,7 @@ namespace Application.Controllers
             }
 
             ModelState.AddModelError("Пост не найден", "postNotFount");
-            return View("Edit");
+            return View("EditPost");
         }
 
         [HttpPost]
@@ -233,15 +237,20 @@ namespace Application.Controllers
         [ValidateInput(false)]
         public async Task<ActionResult> EditPost(EditPostViewModel model)
         {
-            Post post = _postService.GetPostById(model.Id);
-            post.Title = model.Title;
-            post.ShortDescription = model.ShortDescription;
-            post.Description = model.Description;
-            post.AddedOn = DateTime.Today;
-            post.CategoryId = model.Category;
+            if (ModelState.IsValid)
+            {
+                Post post = _postService.GetPostById(model.Id);
+                post.Title = model.Title;
+                post.ShortDescription = model.ShortDescription;
+                post.Description = model.Description;
+                post.AddedOn = DateTime.Today;
+                post.CategoryId = model.Category;
 
-            await _postService.UpdatePost(post);
-            return RedirectToAction("Index", "Post");
+                await _postService.UpdatePost(post);
+                return RedirectToAction("Index", "Post");
+            }
+
+            return View("EditPost", model);
         }
     }
 }

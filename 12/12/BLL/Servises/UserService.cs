@@ -4,7 +4,6 @@ using BLL.Intefaces;
 using BLL.Security;
 using Domain.Entities;
 using Microsoft.AspNet.Identity;
-using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;

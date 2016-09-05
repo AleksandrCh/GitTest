@@ -1,9 +1,5 @@
-﻿using BLL.Intefaces;
-using Domain.Entities;
-using System;
+﻿using Domain.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Application.Models.PostModels
 {

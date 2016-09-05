@@ -1,11 +1,7 @@
 ﻿using Application.Models.PostModels;
-using BLL.DTO;
 using BLL.Intefaces;
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Application.Controllers
@@ -48,7 +44,7 @@ namespace Application.Controllers
                         model.Posts = model.Posts.OrderByDescending(m => m.Likes).ToList();
                         break;
                     case "Likes":
-                        model.Posts = model.Posts.OrderByDescending(m => m.Likes).ToList();
+                        model.Posts = model.Posts.OrderBy(m => m.Likes).ToList();
                         break;
                     default:
                         model.Posts = model.Posts.OrderByDescending(m => m.AddedOn).ToList();

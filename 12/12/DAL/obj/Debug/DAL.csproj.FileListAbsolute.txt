@@ -149,3 +149,6 @@ D:\StLab2016\StLab2016\12\12\DAL\obj\Debug\DAL.Migrations.InitialCreate.resource
 D:\StLab2016\StLab2016\12\12\DAL\obj\Debug\DAL.csproj.GenerateResource.Cache
 D:\StLab2016\StLab2016\12\12\DAL\obj\Debug\DAL.Migrations.Migrations.resources
 D:\StLab2016\StLab2016\12\12\DAL\obj\Debug\DAL.Migrations.Migrations1.resources
+D:\AleksandrChechyotko\StLab2016\12\12\DAL\obj\Debug\DAL.Migrations.InitialCreate.resources
+D:\AleksandrChechyotko\StLab2016\12\12\DAL\obj\Debug\DAL.Migrations.Migrations1.resources
+D:\AleksandrChechyotko\StLab2016\12\12\DAL\obj\Debug\DAL.Migrations.Migrations2.resources
